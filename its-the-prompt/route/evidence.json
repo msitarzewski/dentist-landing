@@ -1,0 +1,947 @@
+[
+  {
+    "src": ".ops/build-shots/v1-hero-1440.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "First look at the build, 22:16",
+    "caption": "The lead's first capture of the built page at 1440, earlier build: in this frame the display type is drawn in a stand-in sans, not Anybody. \"$195\" and a four-line designation beside her arm are already in place, as are the chips and the ticker.",
+    "report": "",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/build-shots/v3-hero-390.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "First phone capture, 22:17",
+    "caption": "390 wide, earlier build: at night the header reads \"Opens Tue 11 am\", which the persona walkthrough later asked to change to say that booking works now. The price sits over the photograph's empty third.",
+    "report": "",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/build-shots/v4-hero-bitten.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "Bitten button and the demo notice",
+    "caption": "22:18, earlier build: a time is chosen, \"Book Thu 5:30 pm\" has taken its bite, and the demo notice opens as an ink plate over the ticker's Pause tab, the overlap the design review later flagged.",
+    "report": "",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/build-shots/v4-hero-1024.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "1024: two lines on top of each other",
+    "caption": "1024x768 at 22:19, earlier build: the one-line designation prints over the hours line beneath the subhead. The lead split them into separate rows before the design review, which called the fix better than its proof.",
+    "report": "",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/build-shots/v5-services-1440.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "Services on tangerine, 22:50",
+    "caption": "The price list as first built on the tangerine field, with the designation, service words and prices all 72px. Within the hour Services moved to paper on the design review's advice.",
+    "report": "",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/persona/a-02-chip-picked.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "persona-walkthrough",
+    "title": "Persona A picks a time",
+    "caption": "Persona A on a phone at 9:40 pm Monday, earlier build: the Tue 5:45 pm chip turns lime with a bite and the bar now reads \"Book Tue 5:45 pm\". The reviewer called it the best interaction on the page; the header's \"Opens Tue 11 am\" with no word that booking works tonight became change 1.",
+    "report": ".ops/qa/persona-walkthrough.md#4-persona-a-walkthrough-phone-monday-940-pm",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/persona/a-16-y6740-cost-with-insurance.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "persona-walkthrough",
+    "title": "Where Persona A almost left",
+    "caption": "The insurance switch set to \"With insurance\", earlier build: bracketed plan names, no channel for the card photo, and the \"First visit $195\" pill unchanged under \"Check my insurance\". Step A12, the moment the simulated visitor nearly closed the tab.",
+    "report": ".ops/qa/persona-walkthrough.md#4-persona-a-walkthrough-phone-monday-940-pm",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/persona/a-17-y7440-drawing-find-us.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "persona-walkthrough",
+    "title": "The drawing, nine screens down",
+    "caption": "The marker sketch of a tooth with \"filling $190\": the reviewer called it the best single piece of proof on the page, arriving at y 7,556, long after \"You keep the drawing\" was promised in step 3.",
+    "report": ".ops/qa/persona-walkthrough.md#4-persona-a-walkthrough-phone-monday-940-pm",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/persona/b-09-y4560-credentials-zero.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "persona-walkthrough",
+    "title": "Where Persona B almost left",
+    "caption": "Persona B on a laptop at 1440, earlier build: the credentials are bracketed 14px text directly above a giant \"0\". Authority was the weakest element at the moment a comparing visitor needed it (step B7).",
+    "report": ".ops/qa/persona-walkthrough.md#5-persona-b-walkthrough-laptop-tuesday-215-pm",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/brand-voice/1440-desig.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "brand-voice",
+    "title": "The interpunct that reads as a dash",
+    "caption": "Services head at 1440, about 22:30: in the display face at weight 900 the middle dot draws as a short bar, so the designation reads \"DR. PALOMA KRENEK, DDS - GENERAL DENTIST\". Finding F2; the copy rules allow no dashes as punctuation.",
+    "report": ".ops/qa/brand-voice.md#2-findings",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/brand-voice/390-foods-a.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "brand-voice",
+    "title": "Could this be a restaurant?",
+    "caption": "The closest call on a phone: the food strip between the \"First visit $195\" chip and the Services heading, with FEAST DENTAL in the sticky plate and the designation at display size below. The reviewer's answer was no, ship it as it is.",
+    "report": ".ops/qa/brand-voice.md#5-could-any-screen-be-taken-for-a-restaurant",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/brand-voice/390-closing.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "brand-voice",
+    "title": "The third bite, the send-off",
+    "caption": "The closing band at 390: \"Then go bite something.\" is the third of exactly three visible bite references the brand allows, worded as the brand core has it. The captions such as \"Peach.\" name a food and do not count.",
+    "report": ".ops/qa/brand-voice.md#1a-bite-references-3-visible-in-the-three-slots-worded-exactly",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/compliance/tx-sos-108-55.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "compliance",
+    "title": "The rule, at the primary source",
+    "caption": "22 TAC 108.55 on the Texas Secretary of State's Administrative Code viewer, as of 11/09/2026: \"General Dentist\" must follow the name in a font no smaller than the largest used to identify the services advertised. A fetch helper had reported the sentence unconfirmed; the reviewer read it here and on Cornell LII.",
+    "report": ".ops/qa/compliance.md#21-texas-state-board-of-dental-examiners-22-tex-admin-code-ch-108-subch-e-business-promotion",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/compliance/services-1440.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "compliance",
+    "title": "Services: notation equals service words",
+    "caption": "Services at 1440 on the 22:17 build: the designation, the service words and the row prices are all 72px, which the reviewer read as meeting 108.55(b). The hero, at 150px for \"$195\" against a 22px notation, was the open question.",
+    "report": ".ops/qa/compliance.md#31-measured-sizes-computed-font-size-px",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/compliance/hero-390-2303.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "compliance",
+    "title": "Fee inclusions run onto the portrait",
+    "caption": "Earlier build at 23:03, before the lock-up, after the fee disclosures were added: at 390 wide \"exam, X-rays, regular cleaning\" runs on one line across her dark scrubs and cannot be read. The engines reviewer measured the same overlap a minute later (finding 15).",
+    "report": ".ops/qa/compliance.md#found-and-already-fixed",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/compliance/hero-390-2306.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "compliance",
+    "title": "Inclusions moved to the footnote",
+    "caption": "The 23:06 build: below 640 the caption reads \"without insurance\" and the footnote on the first screen carries the inclusions and \"the fee is higher\". Verified at 390; still the earlier hero, before the lock-up.",
+    "report": ".ops/qa/compliance.md#found-and-already-fixed",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/final/tools-social-card-after.jpg",
+    "kind": "image",
+    "chapter": "review",
+    "group": "seo",
+    "title": "The card a link preview shows",
+    "caption": "The social card (og:image) after the developer re-lettered its strip to match the page. The SEO review notes the demo strip is baked into the image and the card names no place; it asks for a card without the strip, and \"East Austin\" under the designation, at launch.",
+    "report": ".ops/qa/seo.md#a5-the-head-is-not-ready-for-a-domain--template-for-the-scaffolding-launch-for-the-values--should-fix",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/code-review/02-header-overflow-1024-chip-picked.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "code-review",
+    "title": "A chosen time pushes Book off screen",
+    "caption": "1024 wide at 22:41 with Wed 8:00 am chosen: the header button takes the time's name and runs off the right edge. The 23:04 change (header button always \"Book online\", tighter gaps) fixed every case from 640 up; earlier build.",
+    "report": ".ops/qa/code-review.md#11-cr-01-blocker-on-phones-the-header-is-wider-than-the-screen-every-night",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/code-review/01-h1-clipped-360.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "code-review",
+    "title": "The g of long, clipped at 360",
+    "caption": "360 wide, earlier build: the hero's overflow: hidden cuts the \"g\" of \"long\" by 5.2px (21.2 at 344, 45.2 at 320). CR-02, a blocker, fixed and measured at 0px at 320, 360 and 390.",
+    "report": ".ops/qa/code-review.md#2-fixed-during-the-review-and-what-i-measured-before-and-after",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/engines/cmp-w1440-first-screen.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "engines",
+    "title": "One first screen, three engines",
+    "caption": "Chrome, Firefox and WebKit side by side at 1440x900, on a frozen copy of the files taken at 22:53. At 1440 and 1024 every one of the 14 sections came out within 1px across the three engines; earlier build, before the lock-up.",
+    "report": ".ops/qa/engines.md#1-firefox-and-webkit-against-chrome",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/engines/fit-320px-first-screen-chromium.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "engines",
+    "title": "Headline cut off at 320 wide",
+    "caption": "Chrome, 320x568, earlier build: the headline is fixed at 56px, so \"long\" reads \"lo\", and the stacked name and designation print over \"First visit · 75 min\". Findings 3 and 2; the headline was capped at 14.4vw and verified at 23:20.",
+    "report": ".ops/qa/engines.md#findings-most-serious-first",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/engines/fit-zoom400-of-1280-first-screen-webkit.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "engines",
+    "title": "400% zoom: 320 CSS pixels wide",
+    "caption": "WebKit at 400% page zoom of a 1280 window, earlier build: the headline is cut at \"lo\" (finding 3) and the header and phone bar fill most of the 256px-tall view, which the accessibility audit later measured as 47% and fixed.",
+    "report": ".ops/qa/engines.md#4-modes",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/engines/final-cmp-w320-first-screen.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "engines",
+    "title": "320 wide after the first fixes",
+    "caption": "The 320 first screen in Chrome, Firefox and WebKit at 23:09, after the headline cap (finding 3): the headline fits and the name clears the price label. Still the earlier hero, before the lock-up.",
+    "report": ".ops/qa/engines.md#findings-most-serious-first",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/engines/forced-dark-first-screen-chromium.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "engines",
+    "title": "Forced colours: a backplate covers the label",
+    "caption": "Chrome with forced colours (dark), 1440 wide, earlier build. The $195 numeral's 0.86 line height puts its black text backplate over the \"First visit · 75 min\" label above it (finding 8); the photograph keeps its orange backdrop as a rectangle.",
+    "report": ".ops/qa/engines.md#findings-most-serious-first",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/engines/ix-services-hover-firefox-1440.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "engines",
+    "title": "Service row hover in Firefox",
+    "caption": "Firefox, 1440: hovering Fillings turns the row lime and widens the word from 62.5 to 100 while the prices and row geometry stay put to 0.2px. Earlier build: the Checkups text still shows a \"$[amount]\" placeholder.",
+    "report": ".ops/qa/engines.md#2-interaction-pass",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/engines/ix-portions-webkit-1440.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "engines",
+    "title": "Three portions, bitten in order",
+    "caption": "WebKit, 1440: the three step discs after scrolling into view. Each bites when 60% of its step is visible, in order, 119 to 127ms apart, with no replay on return; the same in Chrome and Firefox.",
+    "report": ".ops/qa/engines.md#2-interaction-pass",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/evidence/sheets/overlap-labels.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "Labels against the photographs, by width",
+    "caption": "First pass, 22:51: \"Paloma. Apple.\" crops at 1024 to 1600 and the hero designation at 1280 to 1520. The caption printed over her trousers (subject behind 74 of 100px at 1024) and the designation touched her forearm at 1280; both moved during the review window.",
+    "report": ".ops/qa/evidence.md#3-fixed-during-the-review-window-do-not-re-report",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/evidence/sheets/final-1440-01.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "One long paper run at 1440",
+    "caption": "Pass 3 frames at 1440, 23:11: Services had moved from tangerine to paper, so First visit, the food strip, Services and Comfort read as one paper run. E5 asked for a decision, not a patch; bracketed placeholders like \"$[amount]\" are still in the copy.",
+    "report": ".ops/qa/evidence.md#2-defects-still-present-at-the-last-check-by-severity",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/evidence/sheets/final-390-03.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "Dentist band to Cost on a phone",
+    "caption": "Four pass-3 frames at 390: the three points, the \"0 reviews\" band and the start of Cost. Earlier build: the bracketed fill-ins (\"[dental school, year]\", \"[number to confirm]\") were later removed after the cold read.",
+    "report": ".ops/qa/evidence.md#1-scope-method-and-what-was-not-done",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/evidence/sheets/final-hero-phones.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "Phone heroes at three heights",
+    "caption": "390x844, 360x740 and 375x667 at 23:10, earlier build. At 390x844 the footnote clears the bar by 3px; at 375x667 the bar covers the chip row, which the spec allows because the buttons never leave.",
+    "report": ".ops/qa/evidence.md#4-hero-numbers-against-the-measured-values-in-the-specs",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/evidence/sheets/final2-top-defects.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "The blocker: chips leave the strip",
+    "caption": "Earlier build at 23:21, before the lock-up: at 1280 the chips wrap two and one, at 1024 the third chip lies across her arm (\"pm\" ink on a dark sleeve), and choosing a time wraps the buttons and grows the hero by 66px. E1 and E2 share one cause: the price cell grew with its caption.",
+    "report": ".ops/qa/evidence.md#2-defects-still-present-at-the-last-check-by-severity",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/evidence/defect-footnote-below-fold-768x1024.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "Tablet: caption on her scrubs",
+    "caption": "768x1024 at 23:15, earlier build: the price caption is 339px wide and its last word runs onto her dark scrub top (E19), and the footnote starts at 1010 against a 1024 fold (E3).",
+    "report": ".ops/qa/evidence.md#2-defects-still-present-at-the-last-check-by-severity",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/evidence/defect-designation-360.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "Designation breaks to three lines",
+    "caption": "Services heading at 360 wide: \"DR. PALOMA KRENEK, / DDS / GENERAL DENTIST\" where the spec asks for two lines with no interpunct. E4, should fix; two lines from 390 up.",
+    "report": ".ops/qa/evidence.md#2-defects-still-present-at-the-last-check-by-severity",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/evidence/final-hours-today-row-4x.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "A 2px break in today's rules",
+    "caption": "Today's row in the hours table at 4x: the ink rules above and below break for 2px where the day and time cells meet, from a 2px lime border on the day cell in a collapsed table. E7, should fix.",
+    "report": ".ops/qa/evidence.md#2-defects-still-present-at-the-last-check-by-severity",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/evidence/sheets/states-rows.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "Service row: rest, 30ms, hover, focus",
+    "caption": "Services rows at 1440 on the 22:50 build, when the section was still tangerine: rest, hover after 30ms, hover, focus. The word opens from width 62.5 to 100 and the price and description keep the same rects.",
+    "report": ".ops/qa/evidence.md#8-states-exercised",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/evidence/sheets/states-buttons.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "Book button, every state",
+    "caption": "Primary and secondary buttons at 2x: rest, hover, focus, pressed, bitten at 45ms with three crumbs, bitten at rest, and bitten with the keyboard ring whole. The hover and pressed frames show a half-blended fill; E18 reports fills tweening from transparent.",
+    "report": ".ops/qa/evidence.md#8-states-exercised",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/evidence/seam-amp-hero-1440.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "evidence",
+    "title": "Seam check, differences times 8",
+    "caption": "The hero at 1440 with colour differences from the field multiplied by 8: the flat field reads grey and the photograph's backdrop shows only grain. Field and backdrop differ by under one level per channel, with no edge at the 72px feather.",
+    "report": ".ops/qa/evidence.md#7-seams-where-the-two-portraits-bleed-zoomed",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/1024-00-header-overflow-chip-chosen.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "Header runs off the screen at 1024",
+    "caption": "Earlier build, 1024 wide at night with a time chosen: the header button becomes \"Book Thu 5:30 pm\", is cut at the screen edge and the page scrolls 57px sideways (the blocker). The chosen chip's notch also touches \"pm\" (item 6).",
+    "report": ".ops/qa/design-review.md#blocker",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/fix-1024-header-and-chip.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "Header and chip, fixed by injection",
+    "caption": "The same state with the designer's CSS injected: the header button keeps \"Book online\" and ends at x 994, and an 18px notch below 1280 keeps the chosen chip clear of its label.",
+    "report": ".ops/qa/design-review.md#blocker",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/1280-01-hero.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "The designation printed on her arm",
+    "caption": "1280x800, earlier build: \"KRENEK, DDS\" ends at x 963 and her forearm starts at x 957, so the S sits on skin. Item 2 proposed width 62.5 for the label; the lock-up later replaced it.",
+    "report": ".ops/qa/design-review.md#should-fix",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/768-02-first-visit-a.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "Tablet: the phone layout stretched",
+    "caption": "768 wide as built: three steps take 917px, each with a 140px hole between numeral and title. Item 4 found every section from 640 to 1023 laid out this way; the page was 12,668px tall at 768.",
+    "report": ".ops/qa/design-review.md#should-fix",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/fix-768-steps-rows.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "Tablet steps as rows",
+    "caption": "The same steps with the proposed 640 to 1023 rules injected: numeral, text and portion on one row each. Across all sections the fix took the 768 page from 12,668px to 9,841px.",
+    "report": ".ops/qa/design-review.md#should-fix",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/design/1440-07-zero.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "The zero band, four-line headline",
+    "caption": "1440, earlier build: \"reviews. I opened in October. Here's what I promise instead.\" runs four lines at display size and, with a fourth promise, the band is 1,078px tall; the \"0\" starts at x 67, off the 40px margin. Item 5.",
+    "report": ".ops/qa/design-review.md#should-fix",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/fix-1440-zero-deck.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "The zero band with a deck",
+    "caption": "Item 5 injected on the 22:37 page: \"0\" and \"reviews.\" become the statement, the rest drops to a smaller deck, and the numeral moves to the margin. With four promises the band measured 927px.",
+    "report": ".ops/qa/design-review.md#should-fix",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/rhythm-1440.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "Whole-page rhythm, as built",
+    "caption": "The full 1440 page in three columns, earlier build: tangerine, paper, tangerine, paper, lime, ink, tangerine, paper, paper, tangerine. The designer counted five saturated fields, one too many, and called the alternation a template habit.",
+    "report": ".ops/qa/design-review.md#3-rhythm-and-colour-five-fields-is-one-too-many",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/rhythm-1440-after.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "Rhythm with Services on paper",
+    "caption": "The same strip with Services moved to paper: one loud opening, a paper run broken by the food strip, a loud middle, a paper run, a loud close. The zero band's deck fix is also applied here.",
+    "report": ".ops/qa/design-review.md#3-rhythm-and-colour-five-fields-is-one-too-many",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/motion-1440-bitten-toast.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "The demo notice lands on Pause",
+    "caption": "1440, earlier build: after Book online is bitten, the demo notice appears as an ink plate at bottom left, on top of the ticker's Pause tab. The designer asked for it to be restyled as the demo strip's twin.",
+    "report": ".ops/qa/design-review.md#2-your-three-fixes-and-your-six-additions",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/hero2-00-asbuilt-1440.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "The hero as built, 1440",
+    "caption": "Before the lock-up: \"$195\" is set at 150px while \"Dr. Paloma Krenek, DDS, General Dentist\" is a 22px four-line label beside her arm. The designer's addendum on the General Dentist rule (22 TAC 108.55(b)) starts from this screen.",
+    "report": ".ops/qa/design-review.md#addendum-the-hero-and-the-general-dentist-rule-22-tac-10855b",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/hero2-L-1440.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "The lock-up, proposed at 1440",
+    "caption": "The designer's proposal, injected and measured at 23:13: \"$195\" and GENERAL DENTIST at one size (96px) in one ruled block, the price on a paper plate running to the page edge. This is the hero that shipped.",
+    "report": ".ops/qa/design-review.md#verdict",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/design/hero2-00-asbuilt-390x664.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "Phone hero as built, 390x664",
+    "caption": "Earlier build, before the lock-up, on a short phone screen: the price sits over the photograph and the time chips fall behind the bottom bar (608 to 656 against a bar at 600).",
+    "report": ".ops/qa/design-review.md#verdict",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/design/hero2-L-390x664.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "design-review",
+    "title": "Phone lock-up, 390x664",
+    "caption": "The proposal at the same size: GENERAL DENTIST at 48px on two lines over the photograph's empty third, \"$195\" at the same size on a full-bleed paper plate, and the chips at 535 to 583, above the bar. The subhead moves below the openings in CSS order only.",
+    "report": ".ops/qa/design-review.md#verdict",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/build-shots/r3-320-top.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "320 wide, just before the lock-up",
+    "caption": "23:17: the headline now fits at 320 and the night status wraps to two lines; the price label and the four-line designation still share the space beside the photograph.",
+    "report": "",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/build-shots/r4-1440-hero.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "The lock-up, built, 1440",
+    "caption": "23:24: \"$195\" and GENERAL DENTIST at one size in one ruled block, the price on a paper plate to the page edge, as the design addendum proposed. The footnote still ends in a bracketed date.",
+    "report": "",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/build-shots/r4-390x844.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "Phone lock-up, first version",
+    "caption": "390x844 at 23:25: GENERAL DENTIST on two lines over the photograph, \"$195\" on a full-bleed plate, then the openings. In this version the subhead follows the openings and the footnote is pushed further down.",
+    "report": "",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/build-shots/r4b-390x844.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "Footnote moved up to the price",
+    "caption": "23:37: the footnote now comes straight after the openings so it stays on the first screen with the price, and the subhead starts under the bar. The cold read later objected to this order; the lead kept it for the footnote.",
+    "report": "",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/build-shots/r5-768x1024.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "768: a shorter band for the footnote",
+    "caption": "768x1024 at 23:42: the photograph band capped at min(32vw, 290px) brings the footnote above the fold, one of the fixes logged with the lock-up.",
+    "report": "",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/a11y/focus-stops-1440.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "accessibility",
+    "title": "Every keyboard stop at 1440",
+    "caption": "The first accessibility pass at 23:21 cropped all 56 Tab stops at 1440, from Skip to content to the cookie, each with its 3px ring visible. Earlier build: the copy still holds placeholders such as \"$[amount]\"; after the 00:10 edits there were 53 stops.",
+    "report": ".ops/qa/accessibility.md#passes-worth-recording",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/a11y2/text-spacing-1440-hero.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "accessibility",
+    "title": "Text spacing breaks the hero",
+    "caption": "Chrome at 1440 with the four WCAG 1.4.12 overrides, after the lock-up but before the fix: \"long\" runs past x 1440 and is cut by the hero's overflow, and the header's Book online is pushed 8px off the edge. Finding A1, should fix.",
+    "report": ".ops/qa/accessibility.md#a1-should-fix-text-spacing-breaks-the-hero-at-every-width-1412-text-spacing",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/a11y2/text-spacing-1440-openings-over-photo.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "accessibility",
+    "title": "Booking times slide onto her scrubs",
+    "caption": "Same overrides, scrolled to the strip: the grown hero scales the photograph up, so \"Wed 8:00 am\", \"Thu 5:30 pm\" and \"More times\" sit ink on dark brown at 1.0 to 1.2:1 and the Call number is 91% below 4.5:1.",
+    "report": ".ops/qa/accessibility.md#a1-should-fix-text-spacing-breaks-the-hero-at-every-width-1412-text-spacing",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/a11y2/text-spacing-1440-with-proposed-fix.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "accessibility",
+    "title": "Text spacing with the proposed fix",
+    "caption": "The auditor's CSS injected in one tab: the openings cell gets its own tangerine ground and the chips wrap, so no hero text sits on the photograph and the document stays 1440 wide. At rest no hero box moved at 1440 or 320.",
+    "report": ".ops/qa/accessibility.md#a1-should-fix-text-spacing-breaks-the-hero-at-every-width-1412-text-spacing",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/a11y2/text-spacing-320-hero.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "accessibility",
+    "title": "Text spacing at 320 wide",
+    "caption": "320x568 with the overrides: \"care how long\" is cut at \"lo\", the name and GENERAL DENTIST overflow their fixed photo row and sit over \"it's been.\", and the header status takes three lines across its rule.",
+    "report": ".ops/qa/accessibility.md#a1-should-fix-text-spacing-breaks-the-hero-at-every-width-1412-text-spacing",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/a11y2/forced-1440-chips-wed-chosen.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "accessibility",
+    "title": "Forced colours hide the chosen time",
+    "caption": "Emulated forced colours at 1440 with Wed 8:00 am chosen: the chip loses its lime fill and looks like the other two except for an 18px notch; only the Book label says what was picked. Finding A2.",
+    "report": ".ops/qa/accessibility.md#a2-should-fix-the-chosen-time-cannot-be-seen-in-forced-colours-and-only-just-in-normal-colours-1411-non-text-contrast",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/a11y2/forced-1440-chips-0030.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "accessibility",
+    "title": "Chosen time in forced colours, fixed",
+    "caption": "The 00:30 re-check: the chosen chip now fills with the system Highlight colour and black text while the others stay outlines. A2 passes.",
+    "report": ".ops/qa/accessibility.md#re-check-of-the-0030-build",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/a11y2/zoom400-320x256-scrolled.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "accessibility",
+    "title": "400% zoom: header and bar crowd in",
+    "caption": "1280x1024 at 400% zoom (a 320x256 viewport): the sticky header and the phone bar take 120 of 256px, leaving about three lines of body text. Finding A4; the fix lets both scroll away below 480px tall.",
+    "report": ".ops/qa/accessibility.md#a4-should-fix-at-400-zoom-the-sticky-header-and-the-phone-bar-cover-47-of-the-screen-1410-reflow-relates-to-2411",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/a11y2/zoom400-foods-focused-no-ring.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "accessibility",
+    "title": "Food strip focused, no ring",
+    "caption": "At 400% zoom real Tab lands on the food strip, but the strip is taller than the screen and its 3px ring, drawn 3px outside, is off-screen on all four sides. Finding A5, should fix.",
+    "report": ".ops/qa/accessibility.md#a5-should-fix-the-food-strips-focus-ring-is-invisible-when-the-strip-is-taller-than-the-screen-247-focus-visible",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/a11y2/zoom400-0030-foods-focused.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "accessibility",
+    "title": "Food strip ring drawn inside",
+    "caption": "The 00:30 build at the same zoom: the ring is drawn 3px inside the strip and shows along both edges, and the header and bar have scrolled away (A4). The demo notice at the foot is the reworked live region from A3.",
+    "report": ".ops/qa/accessibility.md#re-check-of-the-0030-build",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/coldread2/m390-00.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "cold-read",
+    "title": "Cold read, first phone screen",
+    "caption": "The cold reader's first phone screen, 390x844, before reading any project document. Two tells in one frame: the footnote ends \"Good through [Month D, YYYY]\" (tell 1, blocker), and the lede only starts under the bottom bar, after the small print (tell 4).",
+    "report": ".ops/qa/cold-read.md#3-the-tells-ranked-by-how-likely-a-viewer-is-to-catch-them",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/coldread2/sheet-m390-c.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "cold-read",
+    "title": "Placeholders down the phone page",
+    "caption": "Contact sheet at 390, earlier build: credentials with four bracket slots, \"Look me up\" with three more, and \"[What a deeper cleaning costs ... to confirm.]\" in the Cost paragraph. The reader counted 17 visible brackets; all were written out or removed by 00:10.",
+    "report": ".ops/qa/cold-read.md#1-square-bracket-placeholders-in-the-copy-blocker",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/coldread2/zoom/three-standing.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "cold-read",
+    "title": "One portrait on three walls",
+    "caption": "The hero, apple and laughing portraits side by side: same scrubs, pen, watch, framing and flash, only the wall and the expression change, which the reader called a generator signature (tell 2). The laughing frame was cut from the FAQ; the apple frame was kept to protect the palette.",
+    "report": ".ops/qa/cold-read.md#2-the-same-portrait-three-times-on-three-walls-should-fix",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/coldread2/zoom/apple-watch.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "cold-read",
+    "title": "A watch with no hands",
+    "caption": "Zoom on the apple portrait: a blank white dial with one dot and the crown in the wrong place, the same in four frames at about 15 to 25 CSS px on the page. Tell 7, could fix; the source photographs were left untouched as provenance.",
+    "report": ".ops/qa/cold-read.md#7-photograph-details-visible-at-11-on-a-2x-screen-could-fix",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/coldread2/zoom/listen-sink.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "cold-read",
+    "title": "A tap with no spout",
+    "caption": "The left edge of the comfort photograph at 1:1: a lever on a chrome body with no spout. No earlier review had listed it; it stayed, with the other retouching items, because the source files are not modified.",
+    "report": ".ops/qa/cold-read.md#7-photograph-details-visible-at-11-on-a-2x-screen-could-fix",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/coldread2/d1440-motion-chew-frozen.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "cold-read",
+    "title": "The headline chew, frozen",
+    "caption": "The load animation stopped at its tightest frame: each word squeezes narrow inside a fixed cell, 45ms apart, so gaps open between them. The reader listed it first among the things that must not be sanded off; the bracketed date in the footnote is still visible here.",
+    "report": ".ops/qa/cold-read.md#4-what-is-working-and-must-not-be-sanded-off",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/coldread2/zoom/cookie-1-vs-3.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "cold-read",
+    "title": "The only cookie, after one and three bites",
+    "caption": "The footer cookie after one click and after three: each click takes a bite. The reader called it an Easter egg a person adds.",
+    "report": ".ops/qa/cold-read.md#interaction-and-motion-at-1440-what-i-saw-vs-inferred",
+    "earlier_build": false
+  },
+  {
+    "src": ".tmp/route/frames/perf-390-slow4g-gzip-filmstrip.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "performance",
+    "title": "Phone load on Slow 4G, frame by frame",
+    "caption": "Frames from the lead's trace at 390x844, Slow 4G, 4x CPU, compressed text: first paint and LCP (the hero image) at 1,639 ms, the display type a moment later, the headline chew by 2 s. Made from the screenshots in shots/performance-lead/trace-390-slow4g-4x-gzip-run1.json.gz.",
+    "report": ".ops/qa/performance.md#results",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/build-shots/r7-1440-dentist.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "Dentist band after the cold read",
+    "caption": "00:10, fix round 7: the \"How I work\" list is gone from the lime band, leaving the bio, the pull line \"Teeth are for biting. I keep them at it.\" and the drawing photograph.",
+    "report": "",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/build-shots/r7-1440-faq.png",
+    "kind": "image",
+    "chapter": "build",
+    "group": "build-shots",
+    "title": "FAQ without the third portrait",
+    "caption": "00:10, fix round 7: the laughing portrait is removed and the FAQ is set as the visual system specifies, heading on the left and the questions on the right.",
+    "report": "",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/final/cmp-1440x900-day.jpg",
+    "kind": "image",
+    "chapter": "review",
+    "group": "final-verification",
+    "title": "Final hero in three engines, 1440",
+    "caption": "Chrome 157, Firefox 159 and WebKit 27.2 at 1440x900, page state 00:28, after the lock-up. \"$195\" and GENERAL DENTIST compute to the same 96px in all three, with no overlapping pairs in the hero.",
+    "report": ".ops/qa/final-verification.md#3-what-passed-final-state",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/final/cmp-1024x768-night.jpg",
+    "kind": "image",
+    "chapter": "review",
+    "group": "final-verification",
+    "title": "1024x768 at night, three engines",
+    "caption": "The 00:28 state with the clock at 10:30 pm Central: the header reads \"Booking's open all night\" and the lock-up sits at 58px. The footnote ends 12.6 to 12.8px above the fold at this size (F5).",
+    "report": ".ops/qa/final-verification.md#1-findings-ranked",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/final/cmp-390x844-night.jpg",
+    "kind": "image",
+    "chapter": "review",
+    "group": "final-verification",
+    "title": "Final phone hero, 390x844",
+    "caption": "Chrome, Firefox and WebKit at 390x844, 00:28 state: GENERAL DENTIST and \"$195\" both about 48px, and the footnote ends at 747, above the bar at 780.",
+    "report": ".ops/qa/final-verification.md#3-what-passed-final-state",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/final/cmp-390x664-day.jpg",
+    "kind": "image",
+    "chapter": "review",
+    "group": "final-verification",
+    "title": "Short phone: chips clear the bar",
+    "caption": "390x664 stands in for a 390x844 iPhone with its browser bars showing: the chips end at 581 to 582.6 against a bar at 600 in all three engines. The footnote falls below the bar here, which F4 records as built.",
+    "report": ".ops/qa/final-verification.md#1-findings-ranked",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/final/cmp-320x568-day.jpg",
+    "kind": "image",
+    "chapter": "review",
+    "group": "final-verification",
+    "title": "320x568, the smallest size",
+    "caption": "At 320x568 the lock-up computes to 40px and nothing scrolls sideways, but the chips sit 113px below the bar top and the footnote 236px below. F4 notes it; no change was proposed.",
+    "report": ".ops/qa/final-verification.md#1-findings-ranked",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/final/forced-390.jpg",
+    "kind": "image",
+    "chapter": "review",
+    "group": "final-verification",
+    "title": "Forced colours on the phone",
+    "caption": "Forced colours at 390 in Chrome and Firefox, first screen and then a chosen, focused chip: text, rules, chips, the chosen chip (Highlight) and the focus ring all drawn in system colours. WebKit cannot emulate this mode.",
+    "report": ".ops/qa/final-verification.md#3-what-passed-final-state",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/final/cr20-chromium-1440.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "final-verification",
+    "title": "Bite geometry change, before and after",
+    "caption": "Every bitten element at 1440 in Chrome with the old bite reach (40) and the new one (64), motion off and clock fixed. Pixel-identical except 21 anti-aliased pixels along the photograph's notch.",
+    "report": ".ops/qa/final-verification.md#2-tool-changes",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/final/cr20-chromium-photo-notch-8x-before-after.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "final-verification",
+    "title": "The notch at 8x, before and after",
+    "caption": "The bitten photograph's notch magnified 8x, old reach left and new right. The 21 changed pixels in Chrome differ by up to 102/255 in one channel, run to run the same, and the edge is equally sharp.",
+    "report": ".ops/qa/final-verification.md#2-tool-changes",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/final/cr20-chromium-5120-plate.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "final-verification",
+    "title": "The wordmark plate at 5120 wide",
+    "caption": "Chrome at 5120 wide, old bite reach (top) and new (bottom): the code review's CR-20 found the plate outgrew its mask past about 4,790px, cutting off its leftmost 166px. With the reach raised to 64 the cut is 0 in all three engines.",
+    "report": ".ops/qa/final-verification.md#2-tool-changes",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/final/tools-social-card-strip-before-after.png",
+    "kind": "image",
+    "chapter": "review",
+    "group": "final-verification",
+    "title": "Social card strip, reworded",
+    "caption": "The social card's demo strip before and after: it now matches the page's wording, \"This practice and its dentist are fictional\". Only that run's outlines changed when the lettering was regenerated.",
+    "report": ".ops/qa/final-verification.md#2-tool-changes",
+    "earlier_build": false
+  },
+  {
+    "src": ".ops/qa/shots/motion/rec-01-hero-entrance-1440.mp4",
+    "kind": "video",
+    "chapter": "motion",
+    "group": "motion",
+    "title": "Hero entrance and headline chew",
+    "caption": "Recording at 1440 from 23:15, earlier build, before the lock-up. At about 3.3 s each headline word narrows to its tight width and springs back in reading order while the heading, its word cells and the line below stay put; the engines pass measured layout shift 0.",
+    "report": ".ops/qa/engines.md#2-interaction-pass",
+    "earlier_build": true,
+    "poster_s": 2.0
+  },
+  {
+    "src": ".ops/qa/shots/motion/rec-02-book-bite-restock-1440.mp4",
+    "kind": "video",
+    "chapter": "motion",
+    "group": "motion",
+    "title": "Book online: bite, then restock",
+    "caption": "Earlier build at 1440: Book online is pressed at about 2.6 s, takes its bite with three crumbs, and restocks about two seconds later. Measured in three engines: settles in 207 to 221 ms, crumbs gone by 255 ms, restock after 2 s.",
+    "report": ".ops/qa/engines.md#2-interaction-pass",
+    "earlier_build": true,
+    "poster_s": 3.0
+  },
+  {
+    "src": ".ops/qa/shots/motion/book-bite-1440-frames.png",
+    "kind": "image",
+    "chapter": "motion",
+    "group": "motion",
+    "title": "The bite, frame by frame",
+    "caption": "Frames of the same press cropped to the button: lime at rest, then bitten in one step with three crumbs beside the notch, the label kept whole. The fill is ink because the pointer is still over it.",
+    "report": ".ops/qa/engines.md#2-interaction-pass",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/motion/rec-04-chips-1440.mp4",
+    "kind": "video",
+    "chapter": "motion",
+    "group": "motion",
+    "title": "Picking a time, then changing it",
+    "caption": "Earlier build at 1440: Tue 5:45 pm is chosen at about 3 s (lime, a bite, crumbs) and every Book label becomes \"Book Tue 5:45 pm\"; Thu follows, and choosing Thu again clears it back to \"Book online\".",
+    "report": ".ops/qa/engines.md#2-interaction-pass",
+    "earlier_build": true,
+    "poster_s": 3.4
+  },
+  {
+    "src": ".ops/qa/shots/motion/rec-03-portions-1440.mp4",
+    "kind": "video",
+    "chapter": "motion",
+    "group": "motion",
+    "title": "Three portions eaten on scroll",
+    "caption": "Earlier build at 1440: the page scrolls to the first-visit steps at about 4.4 s and the three discs bite in order, once each, when 60% of a step is in view. They do not replay on return.",
+    "report": ".ops/qa/engines.md#2-interaction-pass",
+    "earlier_build": true,
+    "poster_s": 6.0
+  },
+  {
+    "src": ".ops/qa/shots/motion/svc-hover-open-1440-frames.png",
+    "kind": "image",
+    "chapter": "motion",
+    "group": "motion",
+    "title": "A service row opens wide",
+    "caption": "Hover on Checkups, Services on paper: the row turns lime and the word opens from width 62.5 to 100 while the price and the row's rules stay where they are (measured to 0.2px). The second frame catches the fill mid-tween.",
+    "report": ".ops/qa/engines.md#2-interaction-pass",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/motion/svc-press-chew-1440-frames.png",
+    "kind": "image",
+    "chapter": "motion",
+    "group": "motion",
+    "title": "Pressing a row makes it chew",
+    "caption": "Press on Fillings: the word squeezes toward width 50 and springs back, the chew the headline does on load. The price and description do not move.",
+    "report": ".ops/qa/engines.md#2-interaction-pass",
+    "earlier_build": true
+  },
+  {
+    "src": ".ops/qa/shots/motion/rec-06-scroll-comfort-to-foot-1440.mp4",
+    "kind": "video",
+    "chapter": "motion",
+    "group": "motion",
+    "title": "Services to the footer in one scroll",
+    "caption": "Earlier build at 1440, about 29 s: Services, Nervous is normal here, the lime dentist band, the \"0 reviews\" band, Cost, Find us, the FAQ with its portrait, the closing and the footer. Bracketed placeholders and the FAQ portrait were later removed.",
+    "report": "",
+    "earlier_build": true,
+    "poster_s": 16.0
+  }
+]

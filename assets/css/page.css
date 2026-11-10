@@ -717,8 +717,8 @@ address { font-style: normal; }
 @media (min-width: 1024px) {
   .op, .h1 .w { background: var(--ground); }
   .slots { flex-wrap: wrap; }   /* still one row whenever the three chips fit */
-  .op .btn { max-width: 100%; }
-  .op .btn__body { white-space: normal; text-align: center; }
+  .op .cta .btn { max-width: 100%; }
+  .op .cta .btn__body { white-space: normal; text-align: center; }   /* the Book and Call buttons only: a time chip's label never wraps */
 }
 @media (max-width: 1023.98px) { .hero { grid-template-rows: auto auto minmax(var(--fig-h), auto) auto auto auto auto; } }
 @media (max-width: 639.98px)  { .hero { grid-template-rows: auto minmax(var(--fig-h), auto) auto auto auto auto auto; } }
