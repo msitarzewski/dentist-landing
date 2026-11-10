@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>It’s the prompt | Three AI-built pages for one dentist</title>
+<meta name="description" content="Three AI-built landing pages for the same dentist brief. The prompt set the direction. A team of agents decided the finish.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="It’s the prompt.">
+<meta property="og:description" content="Three AI-built landing pages for the same dentist brief. The prompt set the direction. A team of agents decided the finish.">
+<meta property="og:url" content="https://msitarzewski.github.io/dentist-landing/its-the-prompt/">
+<meta property="og:image" content="https://msitarzewski.github.io/dentist-landing/its-the-prompt/img/social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The top of three dentist landing pages side by side: a calm sage page, a loud cobalt and lime page, and a tangerine poster page.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://msitarzewski.github.io/dentist-landing/its-the-prompt/">
+<style>
+@font-face { font-family: "Public Sans"; src: url("../assets/fonts/public-sans-wght.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+
+:root {
+  --paper: #f2f0ea; --ink: #181713; --mute: #5c584f; --well: #e7e4db; --rule: #181713;
+  --gutter: clamp(16px, 3vw, 40px); --max: 1480px;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper: #151513; --ink: #eeebe3; --mute: #a39e92; --well: #22211e; --rule: #eeebe3; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --paper: #151513; --ink: #eeebe3; --mute: #a39e92; --well: #22211e; --rule: #eeebe3; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.55 "Public Sans", ui-sans-serif, system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---------- top ---------- */
+.top { padding: clamp(40px, 7vw, 96px) 0 clamp(32px, 4vw, 56px); border-bottom: 1px solid var(--rule); }
+.kicker { margin: 0 0 18px; font-size: 15px; font-weight: 600; }
+h1 { margin: 0; font-weight: 800; font-size: clamp(3.4rem, 11vw, 10rem); line-height: .86; letter-spacing: -0.045em; }
+.lede { margin: clamp(22px, 3vw, 36px) 0 0; max-width: 35em; font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.45; text-wrap: pretty; }
+@media (min-width: 1000px) {
+  .top__grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: clamp(32px, 4vw, 72px); align-items: end; }
+  .kicker { grid-column: 1 / -1; }
+  .lede { margin: 0 0 .4em; }   /* sits beside the headline, on its last line */
+}
+
+/* ---------- the three runs ---------- */
+.runs-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding: 18px 0; }
+.runs-head p { margin: 0; color: var(--mute); font-size: 15px; }
+.sync { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+.sync input { width: 18px; height: 18px; margin: 0; accent-color: var(--ink); }
+.sync[hidden] { display: none; }
+@media (max-width: 1099.98px) { .sync { display: none; } }   /* only useful when the three windows sit side by side */
+
+.runs { display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; padding-bottom: clamp(40px, 6vw, 80px); }
+.run { display: grid; grid-template-rows: auto auto auto 1fr auto; align-content: start; }
+@media (min-width: 1100px) {
+  .runs { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto auto auto auto; column-gap: clamp(20px, 2.2vw, 36px); row-gap: 0; }
+  @supports (grid-template-rows: subgrid) {
+    .run { grid-row: span 5; grid-template-rows: subgrid; }   /* the three prompts differ in length; their windows still start level */
+  }
+}
+.run__head { border-top: 1px solid var(--rule); padding-top: 14px; }
+.run__n { display: block; font-size: 15px; font-weight: 600; color: var(--mute); }
+.run h2 { margin: 6px 0 14px; font-size: clamp(1.6rem, 2.4vw, 2.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+.meta { margin: 0 0 16px; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 16px; font-size: 14.5px; line-height: 1.4; }
+.meta dt { color: var(--mute); }
+.meta dd { margin: 0; }
+
+.prompt { margin: 0 0 18px; padding: 14px 16px; background: var(--well); border-left: 3px solid var(--ink); }
+.prompt figcaption { font-size: 12.5px; font-weight: 700; letter-spacing: .02em; color: var(--mute); margin-bottom: 6px; }
+.prompt blockquote { margin: 0; font: 400 14px/1.55 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.window { position: relative; height: min(74vh, 880px); height: min(74svh, 880px); overflow-y: auto; overscroll-behavior: contain; border: 1px solid var(--rule); background: #fff; scrollbar-width: thin; }
+.window img { display: block; width: 100%; height: auto; }
+.window:focus-visible { outline-offset: 4px; }
+.run__foot { padding-top: 14px; }
+.result { margin: 0 0 10px; font-size: 16px; line-height: 1.5; text-wrap: pretty; }
+.links { margin: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; font-weight: 600; }
+
+/* ---------- what changed ---------- */
+.band { border-top: 1px solid var(--rule); padding: clamp(40px, 6vw, 88px) 0; }
+.band h2 { margin: 0 0 clamp(20px, 3vw, 36px); font-size: clamp(2.2rem, 5.4vw, 4.6rem); font-weight: 800; line-height: .95; letter-spacing: -0.035em; }
+.pairs { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px 56px; }
+@media (min-width: 860px) { .pairs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pairs h3 { margin: 0 0 8px; font-size: 1.15rem; font-weight: 800; }
+.pairs p { margin: 0; max-width: 34em; font-size: 1.05rem; text-wrap: pretty; }
+
+/* ---------- agents ---------- */
+.agents__intro { margin: 0 0 clamp(28px, 4vw, 48px); max-width: 38em; font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.5; }
+.phases { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px clamp(20px, 2.4vw, 40px); margin: 0; padding: 0; list-style: none; }
+@media (min-width: 700px) { .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .phases { grid-template-columns: 1fr 1.25fr .8fr 1.6fr; } }
+.phase h3 { margin: 0; padding-bottom: 10px; border-bottom: 1px solid var(--rule); font-size: 15px; font-weight: 700; color: var(--mute); }
+.phase ul { margin: 0; padding: 0; list-style: none; }
+.phase li { padding: 12px 0; border-bottom: 1px solid color-mix(in srgb, var(--rule) 22%, transparent); }
+.phase li a { font-weight: 700; }
+.phase li span { display: block; margin-top: 2px; font-size: 15px; line-height: 1.45; color: var(--mute); }
+
+.cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: clamp(32px, 5vw, 56px); }
+.button { display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 700; font-size: 17px; text-decoration: none; }
+.button:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+.cta a:not(.button) { font-weight: 600; }
+
+/* ---------- foot ---------- */
+.foot { border-top: 1px solid var(--rule); padding: 28px 0 40px; color: var(--mute); font-size: 14.5px; line-height: 1.5; }
+.foot p { margin: 0 0 8px; max-width: 60em; }
+
+@media (forced-colors: active) { .prompt { border-left-color: CanvasText; } .button { border: 1px solid ButtonText; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+ <div class="wrap top__grid">
+  <p class="kicker">Three AI-built landing pages for one dentist</p>
+  <h1>It’s the<br>prompt.</h1>
+  <p class="lede">Same job, three runs. Runs 01 and 02 use the same model; only the prompt changed. Run 03 used a longer prompt and a team of 18 agents from <a href="https://github.com/msitarzewski/agency-agents">Agency Agents</a>. The prompt set the direction. The agents decided the finish.</p>
+ </div>
+</header>
+
+<main>
+<section class="wrap" aria-labelledby="runs-h">
+  <div class="runs-head">
+    <p id="runs-h">Each window scrolls through the whole page. Prompts are verbatim, typos included.</p>
+    <label class="sync" hidden><input type="checkbox" id="sync"> Scroll all three together</label>
+  </div>
+
+  <div class="runs">
+    <article class="run" aria-labelledby="r1-h">
+      <div class="run__head">
+        <span class="run__n">01</span>
+        <h2 id="r1-h">8 words</h2>
+      </div>
+      <dl class="meta">
+        <dt>Model</dt><dd>gpt-6.1-sol, xhigh</dd>
+        <dt>Agents</dt><dd>None asked for</dd>
+        <dt>Images</dt><dd>Stock photography</dd>
+      </dl>
+      <figure class="prompt"><figcaption>The prompt</figcaption><blockquote>Design a landing page for a dentists office.</blockquote></figure>
+      <div class="window" tabindex="0" role="region" aria-label="Morrow Dental, run 01, full page">
+        <img src="img/01-900.webp" srcset="img/01-900.webp 900w, img/01-1512.webp 1512w" sizes="(min-width: 1100px) 31vw, 94vw" width="900" height="2424" decoding="async"
+          alt="Morrow Dental. A cream and sage page with a serif headline, “Good days begin with a great smile.”, a stock photo of a patient in a dental chair, a row of three reassurances, four service cards with line icons, a section titled “A place where you can just be you.”, a contact form and an FAQ.">
+      </div>
+      <div class="run__foot">
+        <p class="result"><b>Morrow Dental.</b> Calm and safe: a serif headline in sage and cream, stock photos, four service cards with icons, a contact form.</p>
+        <p class="links"><a href="img/01-1512.webp">Full size</a></p>
+      </div>
+    </article>
+
+    <article class="run" aria-labelledby="r2-h">
+      <div class="run__head">
+        <span class="run__n">02</span>
+        <h2 id="r2-h">77 words</h2>
+      </div>
+      <dl class="meta">
+        <dt>Model</dt><dd>gpt-6.1-sol, xhigh</dd>
+        <dt>Agents</dt><dd>None asked for</dd>
+        <dt>Images</dt><dd>Generated</dd>
+      </dl>
+      <figure class="prompt"><figcaption>The prompt</figcaption><blockquote>Let's build a landing page for a dentist. This is a new task. Do not to use your model training for design. Instead use design inspiration from the web for dental practices. Let's enhance the design by leveraging the most recent techniques in motion and animation. This is a young dentist with a younger demographic and lots of energy. Design it appropriately! Use image gen to create unique images that match your selected color palette and mission.</blockquote></figure>
+      <div class="window" tabindex="0" role="region" aria-label="Zest Dental Studio, run 02, full page">
+        <img src="img/02-900.webp" srcset="img/02-900.webp 900w, img/02-1512.webp 1512w" sizes="(min-width: 1100px) 31vw, 94vw" width="900" height="3738" decoding="async"
+          alt="Zest Dental Studio. A loud page in cobalt, coral, lime and lilac: the headline “Good teeth. Great energy.” in condensed capitals with a script accent, a generated photo of a smiling dentist, a scrolling band of slogans, four colour-block service cards, a dark section titled “The dentist. But make it different.”, a first-visit section, a 3D render of a tooth, an FAQ and a giant smiley face.">
+      </div>
+      <div class="run__foot">
+        <p class="result"><b>Zest Dental Studio.</b> Loud and young: condensed capitals with script accents, four bright colours, a marquee of slogans, colour-block cards, a 3D tooth, a giant smiley.</p>
+        <p class="links"><a href="img/02-1512.webp">Full size</a></p>
+      </div>
+    </article>
+
+    <article class="run" aria-labelledby="r3-h">
+      <div class="run__head">
+        <span class="run__n">03</span>
+        <h2 id="r3-h">107 words, 18 agents</h2>
+      </div>
+      <dl class="meta">
+        <dt>Model</dt><dd>Claude Fable 5.2, then Claude Opus 5.5</dd>
+        <dt>Agents</dt><dd>18 roles from Agency Agents</dd>
+        <dt>Images</dt><dd>Generated with ChatGPT, through the Codex CLI</dd>
+      </dl>
+      <figure class="prompt"><figcaption>The prompt</figcaption><blockquote>Let's build a landing page for a dentist. This is a new task. Do not to use your model training for design. Instead use design inspiration from the web for dental practices. Let's enhance the design by leveraging the most recent techniques in motion and animation. This is a young dentist with a younger demographic and lots of energy. Design it appropriately! Use chat gpt (codex) to create unique images that match your selected color palette and mission. Use all applicable agedent from agency-agents, and work in a team until the landing page is complete. IT should be unique and not identifiable as an AI generated design</blockquote></figure>
+      <div class="window" tabindex="0" role="region" aria-label="Feast Dental, run 03, full page">
+        <img src="img/03-900.webp" srcset="img/03-900.webp 900w, img/03-1512.webp 1512w" sizes="(min-width: 1100px) 31vw, 94vw" width="900" height="6024" decoding="async"
+          alt="Feast Dental. A tangerine poster page: the headline “I don’t care how long it’s been.” in heavy condensed type beside a portrait of the dentist, the price $195 set as large as “General Dentist”, three sample appointment times, a scrolling ticker, a first-visit section with bitten discs, photographs of bitten food, a menu-board price list, a lime section introducing the dentist, a dark “0 reviews” section of promises, a cost section, a storefront photo with hours, an FAQ and a closing line, “No lecture. Price in writing. Come in.”">
+      </div>
+      <div class="run__foot">
+        <p class="result"><b>Feast Dental.</b> One idea carried through, “teeth are for biting”: stretching poster type, four colours sampled from its own photographs, bitten-food still lifes, the price on the first screen, and “0 reviews” said out loud.</p>
+        <p class="links"><a href="../">Open the live page</a><a href="img/03-1512.webp">Full size</a></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="changed-h">
+  <div class="wrap">
+    <h2 id="changed-h">What changed</h2>
+    <div class="pairs">
+      <div>
+        <h3>01 to 02: the prompt</h3>
+        <p>Same model, same reasoning setting. The prompt added a task (look at real dental practices, use current motion), an audience (young, lots of energy) and a rule for the pictures (generate them in the page’s palette). The result went from a safe default to a point of view.</p>
+      </div>
+      <div>
+        <h3>02 to 03: the prompt, and a team</h3>
+        <p>Three things changed at once, so this is not a controlled test: the model, a team of agents, and one requirement the others never had, that it must not look AI-generated. The agents are where that requirement was met. They measured 19 real practice sites, cut the brand down to one idea, wrote every word, directed every photograph, and reviewed the build from thirteen sides.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="agents-h">
+  <div class="wrap">
+    <h2 id="agents-h">Agents still matter.</h2>
+    <p class="agents__intro">The lead session wrote the page and applied every fix. These 18 roles from <a href="https://github.com/msitarzewski/agency-agents">Agency Agents</a> did the rest, each working from its own definition file. Their reports are in <a href="https://github.com/msitarzewski/dentist-landing/tree/main/.ops/qa">the repository</a>.</p>
+    <ol class="phases">
+      <li class="phase">
+        <h3>Research</h3>
+        <ul>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/product/product-trend-researcher.md">Trend Researcher</a><span>What dental practices say about themselves now, and what none of them do.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/design/design-ux-researcher.md">UX Researcher</a><span>Patients, the page outline, and what the law asks a dental ad to say.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/design/design-ui-designer.md">UI Designer</a><span>Measured 19 live practice sites in a browser, then wrote the visual system and the final hero.</span></li>
+        </ul>
+      </li>
+      <li class="phase">
+        <h3>Direction</h3>
+        <ul>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/design/design-brand-guardian.md">Brand Guardian</a><span>The name, the voice and the single idea; checked the name against real businesses.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/design/design-whimsy-injector.md">Whimsy Injector</a><span>Five motion mechanisms, and the rules for when they stop.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/design/design-image-prompt-engineer.md">Image Prompt Engineer</a><span>Art direction for every generated photograph.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/design/design-inclusive-visuals-specialist.md">Inclusive Visuals Specialist</a><span>Reviewed every image, sent four back, wrote the alt text and the line saying it is a demo.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/marketing/marketing-content-creator.md">Content Creator</a><span>Every word on the page.</span></li>
+        </ul>
+      </li>
+      <li class="phase">
+        <h3>Build</h3>
+        <ul>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/engineering/engineering-frontend-developer.md">Frontend Developer</a><span>Prototyped the bite, built the image pipeline, tested Chrome, Firefox and WebKit.</span></li>
+        </ul>
+      </li>
+      <li class="phase">
+        <h3>Review</h3>
+        <ul>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/design/design-persona-walkthrough.md">Persona Walkthrough Specialist</a><span>Walked the page as two patients: one on a phone at night, one on a laptop.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/support/support-legal-compliance-checker.md">Legal Compliance Checker</a><span>Read the Texas dental advertising rules and changed how every price is stated.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/marketing/marketing-seo-specialist.md">SEO Specialist</a><span>Title, structured data and local search.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/testing/testing-accessibility-auditor.md">Accessibility Auditor</a><span>Found five problems against WCAG 2.2; all fixed, then re-checked.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/engineering/engineering-code-reviewer.md">Code Reviewer</a><span>3 blockers, 10 should-fix, 17 could-fix.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/testing/testing-evidence-collector.md">Evidence Collector</a><span>Screenshot checks against the spec at six widths.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/testing/testing-performance-benchmarker.md">Performance Benchmarker</a><span>Load and runtime traces.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/design/design-visual-storyteller.md">Visual Storyteller</a><span>A cold read: would a designer think a person made this? Found 17 placeholders that gave it away.</span></li>
+          <li><a href="https://github.com/msitarzewski/agency-agents/blob/main/engineering/engineering-technical-writer.md">Technical Writer</a><span>Brought the copy deck and the specs in line with what was built.</span></li>
+        </ul>
+      </li>
+    </ol>
+    <div class="cta">
+      <a class="button" href="https://github.com/msitarzewski/agency-agents">Get Agency Agents</a>
+      <a href="../">Open Feast Dental</a>
+      <a href="https://github.com/msitarzewski/dentist-landing">Source for run 03</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>One run of each prompt; not a benchmark. Screenshots of runs 01 and 02 were supplied by their author; run 03 was captured from this repository at 1512 pixels wide, with the clock set to a weekday afternoon.</p>
+    <p>All three practices and dentists are fictional. Run 01 uses stock photography, credited on its own page; runs 02 and 03 use generated images.</p>
+  </div>
+</footer>
+
+<script>
+// Scroll all three together: the window under the pointer (or with focus) leads, the others follow in proportion.
+(() => {
+  const box = document.getElementById('sync'), label = box && box.closest('label');
+  const wins = [...document.querySelectorAll('.window')];
+  if (!box || wins.length < 2) return;
+  label.hidden = false;
+  let lead = null;
+  for (const w of wins) {
+    for (const ev of ['pointerenter', 'touchstart', 'focus']) w.addEventListener(ev, () => { lead = w; }, { passive: true });
+    w.addEventListener('scroll', () => {
+      if (!box.checked || lead !== w) return;
+      const f = w.scrollTop / Math.max(1, w.scrollHeight - w.clientHeight);
+      for (const o of wins) if (o !== w) o.scrollTop = f * (o.scrollHeight - o.clientHeight);
+    }, { passive: true });
+  }
+})();
+</script>
+</body>
+</html>
