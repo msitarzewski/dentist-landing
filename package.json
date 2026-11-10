@@ -1,0 +1,10 @@
+{
+  "name": "feast-dental-landing",
+  "private": true,
+  "description": "Static landing page for a placeholder dental practice. No build step and no dependencies: the scripts only run a local preview and regenerate the generated files.",
+  "scripts": {
+    "preview": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "bite": "node tools/bite.mjs",
+    "images": "node tools/build-images.mjs"
+  }
+}

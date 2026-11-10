@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Feast Dental — image placement specimen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&amp;family=Public+Sans:wght@100..900&amp;display=block">
+<!-- Fonts come from Google Fonts for this specimen only. Photographs are loaded from assets/img/src/. -->
+<style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:#fff4e3;-webkit-font-smoothing:antialiased}
+.pf{--ground:#f9530a;--paper:#fff4e3;--ink:#26120b;--counter:#cffb43;
+ --rule:1.5px;
+ --gutter:clamp(16px,calc(7.09px + 2.286vw),40px);
+ --gap:clamp(12px,calc(7.54px + 1.143vw),24px);
+ --section-y:clamp(56px,calc(32.229px + 6.0952vw),120px);
+ --band-y:clamp(40px,calc(25.143px + 3.8095vw),80px);
+ --font-display:"Anybody","Arial Narrow",Impact,sans-serif;
+ --font-text:"Public Sans",ui-sans-serif,system-ui,sans-serif;
+ --fs-hero:clamp(3.5rem,calc(1.829rem + 6.857vw),8rem);
+ --fs-price:clamp(4.5rem,calc(2.689rem + 7.429vw),9.375rem);
+ --fs-d1:clamp(2.75rem,calc(1.357rem + 5.714vw),6.5rem);
+ --fs-d2:clamp(2.5rem,calc(1.757rem + 3.048vw),4.5rem);
+ --fs-d3:clamp(1.75rem,calc(1.471rem + 1.143vw),2.5rem);
+ --fs-d4:clamp(1.0625rem,calc(0.946rem + 0.476vw),1.375rem);
+ --fs-lead:clamp(1.125rem,calc(1.032rem + 0.381vw),1.375rem);
+ --fs-body:clamp(1.125rem,calc(1.079rem + 0.19vw),1.25rem);
+ --fs-ui:clamp(1rem,calc(0.977rem + 0.095vw),1.0625rem);
+ --fs-small:clamp(0.875rem,calc(0.852rem + 0.095vw),0.9375rem);
+ --fs-foot:0.8125rem;
+ --notch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0A35.29 35.29 0 0 0 21.53 32.5A35.29 35.29 0 0 0 67.5 78.47A35.29 35.29 0 0 0 100 100V0Z'/%3E%3C/svg%3E");
+ --bites-1:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L100 0Z'/%3E%3C/svg%3E");
+ --bites-2:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L100 0ZM98.42 29.7A23.29 23.29 0 0 0 78.28 45.73A23.29 23.29 0 0 0 50.71 78.6A23.29 23.29 0 0 0 38.42 101.2L104.17 95.45Z'/%3E%3C/svg%3E");
+ --bites-3:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L100 0ZM98.42 29.7A23.29 23.29 0 0 0 78.28 45.73A23.29 23.29 0 0 0 50.71 78.6A23.29 23.29 0 0 0 38.42 101.2L104.17 95.45ZM-1.2 61.58A23.29 23.29 0 0 0 21.4 49.29A23.29 23.29 0 0 0 54.27 21.72A23.29 23.29 0 0 0 70.3 1.58L4.55 -4.17Z'/%3E%3C/svg%3E");
+ color:var(--ink);font-family:var(--font-text);font-size:var(--fs-body);line-height:1.5}
+.pf *{box-sizing:border-box}
+.pf .dsp{font-family:var(--font-display);font-weight:900;letter-spacing:-0.01em}
+.pf a{color:inherit;text-decoration:none}
+.pf .note{font:400 12px/1.4 ui-monospace,Menlo,monospace;letter-spacing:0;margin:0}
+.pf h6{font:700 13px/1.3 ui-monospace,Menlo,monospace;margin:0 0 10px;letter-spacing:0}
+/* bite: the notch is cut from the element by a mask; size is relative to the element */
+.pf .bite,.pf .bite-w{clip-path:shape(from 0 0,hline to calc(100% - var(--n)),arc to calc(100% - var(--n)*.7847) calc(var(--n)*.325) of calc(var(--n)*.3529) ccw,arc to calc(100% - var(--n)*.325) calc(var(--n)*.7847) of calc(var(--n)*.3529) ccw,arc to 100% var(--n) of calc(var(--n)*.3529) ccw,vline to 100%,hline to 0,close)}
+.pf .btn{--n:34px}.pf .btn--md,.pf .bbar .btn{--n:26px}.pf .slot{--n:22px}
+.pf .frame{container-type:inline-size}
+.pf .bite-w{--n:24cqi}
+/* the same notch cut with mask-composite: exclude, kept only to show the hairline it leaves */
+.pf .bite-x{-webkit-mask:var(--notch) top right/auto 60% no-repeat,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:var(--notch) top right/auto 60% no-repeat,linear-gradient(#000 0 0);mask-composite:exclude}
+/* buttons */
+.pf .btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 28px;border-radius:999px;border:var(--rule) solid var(--ink);font:600 var(--fs-ui)/1 var(--font-text);white-space:nowrap;background:transparent;color:var(--ink)}
+.pf .btn--md{height:48px;padding:0 22px}
+.pf .btn--primary{background:var(--counter)}
+.pf .btn--hover{background:var(--ink);color:var(--counter)}
+.pf .btn--sec-hover{background:var(--ink);color:var(--paper)}
+.pf .btn--focus{outline:3px solid var(--ink);outline-offset:3px}
+.pf .btn--press{transform:scale(.96);transform-origin:0 100%}
+/* header */
+.pf .hd{height:72px;display:flex;align-items:center;gap:28px;padding:0 var(--gutter) 0 0;background:var(--ground);border-bottom:var(--rule) solid var(--ink)}
+.pf .wm.plate{height:72px;padding:0 44px 0 var(--gutter);--n:43px;align-self:stretch}
+.pf .wm{font-family:var(--font-display);font-weight:900;font-stretch:62.5%;font-size:26px;line-height:1;text-transform:uppercase;letter-spacing:0;white-space:nowrap}
+.pf .hd nav{display:flex;gap:28px;font:500 16px/1 var(--font-text);margin-left:12px}
+.pf .hd .sp{flex:1}
+.pf .status{font:500 15px/1 var(--font-text);white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.pf .dot{width:12px;height:12px;border-radius:50%;background:var(--ink);display:inline-block;flex:none}
+.pf .dot.closed{-webkit-mask:radial-gradient(circle 6.5px at 80% 20%,#0000 97%,#000);mask:radial-gradient(circle 6.5px at 80% 20%,#0000 97%,#000)}
+.pf .tel{font:600 16px/1 var(--font-text);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pf .st-s{display:none}
+/* hero */
+.pf .hero{position:relative;isolation:isolate;overflow:hidden;background:var(--ground);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);grid-template-rows:auto auto 1fr auto auto;padding:28px var(--gutter) 22px;min-height:clamp(640px,51.5vw,760px)}
+.pf .fig{grid-column:8/-1;grid-row:1/6;margin:-28px calc(var(--gutter) * -1) -22px 0;z-index:-1;position:relative;min-height:0}
+.pf .fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right top;display:block;-webkit-mask-image:linear-gradient(to right,#0000 0,#000 72px);mask-image:linear-gradient(to right,#0000 0,#000 72px)}
+.pf .h1{grid-column:1/-1;grid-row:1;margin:0;font-family:var(--font-display);font-weight:900;font-stretch:var(--wdth-hero,66%);font-size:var(--fs-hero);line-height:.9;letter-spacing:-0.01em;white-space:nowrap}
+.pf .h1 .l3{display:block}
+.pf .sub{grid-column:1/8;grid-row:2;margin:22px 0 0;font-size:var(--fs-lead);line-height:1.4;max-width:30em}
+.pf .who{grid-column:9/11;grid-row:4;align-self:end;margin:0 0 14px;font-family:var(--font-display);font-weight:800;font-stretch:75%;font-size:var(--fs-d4);line-height:1.05;text-transform:uppercase;letter-spacing:.005em}
+.pf .who span{display:block}
+.pf .who .ip{display:none;font-style:normal}
+.pf .strip{grid-column:1/9;grid-row:4;display:grid;grid-template-columns:auto minmax(0,1fr);align-self:end;border-top:var(--rule) solid var(--ink);border-bottom:var(--rule) solid var(--ink)}
+.pf .fv{padding:14px 28px 12px 0;display:flex;flex-direction:column;gap:2px}
+.pf .lab{font:600 var(--fs-small)/1.3 var(--font-text)}
+.pf .num{font-family:var(--font-display);font-weight:900;font-stretch:75%;font-size:var(--fs-price);line-height:.86;letter-spacing:-0.01em;font-variant-numeric:tabular-nums}
+.pf .cap{font:400 var(--fs-small)/1.3 var(--font-text)}
+.pf .op{padding:14px 0 12px 24px;border-left:var(--rule) solid var(--ink);display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.pf .slots{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pf .slot{display:inline-flex;align-items:center;height:48px;padding:0 18px;border-radius:999px;border:var(--rule) solid var(--ink);font:400 16px/1 var(--font-text);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pf .slot b{font-weight:700;margin-right:6px}
+.pf .slot.on{background:var(--counter)}
+.pf .slot.hov{background:var(--paper)}
+.pf .oph{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.pf .more{font:500 15px/1 var(--font-text);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.pf .opcap{font:400 var(--fs-foot)/1.35 var(--font-text);margin:-2px 0 0}
+.pf .cta{display:flex;gap:10px;flex-wrap:wrap}
+.pf .fn{grid-column:1/8;grid-row:5;margin:10px 0 0;font-size:var(--fs-foot);line-height:1.4;max-width:78ch}
+.pf .bbar{display:none}
+/* ticker */
+.pf .ticker{background:var(--ink);color:var(--paper);height:56px;display:flex;align-items:stretch;overflow:hidden;white-space:nowrap}
+.pf .ticker .pause{flex:none;width:72px;display:flex;align-items:center;justify-content:center;font:600 15px/1 var(--font-text);border-right:var(--rule) solid var(--paper);background:var(--ink)}
+.pf .ticker .track{display:flex;align-items:center;gap:22px;padding-left:22px;font-family:var(--font-display);font-weight:800;font-stretch:100%;font-size:20px;text-transform:uppercase;letter-spacing:.01em}
+.pf .ticker .sep{width:12px;height:12px;border-radius:50%;background:var(--ground);flex:none;-webkit-mask:radial-gradient(circle 6.5px at 80% 20%,#0000 97%,#000);mask:radial-gradient(circle 6.5px at 80% 20%,#0000 97%,#000)}
+/* sheets */
+.pf .sheet{background:var(--paper);padding:28px var(--gutter) 36px;border-top:var(--rule) solid var(--ink);overflow:hidden}
+.pf .cell{max-width:100%}
+.pf .foot{overflow:hidden}
+.pf .sheet.gr{background:var(--ground)}
+.pf .cols{display:flex;flex-wrap:wrap;gap:28px 40px;align-items:flex-start}
+.pf .cell{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.pf .rowx{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.pf .rowx .frame{width:240px}
+.pf .photo{width:100%;aspect-ratio:3/4;display:flex;align-items:flex-end;padding:10px}
+.pf .disc{width:120px;height:120px;flex:none;color:var(--ground);display:block}
+.pf .bigdot{width:48px;height:48px;border-radius:50%;background:var(--ink)}
+.pf .bigdot.closed{-webkit-mask:radial-gradient(circle 26px at 80% 20%,#0000 98%,#000);mask:radial-gradient(circle 26px at 80% 20%,#0000 98%,#000)}
+.pf .wmx{font-family:var(--font-display);font-weight:900;font-stretch:62.5%;line-height:1;text-transform:uppercase;letter-spacing:0;white-space:nowrap}
+.pf .tt{display:inline-block}
+.pf .tbite .tt{--n:.17em;clip-path:shape(from 0 0,hline to calc(100% - .0136em - var(--n)),vline to .1em,arc to calc(100% - .0136em - var(--n)*.7847) calc(.1em + var(--n)*.325) of calc(var(--n)*.3529) ccw,arc to calc(100% - .0136em - var(--n)*.325) calc(.1em + var(--n)*.7847) of calc(var(--n)*.3529) ccw,arc to calc(100% - .0136em) calc(.1em + var(--n)) of calc(var(--n)*.3529) ccw,hline to 100%,vline to 100%,hline to 0,close)}
+.pf .plate{display:inline-flex;align-items:center;background:var(--ink);color:var(--ground);height:2.77em;padding:0 1.7em 0 .9em;--n:1.66em;clip-path:shape(from 0 0,hline to calc(100% - var(--n)),arc to calc(100% - var(--n)*.7847) calc(var(--n)*.325) of calc(var(--n)*.3529) ccw,arc to calc(100% - var(--n)*.325) calc(var(--n)*.7847) of calc(var(--n)*.3529) ccw,arc to 100% var(--n) of calc(var(--n)*.3529) ccw,vline to 100%,hline to 0,close)}
+.pf .plate.onink{background:var(--ground);color:var(--ink)}
+/* services */
+/* services on the ground field, with one bitten still life beside the heading */
+.pf .sheet.gr{background:var(--ground)}
+.pf .svc-head{display:grid;grid-template-columns:minmax(0,1fr) 160px;column-gap:var(--gap);align-items:end;margin-bottom:18px}
+.pf .svc-head h2{margin:0 0 16px;font-family:var(--font-display);font-weight:900;font-stretch:66%;font-size:var(--fs-d1);line-height:.92;letter-spacing:-0.01em}
+.pf .svc-head .desig{margin:0}
+.pf .svc-head .frame{width:160px}
+.pf .svc-head .still{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;--n:25cqi}
+/* meet the dentist: lime field, the portrait bleeds from the left */
+.pf .meet{position:relative;isolation:isolate;overflow:hidden;background:var(--counter);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:var(--band-y) var(--gutter);min-height:clamp(640px,51.5vw,760px)}
+.pf .mfig{grid-column:1/6;grid-row:1;margin:calc(var(--band-y) * -1) 0 calc(var(--band-y) * -1) calc(var(--gutter) * -1);position:relative;z-index:-1}
+.pf .mfig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;display:block;-webkit-mask-image:linear-gradient(to left,#0000 0,#000 72px);mask-image:linear-gradient(to left,#0000 0,#000 72px)}
+.pf .mcap{grid-column:4/6;grid-row:1;align-self:end;justify-self:end;margin:0;font-size:var(--fs-small)}
+.pf .mtxt{grid-column:7/13;grid-row:1;display:flex;flex-direction:column;gap:18px;align-self:center}
+.pf .meet h2{margin:0;font-family:var(--font-display);font-weight:900;font-stretch:66%;font-size:var(--fs-d1);line-height:.92;letter-spacing:-0.01em}
+.pf .meet .bio{margin:0;max-width:36em}
+.pf .meet .pull{margin:0;font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:var(--fs-d3);line-height:1.05;letter-spacing:-0.005em}
+.pf .pts{list-style:none;margin:0;padding:0;border-top:var(--rule) solid var(--ink);counter-reset:pt}
+.pf .pts li{counter-increment:pt;display:grid;grid-template-columns:2.4em minmax(0,1fr);align-items:baseline;padding:10px 0;border-bottom:var(--rule) solid var(--ink)}
+.pf .pts li::before{content:counter(pt);font-family:var(--font-display);font-weight:900;font-stretch:75%;font-size:var(--fs-d3);line-height:1}
+.pf .pts b{display:block;font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:clamp(1.375rem,calc(1.236rem + 0.571vw),1.75rem);line-height:1.1}
+.pf .cred{margin:0;font-size:var(--fs-small);line-height:1.45}
+.pf .cred b{font-weight:600}
+
+.pf .desig{font-family:var(--font-display);font-weight:900;font-stretch:62.5%;font-size:var(--fs-d2);line-height:1;text-transform:uppercase;letter-spacing:0;margin:0 0 18px}
+.pf .lane{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);border-top:var(--rule) solid var(--ink)}
+.pf .lane .ll{grid-column:1/3;padding-top:14px;font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:var(--fs-d4);text-transform:uppercase;line-height:1.1}
+.pf .lane .ll small{display:block;font:400 var(--fs-small)/1.4 var(--font-text);text-transform:none;margin-top:6px;letter-spacing:0}
+.pf .lane .rows{grid-column:3/13}
+.pf .srow{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:center;column-gap:24px;row-gap:4px;padding:12px 12px 12px;border-bottom:var(--rule) solid var(--ink);min-height:96px}
+.pf .srow:last-child{border-bottom:0}
+.pf .srow .w{font-family:var(--font-display);font-weight:900;font-stretch:62.5%;font-size:var(--fs-d2);line-height:1;letter-spacing:-0.01em;white-space:nowrap}
+.pf .srow .w{grid-column:1;grid-row:1}
+.pf .srow .desc{grid-column:1;grid-row:2;font:400 var(--fs-small)/1.35 var(--font-text);max-width:34em}
+.pf .srow .pr{grid-column:2;grid-row:1/3}
+.pf .srow .crop{width:96px;height:72px;background:var(--ground)}
+.pf .srow .pr{display:flex;align-items:center;justify-content:flex-end;gap:10px;font-family:var(--font-display);font-weight:900;font-stretch:75%;font-size:var(--fs-d2);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;min-width:4.2em}
+.pf .srow .pr small{font:500 var(--fs-small)/1 var(--font-text);letter-spacing:0}
+.pf .srow.is-hover{background:var(--counter)}
+.pf .srow.is-hover .w{font-stretch:100%}
+/* steps */
+.pf .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap);border-top:var(--rule) solid var(--ink)}
+.pf .step{padding:16px 24px 20px;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:20px;row-gap:6px;align-items:start;border-right:var(--rule) solid var(--ink)}
+.pf .step:last-child{border-right:0}
+.pf .step:first-child{padding-left:0}
+.pf .step .n{font-family:var(--font-display);font-weight:900;font-stretch:75%;font-size:var(--fs-d1);line-height:.8;font-variant-numeric:tabular-nums}
+.pf .step .disc{justify-self:end}
+.pf .step h4{grid-column:1/-1;margin:14px 0 0;font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:var(--fs-d3);line-height:1.05;letter-spacing:-0.005em}
+.pf .step p{grid-column:1/-1;margin:0;max-width:32em}
+/* faq */
+.pf .faq{border-top:var(--rule) solid var(--ink);max-width:880px}
+.pf .q{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:72px;padding:14px 4px;border-bottom:var(--rule) solid var(--ink);font:600 clamp(1.125rem,calc(1.032rem + 0.381vw),1.375rem)/1.25 var(--font-text)}
+.pf .q .mk{width:20px;height:20px;position:relative;flex:none}
+.pf .q .mk::before,.pf .q .mk::after{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--ink)}
+.pf .q .mk::after{transform:rotate(90deg)}
+.pf .q.open .mk{transform:rotate(45deg)}
+.pf .a{padding:14px 4px 22px;border-bottom:var(--rule) solid var(--ink);max-width:36em}
+.pf .chip{display:inline-flex;align-items:baseline;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:var(--rule) solid var(--ink);font:500 var(--fs-small)/38px var(--font-text);white-space:nowrap}
+.pf .chip b{font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:20px;font-variant-numeric:tabular-nums}
+.pf .ink{background:var(--ink);color:var(--paper)}
+.pf .zero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:clamp(40px,calc(25.1px + 3.81vw),80px) var(--gutter)}
+.pf .zero .big{grid-column:1/6;font-family:var(--font-display);font-weight:900;font-stretch:150%;font-size:clamp(9rem,calc(5.1rem + 16vw),19.5rem);line-height:.74;color:var(--counter);letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+.pf .zero .txt{grid-column:6/13;display:flex;flex-direction:column;gap:18px}
+.pf .zero h3{margin:0;font-family:var(--font-display);font-weight:900;font-stretch:66%;font-size:var(--fs-d1);line-height:.92;letter-spacing:-0.01em}
+.pf .zero ol{list-style:none;margin:0;padding:0;border-top:var(--rule) solid var(--paper);counter-reset:p}
+.pf .zero li{counter-increment:p;display:grid;grid-template-columns:2.2em minmax(0,1fr);align-items:baseline;padding:12px 0;border-bottom:var(--rule) solid var(--paper);font-size:var(--fs-lead);line-height:1.35}
+.pf .zero li::before{content:counter(p);font-family:var(--font-display);font-weight:900;font-stretch:75%;font-size:var(--fs-d3);line-height:1;color:var(--ground)}
+.pf .hours{border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:var(--fs-body);min-width:min(100%,420px)}
+.pf .hours td{padding:9px 14px 9px 10px;border-top:var(--rule) solid var(--ink)}
+.pf .hours tr:last-child td{border-bottom:var(--rule) solid var(--ink)}
+.pf .hours td:last-child{text-align:right;padding-right:10px}
+.pf .hours tr.today td{background:var(--counter);font-weight:600}
+.pf .hours .tg{font:600 12px/1 var(--font-text);margin-left:10px}
+.pf .foot{background:var(--ink);color:var(--paper);padding:0 var(--gutter) 28px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:28px;font-size:var(--fs-small);line-height:1.5}
+.pf .foot .plate{grid-column:1/-1;justify-self:start;margin-left:calc(var(--gutter) * -1);padding-left:var(--gutter)}
+.pf .foot .fc{grid-column:span 3}
+.pf .foot .fc b{display:block;font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:var(--fs-d4);text-transform:uppercase;line-height:1.1;margin-bottom:8px;color:var(--ground)}
+.pf .foot .fc a{text-decoration:underline;text-underline-offset:3px}
+.pf .foot .legal{grid-column:1/9;font-size:var(--fs-foot);align-self:end;border-top:var(--rule) solid var(--paper);padding-top:12px}
+.pf .foot .cookie{grid-column:9/13;display:flex;align-items:center;gap:14px;justify-content:flex-end;border-top:var(--rule) solid var(--paper);padding-top:12px}
+.pf .foot .cookie .disc{width:56px;height:56px;color:var(--ground)}
+.pf .tbtn{font:600 var(--fs-small)/1 var(--font-text);text-decoration:underline;text-underline-offset:3px}
+@media (min-width:1024px) and (max-width:1279px){
+ .pf .st-l{display:none}
+ .pf .st-s{display:inline}
+ .pf .hd{gap:20px}
+ .pf .hd nav{gap:18px;white-space:nowrap;margin-left:4px}
+ .pf .h1{--wdth-hero:56%}
+ .pf .who{grid-column:1/9;grid-row:3;align-self:end;justify-self:end;margin:0 0 10px}
+ .pf .who span{display:inline}
+ .pf .who .ip{display:inline}
+ .pf .slots{flex-wrap:nowrap}
+ .pf .slot{flex:1;justify-content:center;padding:0 6px;font-size:15px}
+ .pf .cta .btn{padding:0 20px}
+ .pf .cta .tn{display:none}
+}
+@media (max-width:1023px){
+ .pf .hd nav,.pf .hd .tel,.pf .st-l{display:none}
+ .pf .st-s{display:inline}
+ .pf .hero{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto var(--fig-h) auto auto;padding:20px var(--gutter) 28px;min-height:0;--fig-h:min(46vw,400px)}
+ .pf .h1{--wdth-hero:72%;grid-column:1;grid-row:1}
+ .pf .h1 .l1,.pf .h1 .l2{display:block}
+ .pf .sub{grid-column:1;grid-row:2;margin:14px 0 18px}
+ .pf .fig{grid-column:1;grid-row:3;margin:0 calc(var(--gutter) * -1);z-index:0}
+ .pf .fig img{object-position:right 6%;-webkit-mask-image:linear-gradient(#0000 0,#000 32px);mask-image:linear-gradient(#0000 0,#000 32px)}
+ .pf .who{grid-column:1;grid-row:3;align-self:start;justify-self:start;margin:16px 0 0;z-index:1}
+ .pf .strip{display:contents}
+ .pf .fv{grid-column:1;grid-row:3;align-self:end;justify-self:start;z-index:1;padding:0 0 12px}
+ .pf .op{grid-column:1;grid-row:4;border-left:0;border-top:var(--rule) solid var(--ink);padding:14px 0 0}
+ .pf .fn{grid-column:1;grid-row:5;margin:12px 0 0}
+ .pf .meet{display:block;min-height:0;padding:var(--band-y) var(--gutter)}
+ .pf .mfig{margin:18px calc(var(--gutter) * -1) 0;height:min(70vw,460px)}
+ .pf .mfig img{object-position:left 4%;-webkit-mask-image:linear-gradient(#0000 0,#000 32px);mask-image:linear-gradient(#0000 0,#000 32px)}
+ .pf .mcap{margin:8px 0 18px;text-align:left}
+ .pf .svc-head{display:block}
+ .pf .svc-head .frame{display:none}
+ .pf .lane{display:block}
+ .pf .lane .ll{padding:12px 0 10px}
+ .pf .lane .rows{border-top:var(--rule) solid var(--ink)}
+ .pf .steps{display:block}
+ .pf .step{border-right:0;border-bottom:var(--rule) solid var(--ink);padding:16px 0}
+}
+@media (max-width:639px){
+ .pf .hd{height:56px;gap:12px;padding-right:var(--gutter)}
+ .pf .hd .btn{display:none}
+ .pf .wm{font-size:22px}
+ .pf .wm.plate{height:56px;padding:0 34px 0 var(--gutter);--n:33.6px}
+ .pf #hero-proof{position:relative;height:100vh;overflow:hidden;background:var(--ground)}
+ .pf .hero{padding:12px var(--gutter) 76px;--fig-h:240px}
+ .pf .h1{--wdth-hero:75%}
+ .pf .sub{margin:10px 0 12px;font-size:17px;line-height:1.4}
+ .pf .who{margin-top:12px;font-size:17px}
+ .pf .fv{padding-bottom:10px}
+ .pf .num{font-size:3.5rem}
+ .pf .op{padding:10px 0 0;gap:7px}
+ .pf .op .cta{display:none}
+ .pf .slot{padding:0 4px;font-size:15px;flex:1;justify-content:center}
+ .pf .slots{gap:6px;flex-wrap:nowrap}
+ .pf .fn{margin:8px 0 0}
+ .pf .bbar{display:flex;gap:8px;position:absolute;left:0;right:0;bottom:0;height:64px;padding:8px 12px;background:var(--ink);z-index:2}
+ .pf .bbar .btn{height:48px;padding:0 12px;flex:1}
+ .pf .bbar .btn--primary{flex:1.35}
+ .pf .bbar .btn--sec{color:var(--paper);border-color:var(--paper)}
+ .pf .ticker{height:48px}
+ .pf .ticker .pause{width:64px}
+ .pf .ticker .track{font-size:17px}
+ .pf .srow{grid-template-columns:minmax(0,1fr) auto;padding:10px 4px 10px;min-height:72px;column-gap:12px;align-items:end}
+ .pf .srow .w{grid-column:1/-1}
+ .pf .srow .crop{display:none}
+ .pf .srow .pr{grid-column:2;grid-row:2;min-width:0}
+ .pf .desig .ip{display:none}
+ .pf .desig .br{display:block}
+ .pf .disc{width:72px;height:72px}
+ .pf .step{padding:14px 0}
+ .pf .rowx .frame{width:150px}
+ .pf .zero{display:block}
+ .pf .zero .big{margin-bottom:18px}
+ .pf .foot .fc{grid-column:span 6}
+ .pf .foot .legal,.pf .foot .cookie{grid-column:1/-1;justify-content:flex-start}
+}
+
+/* ---------- image specimen additions ---------- */
+.pf .demo{margin:0;background:var(--paper);color:var(--ink);font:500 var(--fs-foot)/1.35 var(--font-text);padding:7px var(--gutter);border-bottom:var(--rule) solid var(--ink)}
+.pf .hero{min-height:clamp(620px,49.3vw,710px)}
+.pf .sec{padding:var(--section-y) var(--gutter)}
+.pf .sec.paper{background:var(--paper)}
+.pf .sec.gr{background:var(--ground)}
+.pf .sec + .sec.paper.ruled{border-top:var(--rule) solid var(--ink)}
+.pf .sec-h{margin:0 0 28px;font-family:var(--font-display);font-weight:900;font-stretch:66%;font-size:var(--fs-d1);line-height:.92;letter-spacing:-0.01em;text-wrap:balance}
+.pf .g12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start}
+.pf .pcap{margin:8px 0 0;font:400 var(--fs-small)/1.4 var(--font-text)}
+.pf figure{margin:0}
+.pf .ph169 img,.pf .ph32 img,.pf .ph45 img{display:block;width:100%;object-fit:cover}
+.pf .ph32 img{aspect-ratio:3/2}
+.pf .ph45 img{aspect-ratio:4/5}
+.pf .tag{font:700 12px/1.3 ui-monospace,Menlo,monospace;background:var(--ink);color:var(--paper);padding:6px var(--gutter);margin:0}
+/* food strip */
+.pf .foods{display:flex;background:var(--paper)}
+.pf .food{flex:var(--ar) 1 0;min-width:0}
+.pf .food img{display:block;width:100%;aspect-ratio:var(--ar);object-fit:cover;object-position:0% 100%}
+.pf .food figcaption{padding:8px 12px 14px;font:400 var(--fs-small)/1.4 var(--font-text)}
+.pf .food:first-child figcaption{padding-left:var(--gutter)}
+/* comfort */
+.pf .cphoto{grid-column:1/7}
+.pf .ctxt{grid-column:8/13;display:flex;flex-direction:column;gap:16px}
+.pf .ctxt .lead{margin:0;font-size:var(--fs-lead);line-height:1.4}
+.pf .rlist{list-style:none;margin:0;padding:0;border-top:var(--rule) solid var(--ink)}
+.pf .rlist li{padding:10px 0;border-bottom:var(--rule) solid var(--ink);font-size:var(--fs-body);line-height:1.35}
+.pf .tlink{font:500 var(--fs-ui)/1.2 var(--font-text);text-decoration:underline;text-underline-offset:3px;align-self:flex-start}
+.pf .stoprow{display:flex;gap:14px;align-items:center;margin-top:6px}
+.pf .stoprow span{font-size:var(--fs-small);line-height:1.4;max-width:22em}
+/* dentist band: the portrait never zooms past the point where her right arm would be cut (image height <= 1.89 x figure width); above that it stands at the bottom and the lime field continues over its feathered top */
+@media (min-width:1024px){
+ .pf .mfig{container-type:size}
+ .pf .mfig img{inset:auto;left:0;bottom:0;height:min(100cqh,189cqw);width:auto;max-width:none;-webkit-mask-image:linear-gradient(to left,#0000 0,#000 72px),linear-gradient(#0000 0,#000 32px);-webkit-mask-composite:source-in;mask-image:linear-gradient(to left,#0000 0,#000 72px),linear-gradient(#0000 0,#000 32px);mask-composite:intersect}
+}
+/* dentist band with the second photograph beside the points */
+.pf .ptsrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:var(--gap);align-items:start}
+/* cost */
+.pf .costtxt{grid-column:1/9;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.pf .costtxt .sec-h{margin:0}
+.pf .costtxt p{margin:0;max-width:36em}
+.pf .costtxt .promise{font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:var(--fs-d3);line-height:1.05;max-width:20em}
+.pf .costfig{grid-column:10/13}
+.pf .switch{display:inline-flex;border:var(--rule) solid var(--ink);border-radius:999px;overflow:hidden}
+.pf .switch span{display:inline-flex;align-items:center;height:48px;padding:0 22px;font:600 var(--fs-ui)/1 var(--font-text)}
+.pf .switch .is-on{background:var(--ink);color:var(--paper)}
+/* find us */
+.pf .ffig{grid-column:1/8}
+.pf .ftxt{grid-column:9/13;display:flex;flex-direction:column;gap:16px}
+.pf .ftxt p{margin:0}
+.pf .bigstatus{display:flex;align-items:center;gap:12px;font-size:var(--fs-lead);font-weight:500}
+.pf .bigstatus .dot{width:20px;height:20px}
+/* faq with the laughing portrait */
+.pf .faqcol{grid-column:1/9}
+.pf .faqcol .faq{max-width:none}
+.pf .lfig{grid-column:10/13}
+.pf .crop{position:relative;overflow:hidden;aspect-ratio:4/5}
+.pf .crop img{position:absolute;display:block;max-width:none;width:155.83%;left:-52.78%;top:-2.22%}
+.pf .lfig.ruled .crop{border:var(--rule) solid var(--ink)}
+.pf .lfig.graded .crop img{filter:url(#to-paper)}
+.pf .lfig.graded .crop{-webkit-mask-image:linear-gradient(to right,#0000 0,#000 28px),linear-gradient(#0000 0,#000 28px);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,#0000 0,#000 28px),linear-gradient(#0000 0,#000 28px);mask-composite:intersect}
+/* closing */
+.pf .cltxt{grid-column:1/9;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.pf .cltxt .sec-h{margin:0;text-wrap:nowrap}
+.pf .cltxt .wide{display:block;font-stretch:125%}
+.pf .cltxt p{margin:0}
+.pf .clfig{grid-column:10/13}
+/* footer plate sits 32px down so it does not merge with the tangerine closing band above */
+.pf .foot .plate{margin-top:32px}
+/* identity */
+.pf .og{width:1200px;height:630px;background:var(--ground);position:relative;overflow:hidden;isolation:isolate}
+.pf .og .demo{font-size:23px;padding:11px 48px;line-height:1.3}
+.pf .og .wm.plate{position:absolute;left:0;top:54px;height:96px;font-size:34px;padding:0 58px 0 48px;--n:60px}
+.pf .og h3{position:absolute;left:48px;top:206px;margin:0;font-family:var(--font-display);font-weight:900;font-stretch:66%;font-size:86px;line-height:.9;letter-spacing:-0.01em;white-space:nowrap}
+.pf .og .ogwho{position:absolute;left:48px;bottom:44px;margin:0;font-family:var(--font-display);font-weight:800;font-stretch:75%;font-size:28px;line-height:1.05;text-transform:uppercase}
+.pf .og img{position:absolute;right:0;bottom:0;height:576px;width:auto;z-index:-1;-webkit-mask-image:linear-gradient(to right,#0000 0,#000 60px);mask-image:linear-gradient(to right,#0000 0,#000 60px)}
+.pf .avatar{width:200px;height:200px;background:var(--ink);color:var(--ground);display:flex;align-items:flex-end;padding:0 0 18px 18px;--n:90px}
+.pf .avatar span{font-family:var(--font-display);font-weight:900;font-stretch:62.5%;font-size:46px;line-height:.9;text-transform:uppercase}
+@media (max-width:1023px){
+ .pf .g12{display:block}
+ .pf .cphoto,.pf .ffig,.pf .costfig,.pf .clfig,.pf .lfig{margin:0 0 20px}
+ .pf .costfig,.pf .clfig,.pf .lfig{max-width:322px;margin-top:24px}
+ .pf .ptsrow{display:block}
+ .pf .ptsrow figure{margin-top:18px}
+ .pf .ptsrow .ph45 img{aspect-ratio:3/2;object-position:50% 50% !important}
+ .pf .og{transform-origin:0 0;transform:scale(.298)}
+ .pf .ogwrap{height:190px;overflow:hidden}
+}
+@media (max-width:639px){
+ .pf .demo{padding:5px var(--gutter);font-size:12px}
+ .pf .hero{--fig-h:204px;min-height:0}
+ .pf .foods{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+ .pf .food{flex:none;width:calc(240px * var(--ar));scroll-snap-align:start}
+ .pf .food figcaption,.pf .food:first-child figcaption{padding:8px 16px 14px}
+ .pf .stoprow{flex-direction:column;align-items:flex-start}
+ .pf .lfig{max-width:240px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="to-paper" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="linear" slope="1.016"/><feFuncG type="linear" slope="1.043"/><feFuncB type="linear" slope="1.061"/></feComponentTransfer></filter></svg>
+<section class="pf" id="page">
+ <div id="hero-proof">
+ <p class="demo">Demo page. This practice and Dr. Paloma Krenek are fictional. The photographs are AI-generated.</p>
+ <header class="hd">
+  <a class="wm plate">Feast Dental</a>
+  <nav><a>First visit</a><a>Services</a><a>Cost</a><a>Find us</a></nav>
+  <span class="sp"></span>
+  <span class="status"><i class="dot"></i><span class="st-l">Open now till 7:30.</span><span class="st-s">Open till 7:30</span></span>
+  <a class="tel">(512) 555-0142</a>
+  <a class="btn btn--md btn--primary">Book online</a>
+ </header>
+ <div class="hero">
+  <figure class="fig"><img src="../../assets/img/src/paloma-hero.png" alt="Dr. Paloma Krenek in dark scrubs on a tangerine backdrop."></figure>
+  <h1 class="h1"><span class="l1">I don’t</span> <span class="l2">care how long</span> <span class="l3">it’s been.</span></h1>
+  <p class="sub">I care about what’s bothering you now. I’m Paloma, a general dentist on the east side. You get a proper look, the price in writing, and no lecture.</p>
+  <p class="who"><span>Dr. Paloma </span><span>Krenek, DDS</span><i class="ip"> · </i><span>General </span><span>Dentist</span></p>
+  <div class="strip">
+   <div class="fv"><span class="lab">First visit · 75 min</span><span class="num">$195</span><span class="cap">without insurance<sup>1</sup></span></div>
+   <div class="op">
+    <div class="oph"><span class="lab">Next openings</span><a class="more">More times</a></div>
+    <div class="slots"><span class="slot"><b>Tue</b>5:45 pm</span><span class="slot"><b>Wed</b>8:00 am</span><span class="slot on bite"><b>Thu</b>5:30 pm</span></div>
+    <p class="opcap">Sample times for this demo, not real openings. As of 6:42 pm.</p>
+    <div class="cta"><a class="btn btn--primary">Book Thu 5:30 pm</a><a class="btn">Call or text<span class="tn">&nbsp;(512) 555-0142</span></a></div>
+   </div>
+  </div>
+  <p class="fn"><sup>1</sup> Exam, X-rays and a regular cleaning. If your gums need more than a regular cleaning, I show you why and price it first.</p>
+ </div>
+ <div class="bbar"><a class="btn btn--primary">Book online</a><a class="btn btn--sec">Call or text</a></div>
+ </div>
+ 
+ <div class="ticker" id="ticker-proof"><span class="pause">Pause</span><div class="track"><span>No lecture</span><i class="sep"></i><span>Price in writing first</span><i class="sep"></i><span>Raise a hand and I stop</span><i class="sep"></i><span>Evenings and Saturdays</span><i class="sep"></i><span>Holly, East Austin</span><i class="sep"></i><span>Se habla español</span><i class="sep"></i><span>No lecture</span><i class="sep"></i><span>Price in writing first</span></div></div>
+
+ <div class="sheet" id="first-visit" style="border-top:0">
+  <h2 class="sec-h">Here’s your whole first visit.</h2>
+  <div class="steps">
+   <div class="step"><span class="n">1</span><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pb3" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pb3)"/></svg><h4>A proper look</h4><p>Exam and a full set of X-rays. I draw you what I see.</p></div>
+   <div class="step"><span class="n">2</span><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pb5" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12ZM98.42 29.7A23.29 23.29 0 0 0 78.28 45.73A23.29 23.29 0 0 0 50.71 78.6A23.29 23.29 0 0 0 38.42 101.2L39.46 113.16L117.17 106.36L110.37 28.66Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pb5)"/></svg><h4>Tell me what you’ve stopped eating</h4><p>That is how I find the tooth that is bothering you.</p></div>
+   <div class="step"><span class="n">3</span><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pb7" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12ZM98.42 29.7A23.29 23.29 0 0 0 78.28 45.73A23.29 23.29 0 0 0 50.71 78.6A23.29 23.29 0 0 0 38.42 101.2L39.46 113.16L117.17 106.36L110.37 28.66ZM-1.2 61.58A23.29 23.29 0 0 0 21.4 49.29A23.29 23.29 0 0 0 54.27 21.72A23.29 23.29 0 0 0 70.3 1.58L71.34 -10.37L-6.36 -17.17L-13.16 60.54Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pb7)"/></svg><h4>A plan with prices</h4><p>In writing, before I do anything.</p></div>
+  </div>
+  
+ </div>
+ <div class="foods" id="foods">
+  <figure class="food" style="--ar:1"><img src="../../assets/img/src/bite-apple.png" alt=""><figcaption>Apple.</figcaption></figure>
+  <figure class="food" style="--ar:1"><img src="../../assets/img/src/bite-toast.png" alt=""><figcaption>Toast.</figcaption></figure>
+  <figure class="food" style="--ar:1.5"><img src="../../assets/img/src/bite-corn.png" alt=""><figcaption>Corn.</figcaption></figure>
+  <figure class="food" style="--ar:1"><img src="../../assets/img/src/bite-taco.png" alt=""><figcaption>Taco.</figcaption></figure>
+ </div>
+ <div class="sheet gr" id="services" style="border-top:0">
+  <div class="svc-head" style="display:block"><h2>What I do, and what it costs.</h2><p class="desig">Dr. Paloma Krenek, DDS<span class="ip"> · </span><span class="br"></span>General Dentist</p></div>
+  <div class="lane"><div class="ll">Keep your teeth working</div><div class="rows">
+   <div class="srow"><span class="w">Checkups</span><span class="desc">After your first visit: exam and a regular cleaning. X-rays when they’re due. 50 min.</span><span class="pr"><small>from</small>$145</span></div>
+   <div class="srow"><span class="w">Fillings</span><span class="desc">Tooth-colored. I draw the spot and price it before I start.</span><span class="pr"><small>from</small>$190</span></div>
+   <div class="srow is-hover"><span class="w">Emergency</span><span class="desc">Something hurts or broke. I look and X-ray that tooth. Treatment is priced before it starts.</span><span class="pr">$95</span></div>
+  </div></div>
+  <div class="lane"><div class="ll">Change how they look<small>Only if you want to.</small></div><div class="rows">
+   <div class="srow"><span class="w">Whitening</span><span class="desc">Trays to take home, or done here in the chair. You pick. In-chair from $450.</span><span class="pr"><small>from</small>$250</span></div>
+   <div class="srow"><span class="w">Aligners</span><span class="desc">Start with a 3D scan and a plain answer on cost and time. Consult $0 · 30 min.</span><span class="pr"><small>from</small>$3,400</span></div>
+  </div></div>
+ 
+ </div>
+
+ <section class="sec paper" id="comfort">
+  <h2 class="sec-h">Nervous is normal here.</h2>
+  <div class="g12">
+   <figure class="cphoto ph32"><img src="../../assets/img/src/paloma-listening.png" alt="" style="object-position:50% 50%"></figure>
+   <div class="ctxt">
+    <p class="lead">Say so at the door and I slow down. I tell you what’s next before I do it. You set the pace.</p>
+    <span class="lab">What helps</span>
+    <ul class="rlist"><li>A stop signal: raise a hand and I stop</li><li>Breaks whenever you ask</li><li>Headphones</li><li>Something to watch</li><li>Numbing explained before I start</li></ul>
+    <a class="tlink">Text us a question</a>
+    <div class="stoprow"><a class="btn btn--md">Stop the motion</a><span>Like the stop signal in the chair. Press it and the page holds still.</span></div>
+   </div>
+  </div>
+ </section>
+
+ <div class="meet" id="dentist">
+  <figure class="mfig"><img src="../../assets/img/src/paloma-apple.png" alt=""></figure>
+  <p class="mcap">Paloma. Apple.</p>
+  <div class="mtxt">
+   <h2>I’m Paloma.</h2>
+   <p class="bio">I’m a general dentist, and I opened Feast Dental on the east side this October. In college I went four years without a cleaning: no insurance, and scared of the bill. So you won’t get a lecture from me about how long it’s been.</p>
+   <p class="pull">Teeth are for biting.<br>I keep them at it.</p>
+   <div class="ptsrow">
+    <ol class="pts"><li><span><b>I ask first.</b>One question, and your answer tells me where to look.</span></li><li><span><b>I draw it.</b>You see the tooth and the fix on paper.</span></li><li><span><b>I price it in writing.</b>You get the number before I do anything.</span></li></ol>
+    <figure class="ph45"><img src="../../assets/img/src/paloma-drawing.png" alt="" style="object-position:12.6% 50%"><figcaption class="pcap">The pad. The marker.</figcaption></figure>
+   </div>
+   <p class="cred"><b>Dr. Paloma Krenek, DDS · General Dentist</b><br>DDS, [dental school, year] · [university, year]</p>
+  </div>
+ </div>
+
+ <section class="sec gr" id="cost">
+  <div class="g12">
+   <div class="costtxt">
+    <h2 class="sec-h">You’ll know the cost first.</h2>
+    <div class="switch"><span>With insurance</span><span class="is-on">No insurance</span></div>
+    <p>The first visit is $195. That’s a full exam, a full set of X-rays, a regular cleaning, and a written plan with a price for anything else. If your gums need more than a regular cleaning, I show you why and price it first.</p>
+    <p class="promise">You get a written estimate before any treatment. Insured or not.</p>
+    <div class="rowx"><a class="btn btn--primary">Book online</a><a class="btn">Check my insurance</a><span class="chip" style="background:var(--paper)">First visit <b>$195</b> 75 min</span></div>
+   </div>
+   <figure class="costfig"><div class="frame"><img class="bite-w ph" src="../../assets/img/src/the-drawing.png" alt="" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover"></div><figcaption class="pcap">Fillings from $190.</figcaption></figure>
+  </div>
+ </section>
+
+ <section class="sec paper" id="find">
+  <h2 class="sec-h">We’re in Holly, on the east side.</h2>
+  <div class="g12">
+   <figure class="ffig ph32"><img src="../../assets/img/src/storefront.png" alt=""><figcaption class="pcap">The front door, 2217 Tejocote Street. Placeholder picture.</figcaption><p class="pcap">[Parking, nearest bus stop and level entrance: to confirm]</p></figure>
+   <div class="ftxt">
+    <div class="bigstatus"><i class="dot"></i>Open now till 7:30.</div>
+    <table class="hours"><tr><td>Mon</td><td>8:00 am – 5:00 pm</td></tr><tr class="today"><td>Tue<span class="tg">Today</span></td><td>11:00 am – 7:30 pm</td></tr><tr><td>Wed</td><td>8:00 am – 5:00 pm</td></tr><tr><td>Thu</td><td>11:00 am – 7:30 pm</td></tr><tr><td>Fri</td><td>8:00 am – 2:00 pm</td></tr><tr><td>Sat</td><td>9:00 am – 1:00 pm</td></tr><tr><td>Sun</td><td>Closed</td></tr></table>
+    <p>2217 Tejocote Street, Austin, TX 78702</p>
+    <p><a class="tlink">Get directions</a> &nbsp; <a class="tlink">Call or text (512) 555-0142</a></p>
+   </div>
+  </div>
+ </section>
+
+ <p class="tag">FAQ, variant A (chosen): the cream-backdrop portrait in a 1.5px ink rule</p>
+ <section class="sec paper" id="faq-a">
+  <div class="g12">
+   <div class="faqcol"><h2 class="sec-h">Go on, ask.</h2><div class="faq"><div class="q">What does a first visit cost without insurance?<span class="mk"></span></div><div class="q">Do you take my insurance?<span class="mk"></span></div><div class="q open">I haven’t been in years. Is that a problem?<span class="mk"></span></div><div class="a">No. I’ll ask when your last visit was, and there’s no wrong answer. I went four years without one myself.</div><div class="q">What if I’m scared of the dentist?<span class="mk"></span></div><div class="q">How long is the first visit?<span class="mk"></span></div><div class="q">Does whitening hurt?<span class="mk"></span></div><div class="q">What if I need to cancel?<span class="mk"></span></div></div></div>
+   <figure class="lfig ruled"><div class="crop"><img src="../../assets/img/src/paloma-laughing.png" alt=""></div></figure>
+  </div>
+ </section>
+ <p class="tag">FAQ, variant B (rejected): the same crop graded to the page with a filter and feathered, no frame. It leaves a cut-off bust floating on the page, and the filter lightens her teeth.</p>
+ <section class="sec paper" id="faq-b">
+  <div class="g12">
+   <div class="faqcol"><h2 class="sec-h">Go on, ask.</h2><div class="faq"><div class="q">What does a first visit cost without insurance?<span class="mk"></span></div><div class="q">Do you take my insurance?<span class="mk"></span></div><div class="q">I haven’t been in years. Is that a problem?<span class="mk"></span></div><div class="q">What if I’m scared of the dentist?<span class="mk"></span></div></div></div>
+   <figure class="lfig graded"><div class="crop"><img src="../../assets/img/src/paloma-laughing.png" alt=""></div></figure>
+  </div>
+ </section>
+
+ <section class="sec gr" id="closing">
+  <div class="g12">
+   <div class="cltxt">
+    <h2 class="sec-h">No lecture.<br>Price in writing.<span class="wide">Come in.</span></h2>
+    <div class="rowx"><a class="btn btn--primary">Book online</a><a class="btn">Call or text (512) 555-0142</a><span class="chip" style="background:var(--paper)">First visit <b>$195</b> 75 min</span></div>
+    <p style="font-size:var(--fs-lead)">Then go bite something.</p>
+    <p style="font-size:var(--fs-small)">Open Monday to Saturday. Till 7:30 pm Tuesdays and Thursdays.</p>
+   </div>
+   <figure class="clfig"><div class="frame"><img class="bite-w" src="../../assets/img/src/bite-peach.png" alt="" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover"></div><figcaption class="pcap">Peach.</figcaption></figure>
+  </div>
+ </section>
+ <div class="foot" id="foot-proof">
+  <span class="wmx plate onink" style="font-size:26px">Feast Dental</span>
+  <div class="fc"><b>Find us</b>2217 Tejocote Street<br>Austin, TX 78702<br><a>Directions</a></div>
+  <div class="fc"><b>Call or text</b><span style="font-variant-numeric:tabular-nums">(512) 555-0142</span><br><a>Book online</a></div>
+  <div class="fc"><b>Hours</b>Mon, Wed 8–5 · Tue, Thu 11–7:30<br>Fri 8–2 · Sat 9–1 · Sun closed</div>
+  <div class="fc"><b>The dentist</b>Dr. Paloma Krenek, DDS<br>General Dentist</div>
+  <div class="legal">Demo page. The practice, the dentist and her story are invented. The photographs are AI-generated. The prices, hours, phone number and address are placeholders. <a class="tbtn">Stop the motion</a></div>
+  <div class="cookie"><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pbc" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pbc)"/></svg><span>The only cookie on this site.</span></div>
+ </div>
+
+
+ <section class="sec paper" id="identity">
+  <h6>Social card, 1200 x 630 (shown at full size from 1024 up), then favicon at 64, 32 and 16px, and the avatar at 200px (built at 400)</h6>
+  <div class="ogwrap"><div class="og"><p class="demo">Demo page. This practice and Dr. Paloma Krenek are fictional. The photographs are AI-generated.</p><span class="wm plate">Feast Dental</span><h3>I don’t care how long<br>it’s been.</h3><p class="ogwho">Dr. Paloma Krenek, DDS<br>General Dentist</p><img src="../../assets/img/src/paloma-hero.png" alt=""></div></div>
+  <div class="rowx" style="margin-top:24px;align-items:flex-end;gap:28px">
+   <svg width="64" height="64" viewBox="0 0 100 100"><path fill="#f9530a" d="M0 0H56.8A15.3 15.3 0 0 0 66.06 14.06A15.3 15.3 0 0 0 85.94 33.94A15.3 15.3 0 0 0 100 43.2V100H0Z"/></svg>
+   <svg width="32" height="32" viewBox="0 0 100 100"><path fill="#f9530a" d="M0 0H56.8A15.3 15.3 0 0 0 66.06 14.06A15.3 15.3 0 0 0 85.94 33.94A15.3 15.3 0 0 0 100 43.2V100H0Z"/></svg>
+   <svg width="16" height="16" viewBox="0 0 100 100"><path fill="#f9530a" d="M0 0H56.8A15.3 15.3 0 0 0 66.06 14.06A15.3 15.3 0 0 0 85.94 33.94A15.3 15.3 0 0 0 100 43.2V100H0Z"/></svg>
+   <span style="background:#26120b;padding:10px;display:inline-flex;gap:14px;align-items:flex-end"><svg width="32" height="32" viewBox="0 0 100 100"><path fill="#f9530a" d="M0 0H56.8A15.3 15.3 0 0 0 66.06 14.06A15.3 15.3 0 0 0 85.94 33.94A15.3 15.3 0 0 0 100 43.2V100H0Z"/></svg><svg width="16" height="16" viewBox="0 0 100 100"><path fill="#f9530a" d="M0 0H56.8A15.3 15.3 0 0 0 66.06 14.06A15.3 15.3 0 0 0 85.94 33.94A15.3 15.3 0 0 0 100 43.2V100H0Z"/></svg></span>
+   <div class="avatar bite"><span>Feast<br>Dental</span></div>
+  </div>
+ </section>
+</section>
+</body>
+</html>

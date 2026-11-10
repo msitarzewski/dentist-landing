@@ -1,0 +1,21 @@
+# nothing is installed to run or build this site; ignored in case a tool is added later
+node_modules/
+npm-debug.log*
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+
+# local scratch
+.tmp/
+
+# review output: the reports and the session log are kept; the screenshots, traces and logs behind them are not (about 900 MB)
+.ops/*
+!.ops/qa/
+.ops/qa/*
+!.ops/qa/*.md
+!.ops/session.jsonl
+
+# screenshots of real dental practices' websites, taken for research: not ours to redistribute
+research/shots/

@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Feast Dental — colour specimen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&amp;family=Public+Sans:wght@100..900&amp;display=block">
+<!-- Fonts come from Google Fonts for this specimen only; the site build self-hosts both families. -->
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff4e3;color:#26120b;font-family:"Public Sans",ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.d{font-family:"Anybody",Impact,sans-serif;font-weight:900;font-stretch:66%;letter-spacing:-0.01em}
+.mono{font:400 11.5px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:0}
+.v{--rule:1.5px;--notch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0A35.3 35.3 0 0 0 21.56 32.49A35.3 35.3 0 0 0 67.51 78.44A35.3 35.3 0 0 0 100 100V0Z'/%3E%3C/svg%3E");display:grid;grid-template-columns:58fr 42fr;grid-template-rows:minmax(100vh,auto) auto;border-bottom:var(--rule) solid var(--ink);color:var(--ink)}
+.v .g{background:var(--ground);padding:22px 40px 22px;display:flex;flex-direction:column;gap:11px;min-width:0}
+.v .p{background:var(--paper);padding:22px 40px 22px 32px;display:flex;flex-direction:column;gap:14px;border-left:var(--rule) solid var(--ink);min-width:0}
+.bar{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:var(--rule) solid var(--ink);padding-bottom:10px}
+.bar .wm{font-size:24px;font-stretch:62%;text-transform:uppercase;letter-spacing:0;white-space:nowrap}
+.bar .st{font-size:15px;font-weight:500;white-space:nowrap}
+.bar .st i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--ink);margin-right:6px}
+.tag{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}
+.tag b{font:700 12px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace}
+.h{font-size:clamp(46px,5.7vw,82px);line-height:.9;margin:0;white-space:nowrap}
+.h.cream{color:var(--paper)}
+.r{font:400 11.5px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.r em{font-style:normal;padding:1px 6px;border:1px solid currentColor;border-radius:99px}
+.r.onink{color:var(--paper)}
+.row{display:flex;flex-wrap:wrap;gap:10px 10px;align-items:center}
+.col{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.btn{display:inline-flex;align-items:center;height:56px;padding:0 26px;border-radius:999px;border:var(--rule) solid var(--ink);font:600 17px/1 "Public Sans",sans-serif;color:var(--ink);background:transparent;white-space:nowrap;text-decoration:none}
+.btn.c{background:var(--counter)}
+.btn.i{background:var(--ink);color:var(--paper)}
+.btn.ic{background:var(--ink);color:var(--counter)}
+.btn.pp{background:var(--paper)}
+.btn.gg{background:var(--ground)}
+.btn.bit{--n:34px;clip-path:shape(from 0 0,hline to calc(100% - var(--n)),arc to calc(100% - var(--n)*.7847) calc(var(--n)*.325) of calc(var(--n)*.3529) ccw,arc to calc(100% - var(--n)*.325) calc(var(--n)*.7847) of calc(var(--n)*.3529) ccw,arc to 100% var(--n) of calc(var(--n)*.3529) ccw,vline to 100%,hline to 0,close)}
+.price{display:flex;align-items:flex-end;gap:14px}
+.price .n{font-size:clamp(84px,7.8vw,112px);line-height:.8;font-stretch:75%;font-variant-numeric:tabular-nums}
+.price .c{font-size:15px;line-height:1.35;padding-bottom:4px}
+.chip{display:inline-flex;align-items:baseline;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:var(--rule) solid var(--ink);font:500 14px/40px "Public Sans",sans-serif;white-space:nowrap}
+.chip b{font-family:"Anybody",sans-serif;font-weight:800;font-stretch:85%;font-size:20px;font-variant-numeric:tabular-nums}
+.chip.pp{background:var(--paper)}.chip.c{background:var(--counter)}.chip.i{background:var(--ink);color:var(--paper)}.chip.gg{background:var(--ground)}
+.slot{display:inline-flex;align-items:center;height:48px;padding:0 18px;border-radius:999px;border:var(--rule) solid var(--ink);font:400 16px/1 "Public Sans",sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}
+.slot b{font-weight:700;margin-right:6px}
+.slot.hov{background:var(--paper)}
+.slot.on{background:var(--counter);--n:22px;clip-path:shape(from 0 0,hline to calc(100% - var(--n)),arc to calc(100% - var(--n)*.7847) calc(var(--n)*.325) of calc(var(--n)*.3529) ccw,arc to calc(100% - var(--n)*.325) calc(var(--n)*.7847) of calc(var(--n)*.3529) ccw,arc to 100% var(--n) of calc(var(--n)*.3529) ccw,vline to 100%,hline to 0,close)}
+.sw{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 14px;border:var(--rule) solid var(--ink);border-radius:999px;font:600 13px/1 "Public Sans",sans-serif;color:var(--ink)}
+.sw.bare{border-color:transparent}
+.lbl{font:600 12px/1.2 "Public Sans",sans-serif;text-transform:none;opacity:1}
+.p p{margin:0;font-size:20px;line-height:1.5;max-width:30em}
+.p p.sm{font-size:15px;line-height:1.45}
+.svc{border-top:var(--rule) solid var(--ink)}
+.svc .rw{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;column-gap:16px;padding:8px 10px 6px;border-bottom:var(--rule) solid var(--ink)}
+.svc .rw .w{font-size:clamp(34px,3.9vw,56px);line-height:1;font-stretch:62%}
+.svc .rw .pr{font-size:clamp(34px,3.9vw,56px);line-height:1;font-stretch:75%;font-variant-numeric:tabular-nums}
+.svc .rw .pr small{font:500 14px/1 "Public Sans",sans-serif;letter-spacing:0;margin-right:8px;vertical-align:middle}
+.svc .rw .sub{grid-column:1/-1;font-size:15px;line-height:1.4;padding-top:2px}
+.svc .rw.hc{background:var(--counter)}
+.svc .rw.hc .w{font-stretch:100%}
+.svc .rw.hg{background:var(--ground)}
+.svc .rw.hg .w{font-stretch:100%}
+.svc .rw.hi{background:var(--ink);color:var(--paper)}
+.svc .rw.hi .w{font-stretch:100%}
+.tbl{grid-column:1/-1;background:var(--paper);border-top:var(--rule) solid var(--ink);padding:12px 40px 16px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px 14px}
+.tbl h3{grid-column:1/-1;margin:0;font:700 14px/1.3 "Public Sans",sans-serif;display:flex;gap:14px;flex-wrap:wrap;align-items:baseline}
+.tbl h3 span{font:400 12px/1.3 ui-monospace,Menlo,monospace}
+.pair{display:flex;flex-direction:column;gap:3px;min-width:0}
+.pair .s{height:44px;display:flex;align-items:center;padding:0 10px;border:1px solid var(--ink);font:600 17px/1 "Public Sans",sans-serif;white-space:nowrap;overflow:hidden}
+.pair .s .dd{font-family:"Anybody",sans-serif;font-weight:900;font-stretch:66%;font-size:26px;margin-right:8px}
+.pair .m{font:400 11px/1.3 ui-monospace,Menlo,monospace}
+.pair .m b{font-weight:700}
+.ban{text-decoration:line-through}
+.intro{padding:18px 40px;border-bottom:1.5px solid #26120b;font-size:15px;line-height:1.45}
+.intro h1{font:700 22px/1.2 "Public Sans",sans-serif;margin:0 0 6px}
+.intro p{margin:0;max-width:92ch}
+.pick{display:inline-block;background:var(--ink);color:var(--paper);font:700 12px/1 ui-monospace,Menlo,monospace;padding:4px 8px;border-radius:99px}
+@media (max-width:900px){
+ .v{grid-template-columns:1fr;min-height:0}
+ .v .g,.v .p{padding:14px 16px 18px;border-left:0}
+ .v .g{min-height:100vh}
+ .v .p{border-top:var(--rule) solid var(--ink)}
+ .bar .wm{font-size:20px}.bar .st{font-size:13px}
+ .h{font-size:54px;font-stretch:60%}
+ .tbl{grid-template-columns:repeat(2,minmax(0,1fr));padding:12px 16px 16px}
+ .btn{height:52px;padding:0 20px;font-size:16px}
+ .p p{font-size:18px}
+ .intro{padding:14px 16px}
+}
+</style>
+</head>
+<body>
+<div class="intro"><h1>Colour specimen: four palettes, same components</h1><p>Each palette is four colours: ground, counter, paper, ink. Every ratio printed here is the WCAG 2 contrast ratio computed from the hex values (relative luminance, sRGB). The second button in each ground row is the bitten state after a press; the lime time chip is the chosen state. Under the four variants: the final values, then a proof of the layout and the bite in those values.</p></div>
+<section class="v" id="v1" style="--ground:#ff4d17;--counter:#c8f73a;--paper:#fff3e3;--ink:#2a0f0a">
+<div class="g">
+ <div class="bar"><span class="wm d">Feast Dental</span><span class="st"><i></i>Open now · until 7:30 pm</span></div>
+ <div class="tag mono"><b>V1  Blood orange + lime</b><span>ground #ff4d17</span><span>counter #c8f73a</span><span>paper #fff3e3</span><span>ink #2a0f0a</span></div>
+ <div class="col"><h2 class="h d">I don’t care how<br>long it’s been.</h2><span class="r">5.40:1 <em>body-safe</em></span></div>
+ <div class="col"><h2 class="h d cream">I don’t care how<br>long it’s been.</h2><span class="r">3.03:1 <em>large-only</em></span></div>
+ <div class="row">
+  <div class="price"><span class="n d">$195</span><span class="c">First visit · 75 min<br>without insurance<sup>1</sup></span></div>
+  <span class="chip pp">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span>
+ </div>
+ <div class="row"><a class="btn c">Book online</a><a class="btn c bit">Book online</a><a class="btn i">Book online</a><a class="btn ic">Book online</a><a class="btn pp">Book online</a><a class="btn">Call or text (512) 555-0142</a></div>
+ <div class="row"><span class="lbl">Next openings</span><span class="slot"><b>Thu</b>5:30 pm</span><span class="slot hov"><b>Fri</b>8:00 am</span><span class="slot on"><b>Sat</b>9:30 am</span><span class="lbl" style="text-decoration:underline">More times</span></div>
+ <div class="row"><span class="lbl">Counter candidates on this ground</span><span class="sw" style="background:#dcff3d">lime #dcff3d · 2.91:1 on ground</span><span class="sw" style="background:#fff04d">lemon #fff04d · 2.82:1 on ground</span><span class="sw" style="background:#19c964">leaf #19c964 · 1.51:1 on ground</span></div>
+ <p class="mono" style="margin:0;max-width:100ch">The red-orange end. Reddest ground that still reads orange; the only variant where cream display type reaches 3:1 on the ground. Lime pulled toward green to stay clear of the red.</p>
+</div>
+<div class="p">
+ <p>I’m Paloma, a general dentist on the east side, and I care about what’s bothering you now: you get a proper look, a cleaning and the price in writing, and no lecture.</p>
+ <p class="sm"><sup>1</sup> Exam, X-rays and a regular cleaning. If your gums need more than a regular cleaning, I show you why and price it first. <span class="r">16.38:1 <em>body-safe</em></span></p>
+ <div class="row"><a class="btn c">Book online</a><a class="btn i">Book online</a><a class="btn gg">Book online</a><a class="btn">Call or text</a></div>
+ <div class="row"><span class="chip gg">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span><span class="chip">First visit <b>$195</b> 75 min</span></div>
+ <div class="svc">
+  <div class="rw"><span class="w d">Checkup</span><span class="pr d"><small>from</small>$145</span><span class="sub">Exam and regular cleaning, 50 minutes. Row at rest.</span></div>
+  <div class="rw hc"><span class="w d">Whitening</span><span class="pr d"><small>from</small>$250</span><span class="sub">Hover or focus: ground swaps to the counter, word opens wide. <span class="r">14.36:1 <em>body-safe</em></span></span></div>
+  <div class="rw hg"><span class="w d">Aligners</span><span class="pr d"><small>from</small>$3,400</span><span class="sub">Alternative hover: ground colour. <span class="r">5.40:1 <em>body-safe</em></span></span></div>
+  <div class="rw hi"><span class="w d">Emergency</span><span class="pr d">$95</span><span class="sub">Alternative hover: ink. <span class="r onink">16.38:1 <em>body-safe</em></span></span></div>
+ </div>
+</div>
+<div class="tbl">
+ <h3>V1  Blood orange + lime: every text / ground pair <span>body-safe ≥ 4.5:1 · large-only ≥ 3:1 (display type 24px+, or 18.66px+ bold) · banned &lt; 3:1</span></h3>
+ <div class="pair"><div class="s" style="color:#2a0f0a;background:#ff4d17"><span class="dd">Aa</span><span class="">ink on ground</span></div><div class="m"><b>5.40:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff3e3;background:#ff4d17"><span class="dd">Aa</span><span class="">paper on ground</span></div><div class="m"><b>3.03:1</b> large-only · display type 24px+ only</div></div>
+ <div class="pair"><div class="s" style="color:#c8f73a;background:#ff4d17"><span class="dd">Aa</span><span class="ban">counter on ground</span></div><div class="m"><b>2.66:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#2a0f0a;background:#fff3e3"><span class="dd">Aa</span><span class="">ink on paper</span></div><div class="m"><b>16.38:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#ff4d17;background:#fff3e3"><span class="dd">Aa</span><span class="">ground on paper</span></div><div class="m"><b>3.03:1</b> large-only · display type 24px+ only</div></div>
+ <div class="pair"><div class="s" style="color:#2a0f0a;background:#c8f73a"><span class="dd">Aa</span><span class="">ink on counter</span></div><div class="m"><b>14.36:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff3e3;background:#2a0f0a"><span class="dd">Aa</span><span class="">paper on ink</span></div><div class="m"><b>16.38:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#ff4d17;background:#2a0f0a"><span class="dd">Aa</span><span class="">ground on ink</span></div><div class="m"><b>5.40:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#c8f73a;background:#2a0f0a"><span class="dd">Aa</span><span class="">counter on ink</span></div><div class="m"><b>14.36:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#c8f73a;background:#fff3e3"><span class="dd">Aa</span><span class="ban">counter on paper</span></div><div class="m"><b>1.14:1</b> banned · never as text</div></div>
+</div>
+</section>
+<section class="v" id="v2" style="--ground:#ff6a14;--counter:#dcff3d;--paper:#fff4e3;--ink:#26120b">
+<div class="g">
+ <div class="bar"><span class="wm d">Feast Dental</span><span class="st"><i></i>Open now · until 7:30 pm</span></div>
+ <div class="tag mono"><b>V2  Tangerine + lime</b> <span class="pick">chosen, then tuned: see the two blocks below</span><span>ground #ff6a14</span><span>counter #dcff3d</span><span>paper #fff4e3</span><span>ink #26120b</span></div>
+ <div class="col"><h2 class="h d">I don’t care how<br>long it’s been.</h2><span class="r">6.24:1 <em>body-safe</em></span></div>
+ <div class="col"><h2 class="h d cream">I don’t care how<br>long it’s been.</h2><span class="r">2.64:1 <em>banned</em></span></div>
+ <div class="row">
+  <div class="price"><span class="n d">$195</span><span class="c">First visit · 75 min<br>without insurance<sup>1</sup></span></div>
+  <span class="chip pp">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span>
+ </div>
+ <div class="row"><a class="btn c">Book online</a><a class="btn c bit">Book online</a><a class="btn i">Book online</a><a class="btn ic">Book online</a><a class="btn pp">Book online</a><a class="btn">Call or text (512) 555-0142</a></div>
+ <div class="row"><span class="lbl">Next openings</span><span class="slot"><b>Thu</b>5:30 pm</span><span class="slot hov"><b>Fri</b>8:00 am</span><span class="slot on"><b>Sat</b>9:30 am</span><span class="lbl" style="text-decoration:underline">More times</span></div>
+ <div class="row"><span class="lbl">Counter candidates on this ground</span><span class="sw" style="background:#dcff3d">lime #dcff3d · 2.51:1 on ground</span><span class="sw" style="background:#fff04d">lemon #fff04d · 2.43:1 on ground</span><span class="sw" style="background:#19c964">leaf #19c964 · 1.31:1 on ground</span></div>
+ <p class="mono" style="margin:0;max-width:100ch">The starting point in the creative direction. Mid tangerine, yellow-leaning lime (Tend ticker #e7fb7e and Grand Street hover #e1ff3b were the only limes captured, both as accents).</p>
+</div>
+<div class="p">
+ <p>I’m Paloma, a general dentist on the east side, and I care about what’s bothering you now: you get a proper look, a cleaning and the price in writing, and no lecture.</p>
+ <p class="sm"><sup>1</sup> Exam, X-rays and a regular cleaning. If your gums need more than a regular cleaning, I show you why and price it first. <span class="r">16.44:1 <em>body-safe</em></span></p>
+ <div class="row"><a class="btn c">Book online</a><a class="btn i">Book online</a><a class="btn gg">Book online</a><a class="btn">Call or text</a></div>
+ <div class="row"><span class="chip gg">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span><span class="chip">First visit <b>$195</b> 75 min</span></div>
+ <div class="svc">
+  <div class="rw"><span class="w d">Checkup</span><span class="pr d"><small>from</small>$145</span><span class="sub">Exam and regular cleaning, 50 minutes. Row at rest.</span></div>
+  <div class="rw hc"><span class="w d">Whitening</span><span class="pr d"><small>from</small>$250</span><span class="sub">Hover or focus: ground swaps to the counter, word opens wide. <span class="r">15.69:1 <em>body-safe</em></span></span></div>
+  <div class="rw hg"><span class="w d">Aligners</span><span class="pr d"><small>from</small>$3,400</span><span class="sub">Alternative hover: ground colour. <span class="r">6.24:1 <em>body-safe</em></span></span></div>
+  <div class="rw hi"><span class="w d">Emergency</span><span class="pr d">$95</span><span class="sub">Alternative hover: ink. <span class="r onink">16.44:1 <em>body-safe</em></span></span></div>
+ </div>
+</div>
+<div class="tbl">
+ <h3>V2  Tangerine + lime: every text / ground pair <span>body-safe ≥ 4.5:1 · large-only ≥ 3:1 (display type 24px+, or 18.66px+ bold) · banned &lt; 3:1</span></h3>
+ <div class="pair"><div class="s" style="color:#26120b;background:#ff6a14"><span class="dd">Aa</span><span class="">ink on ground</span></div><div class="m"><b>6.24:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff4e3;background:#ff6a14"><span class="dd">Aa</span><span class="ban">paper on ground</span></div><div class="m"><b>2.64:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#dcff3d;background:#ff6a14"><span class="dd">Aa</span><span class="ban">counter on ground</span></div><div class="m"><b>2.51:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#26120b;background:#fff4e3"><span class="dd">Aa</span><span class="">ink on paper</span></div><div class="m"><b>16.44:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#ff6a14;background:#fff4e3"><span class="dd">Aa</span><span class="ban">ground on paper</span></div><div class="m"><b>2.64:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#26120b;background:#dcff3d"><span class="dd">Aa</span><span class="">ink on counter</span></div><div class="m"><b>15.69:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff4e3;background:#26120b"><span class="dd">Aa</span><span class="">paper on ink</span></div><div class="m"><b>16.44:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#ff6a14;background:#26120b"><span class="dd">Aa</span><span class="">ground on ink</span></div><div class="m"><b>6.24:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#dcff3d;background:#26120b"><span class="dd">Aa</span><span class="">counter on ink</span></div><div class="m"><b>15.69:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#dcff3d;background:#fff4e3"><span class="dd">Aa</span><span class="ban">counter on paper</span></div><div class="m"><b>1.05:1</b> banned · never as text</div></div>
+</div>
+</section>
+<section class="v" id="v3" style="--ground:#ff8a00;--counter:#fff04d;--paper:#fff6e0;--ink:#24140a">
+<div class="g">
+ <div class="bar"><span class="wm d">Feast Dental</span><span class="st"><i></i>Open now · until 7:30 pm</span></div>
+ <div class="tag mono"><b>V3  True orange + lemon</b><span>ground #ff8a00</span><span>counter #fff04d</span><span>paper #fff6e0</span><span>ink #24140a</span></div>
+ <div class="col"><h2 class="h d">I don’t care how<br>long it’s been.</h2><span class="r">7.54:1 <em>body-safe</em></span></div>
+ <div class="col"><h2 class="h d cream">I don’t care how<br>long it’s been.</h2><span class="r">2.20:1 <em>banned</em></span></div>
+ <div class="row">
+  <div class="price"><span class="n d">$195</span><span class="c">First visit · 75 min<br>without insurance<sup>1</sup></span></div>
+  <span class="chip pp">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span>
+ </div>
+ <div class="row"><a class="btn c">Book online</a><a class="btn c bit">Book online</a><a class="btn i">Book online</a><a class="btn ic">Book online</a><a class="btn pp">Book online</a><a class="btn">Call or text (512) 555-0142</a></div>
+ <div class="row"><span class="lbl">Next openings</span><span class="slot"><b>Thu</b>5:30 pm</span><span class="slot hov"><b>Fri</b>8:00 am</span><span class="slot on"><b>Sat</b>9:30 am</span><span class="lbl" style="text-decoration:underline">More times</span></div>
+ <div class="row"><span class="lbl">Counter candidates on this ground</span><span class="sw" style="background:#dcff3d">lime #dcff3d · 2.07:1 on ground</span><span class="sw" style="background:#fff04d">lemon #fff04d · 2.01:1 on ground</span><span class="sw" style="background:#19c964">leaf #19c964 · 1.08:1 on ground</span></div>
+ <p class="mono" style="margin:0;max-width:100ch">The yellow-orange end, with the first alternative counter: a true lemon yellow, which no captured site holds (the nearest was Swish marigold #f1b742).</p>
+</div>
+<div class="p">
+ <p>I’m Paloma, a general dentist on the east side, and I care about what’s bothering you now: you get a proper look, a cleaning and the price in writing, and no lecture.</p>
+ <p class="sm"><sup>1</sup> Exam, X-rays and a regular cleaning. If your gums need more than a regular cleaning, I show you why and price it first. <span class="r">16.54:1 <em>body-safe</em></span></p>
+ <div class="row"><a class="btn c">Book online</a><a class="btn i">Book online</a><a class="btn gg">Book online</a><a class="btn">Call or text</a></div>
+ <div class="row"><span class="chip gg">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span><span class="chip">First visit <b>$195</b> 75 min</span></div>
+ <div class="svc">
+  <div class="rw"><span class="w d">Checkup</span><span class="pr d"><small>from</small>$145</span><span class="sub">Exam and regular cleaning, 50 minutes. Row at rest.</span></div>
+  <div class="rw hc"><span class="w d">Whitening</span><span class="pr d"><small>from</small>$250</span><span class="sub">Hover or focus: ground swaps to the counter, word opens wide. <span class="r">15.11:1 <em>body-safe</em></span></span></div>
+  <div class="rw hg"><span class="w d">Aligners</span><span class="pr d"><small>from</small>$3,400</span><span class="sub">Alternative hover: ground colour. <span class="r">7.54:1 <em>body-safe</em></span></span></div>
+  <div class="rw hi"><span class="w d">Emergency</span><span class="pr d">$95</span><span class="sub">Alternative hover: ink. <span class="r onink">16.54:1 <em>body-safe</em></span></span></div>
+ </div>
+</div>
+<div class="tbl">
+ <h3>V3  True orange + lemon: every text / ground pair <span>body-safe ≥ 4.5:1 · large-only ≥ 3:1 (display type 24px+, or 18.66px+ bold) · banned &lt; 3:1</span></h3>
+ <div class="pair"><div class="s" style="color:#24140a;background:#ff8a00"><span class="dd">Aa</span><span class="">ink on ground</span></div><div class="m"><b>7.54:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff6e0;background:#ff8a00"><span class="dd">Aa</span><span class="ban">paper on ground</span></div><div class="m"><b>2.20:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#fff04d;background:#ff8a00"><span class="dd">Aa</span><span class="ban">counter on ground</span></div><div class="m"><b>2.01:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#24140a;background:#fff6e0"><span class="dd">Aa</span><span class="">ink on paper</span></div><div class="m"><b>16.54:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#ff8a00;background:#fff6e0"><span class="dd">Aa</span><span class="ban">ground on paper</span></div><div class="m"><b>2.20:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#24140a;background:#fff04d"><span class="dd">Aa</span><span class="">ink on counter</span></div><div class="m"><b>15.11:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff6e0;background:#24140a"><span class="dd">Aa</span><span class="">paper on ink</span></div><div class="m"><b>16.54:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#ff8a00;background:#24140a"><span class="dd">Aa</span><span class="">ground on ink</span></div><div class="m"><b>7.54:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff04d;background:#24140a"><span class="dd">Aa</span><span class="">counter on ink</span></div><div class="m"><b>15.11:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff04d;background:#fff6e0"><span class="dd">Aa</span><span class="ban">counter on paper</span></div><div class="m"><b>1.09:1</b> banned · never as text</div></div>
+</div>
+</section>
+<section class="v" id="v4" style="--ground:#ff6a14;--counter:#19c964;--paper:#fff4e3;--ink:#1b1a12">
+<div class="g">
+ <div class="bar"><span class="wm d">Feast Dental</span><span class="st"><i></i>Open now · until 7:30 pm</span></div>
+ <div class="tag mono"><b>V4  Tangerine + leaf green</b><span>ground #ff6a14</span><span>counter #19c964</span><span>paper #fff4e3</span><span>ink #1b1a12</span></div>
+ <div class="col"><h2 class="h d">I don’t care how<br>long it’s been.</h2><span class="r">6.09:1 <em>body-safe</em></span></div>
+ <div class="col"><h2 class="h d cream">I don’t care how<br>long it’s been.</h2><span class="r">2.64:1 <em>banned</em></span></div>
+ <div class="row">
+  <div class="price"><span class="n d">$195</span><span class="c">First visit · 75 min<br>without insurance<sup>1</sup></span></div>
+  <span class="chip pp">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span>
+ </div>
+ <div class="row"><a class="btn c">Book online</a><a class="btn c bit">Book online</a><a class="btn i">Book online</a><a class="btn ic">Book online</a><a class="btn pp">Book online</a><a class="btn">Call or text (512) 555-0142</a></div>
+ <div class="row"><span class="lbl">Next openings</span><span class="slot"><b>Thu</b>5:30 pm</span><span class="slot hov"><b>Fri</b>8:00 am</span><span class="slot on"><b>Sat</b>9:30 am</span><span class="lbl" style="text-decoration:underline">More times</span></div>
+ <div class="row"><span class="lbl">Counter candidates on this ground</span><span class="sw" style="background:#dcff3d">lime #dcff3d · 2.51:1 on ground</span><span class="sw" style="background:#fff04d">lemon #fff04d · 2.43:1 on ground</span><span class="sw" style="background:#19c964">leaf #19c964 · 1.31:1 on ground</span></div>
+ <p class="mono" style="margin:0;max-width:100ch">Same ground as V2 with the second alternative counter: a bright leaf green. Six captured sites hold green, but all as dark sage or forest; a bright green was unowned.</p>
+</div>
+<div class="p">
+ <p>I’m Paloma, a general dentist on the east side, and I care about what’s bothering you now: you get a proper look, a cleaning and the price in writing, and no lecture.</p>
+ <p class="sm"><sup>1</sup> Exam, X-rays and a regular cleaning. If your gums need more than a regular cleaning, I show you why and price it first. <span class="r">16.04:1 <em>body-safe</em></span></p>
+ <div class="row"><a class="btn c">Book online</a><a class="btn i">Book online</a><a class="btn gg">Book online</a><a class="btn">Call or text</a></div>
+ <div class="row"><span class="chip gg">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span><span class="chip">First visit <b>$195</b> 75 min</span></div>
+ <div class="svc">
+  <div class="rw"><span class="w d">Checkup</span><span class="pr d"><small>from</small>$145</span><span class="sub">Exam and regular cleaning, 50 minutes. Row at rest.</span></div>
+  <div class="rw hc"><span class="w d">Whitening</span><span class="pr d"><small>from</small>$250</span><span class="sub">Hover or focus: ground swaps to the counter, word opens wide. <span class="r">7.96:1 <em>body-safe</em></span></span></div>
+  <div class="rw hg"><span class="w d">Aligners</span><span class="pr d"><small>from</small>$3,400</span><span class="sub">Alternative hover: ground colour. <span class="r">6.09:1 <em>body-safe</em></span></span></div>
+  <div class="rw hi"><span class="w d">Emergency</span><span class="pr d">$95</span><span class="sub">Alternative hover: ink. <span class="r onink">16.04:1 <em>body-safe</em></span></span></div>
+ </div>
+</div>
+<div class="tbl">
+ <h3>V4  Tangerine + leaf green: every text / ground pair <span>body-safe ≥ 4.5:1 · large-only ≥ 3:1 (display type 24px+, or 18.66px+ bold) · banned &lt; 3:1</span></h3>
+ <div class="pair"><div class="s" style="color:#1b1a12;background:#ff6a14"><span class="dd">Aa</span><span class="">ink on ground</span></div><div class="m"><b>6.09:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff4e3;background:#ff6a14"><span class="dd">Aa</span><span class="ban">paper on ground</span></div><div class="m"><b>2.64:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#19c964;background:#ff6a14"><span class="dd">Aa</span><span class="ban">counter on ground</span></div><div class="m"><b>1.31:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#1b1a12;background:#fff4e3"><span class="dd">Aa</span><span class="">ink on paper</span></div><div class="m"><b>16.04:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#ff6a14;background:#fff4e3"><span class="dd">Aa</span><span class="ban">ground on paper</span></div><div class="m"><b>2.64:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#1b1a12;background:#19c964"><span class="dd">Aa</span><span class="">ink on counter</span></div><div class="m"><b>7.96:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff4e3;background:#1b1a12"><span class="dd">Aa</span><span class="">paper on ink</span></div><div class="m"><b>16.04:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#ff6a14;background:#1b1a12"><span class="dd">Aa</span><span class="">ground on ink</span></div><div class="m"><b>6.09:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#19c964;background:#1b1a12"><span class="dd">Aa</span><span class="">counter on ink</span></div><div class="m"><b>7.96:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#19c964;background:#fff4e3"><span class="dd">Aa</span><span class="ban">counter on paper</span></div><div class="m"><b>2.01:1</b> banned · never as text</div></div>
+</div>
+</section>
+<section class="v" id="tuned" style="--ground:#ff6418;--counter:#d6ff3f;--paper:#fff4e3;--ink:#26120b">
+<div class="g">
+ <div class="bar"><span class="wm d">Feast Dental</span><span class="st"><i></i>Open now · until 7:30 pm</span></div>
+ <div class="tag mono"><b>V2 tuned by eye (ground hue 22 to 20)</b><span>ground #ff6418</span><span>counter #d6ff3f</span><span>paper #fff4e3</span><span>ink #26120b</span></div>
+ <div class="col"><h2 class="h d">I don’t care how<br>long it’s been.</h2><span class="r">6.04:1 <em>body-safe</em></span></div>
+ <div class="col"><h2 class="h d cream">I don’t care how<br>long it’s been.</h2><span class="r">2.72:1 <em>banned</em></span></div>
+ <div class="row">
+  <div class="price"><span class="n d">$195</span><span class="c">First visit · 75 min<br>without insurance<sup>1</sup></span></div>
+  <span class="chip pp">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span>
+ </div>
+ <div class="row"><a class="btn c">Book online</a><a class="btn c bit">Book online</a><a class="btn i">Book online</a><a class="btn ic">Book online</a><a class="btn pp">Book online</a><a class="btn">Call or text (512) 555-0142</a></div>
+ <div class="row"><span class="lbl">Next openings</span><span class="slot"><b>Thu</b>5:30 pm</span><span class="slot hov"><b>Fri</b>8:00 am</span><span class="slot on"><b>Sat</b>9:30 am</span><span class="lbl" style="text-decoration:underline">More times</span></div>
+ <div class="row"><span class="lbl">Counter candidates on this ground</span><span class="sw" style="background:#dcff3d">lime #dcff3d · 2.60:1 on ground</span><span class="sw" style="background:#fff04d">lemon #fff04d · 2.51:1 on ground</span><span class="sw" style="background:#19c964">leaf #19c964 · 1.35:1 on ground</span></div>
+ <p class="mono" style="margin:0;max-width:100ch">V2 with the ground moved from hue 22 to hue 20, further from the yellow-orange of V3 and from the lime. This was the pick before the photographs existed.</p>
+</div>
+<div class="p">
+ <p>I’m Paloma, a general dentist on the east side, and I care about what’s bothering you now: you get a proper look, a cleaning and the price in writing, and no lecture.</p>
+ <p class="sm"><sup>1</sup> Exam, X-rays and a regular cleaning. If your gums need more than a regular cleaning, I show you why and price it first. <span class="r">16.44:1 <em>body-safe</em></span></p>
+ <div class="row"><a class="btn c">Book online</a><a class="btn i">Book online</a><a class="btn gg">Book online</a><a class="btn">Call or text</a></div>
+ <div class="row"><span class="chip gg">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span><span class="chip">First visit <b>$195</b> 75 min</span></div>
+ <div class="svc">
+  <div class="rw"><span class="w d">Checkup</span><span class="pr d"><small>from</small>$145</span><span class="sub">Exam and regular cleaning, 50 minutes. Row at rest.</span></div>
+  <div class="rw hc"><span class="w d">Whitening</span><span class="pr d"><small>from</small>$250</span><span class="sub">Hover or focus: ground swaps to the counter, word opens wide. <span class="r">15.54:1 <em>body-safe</em></span></span></div>
+  <div class="rw hg"><span class="w d">Aligners</span><span class="pr d"><small>from</small>$3,400</span><span class="sub">Alternative hover: ground colour. <span class="r">6.04:1 <em>body-safe</em></span></span></div>
+  <div class="rw hi"><span class="w d">Emergency</span><span class="pr d">$95</span><span class="sub">Alternative hover: ink. <span class="r onink">16.44:1 <em>body-safe</em></span></span></div>
+ </div>
+</div>
+<div class="tbl">
+ <h3>V2 tuned by eye (ground hue 22 to 20): every text / ground pair <span>body-safe ≥ 4.5:1 · large-only ≥ 3:1 (display type 24px+, or 18.66px+ bold) · banned &lt; 3:1</span></h3>
+ <div class="pair"><div class="s" style="color:#26120b;background:#ff6418"><span class="dd">Aa</span><span class="">ink on ground</span></div><div class="m"><b>6.04:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff4e3;background:#ff6418"><span class="dd">Aa</span><span class="ban">paper on ground</span></div><div class="m"><b>2.72:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#d6ff3f;background:#ff6418"><span class="dd">Aa</span><span class="ban">counter on ground</span></div><div class="m"><b>2.57:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#26120b;background:#fff4e3"><span class="dd">Aa</span><span class="">ink on paper</span></div><div class="m"><b>16.44:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#ff6418;background:#fff4e3"><span class="dd">Aa</span><span class="ban">ground on paper</span></div><div class="m"><b>2.72:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#26120b;background:#d6ff3f"><span class="dd">Aa</span><span class="">ink on counter</span></div><div class="m"><b>15.54:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff4e3;background:#26120b"><span class="dd">Aa</span><span class="">paper on ink</span></div><div class="m"><b>16.44:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#ff6418;background:#26120b"><span class="dd">Aa</span><span class="">ground on ink</span></div><div class="m"><b>6.04:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#d6ff3f;background:#26120b"><span class="dd">Aa</span><span class="">counter on ink</span></div><div class="m"><b>15.54:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#d6ff3f;background:#fff4e3"><span class="dd">Aa</span><span class="ban">counter on paper</span></div><div class="m"><b>1.06:1</b> banned · never as text</div></div>
+</div>
+</section>
+<section class="v" id="final" style="--ground:#f9530a;--counter:#cffb43;--paper:#fff4e3;--ink:#26120b">
+<div class="g">
+ <div class="bar"><span class="wm d">Feast Dental</span><span class="st"><i></i>Open now · until 7:30 pm</span></div>
+ <div class="tag mono"><b>FINAL  Tangerine + lime, both taken from the two portraits</b> <span class="pick">final values</span><span>ground #f9530a</span><span>counter #cffb43</span><span>paper #fff4e3</span><span>ink #26120b</span></div>
+ <div class="col"><h2 class="h d">I don’t care how<br>long it’s been.</h2><span class="r">5.34:1 <em>body-safe</em></span></div>
+ <div class="col"><h2 class="h d cream">I don’t care how<br>long it’s been.</h2><span class="r">3.08:1 <em>large-only</em></span></div>
+ <div class="row">
+  <div class="price"><span class="n d">$195</span><span class="c">First visit · 75 min<br>without insurance<sup>1</sup></span></div>
+  <span class="chip pp">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span>
+ </div>
+ <div class="row"><a class="btn c">Book online</a><a class="btn c bit">Book online</a><a class="btn i">Book online</a><a class="btn ic">Book online</a><a class="btn pp">Book online</a><a class="btn">Call or text (512) 555-0142</a></div>
+ <div class="row"><span class="lbl">Next openings</span><span class="slot"><b>Thu</b>5:30 pm</span><span class="slot hov"><b>Fri</b>8:00 am</span><span class="slot on"><b>Sat</b>9:30 am</span><span class="lbl" style="text-decoration:underline">More times</span></div>
+ <div class="row"><span class="lbl">Counter candidates on this ground</span><span class="sw" style="background:#dcff3d">lime #dcff3d · 2.94:1 on ground</span><span class="sw" style="background:#fff04d">lemon #fff04d · 2.84:1 on ground</span><span class="sw" style="background:#19c964">leaf #19c964 · 1.53:1 on ground</span></div>
+ <p class="mono" style="margin:0;max-width:100ch">Ground is the measured backdrop of assets/img/src/paloma-hero.png; counter is the measured backdrop of paloma-apple.png. Each portrait bleeds into a field of its own colour with no visible edge. Against the by-eye pick this costs 0.7 of ink contrast on the ground (6.04 to 5.34) and gains lime separation (2.57 to 2.80). These are the four values in brand/02-visual-system.md.</p>
+</div>
+<div class="p">
+ <p>I’m Paloma, a general dentist on the east side, and I care about what’s bothering you now: you get a proper look, a cleaning and the price in writing, and no lecture.</p>
+ <p class="sm"><sup>1</sup> Exam, X-rays and a regular cleaning. If your gums need more than a regular cleaning, I show you why and price it first. <span class="r">16.44:1 <em>body-safe</em></span></p>
+ <div class="row"><a class="btn c">Book online</a><a class="btn i">Book online</a><a class="btn gg">Book online</a><a class="btn">Call or text</a></div>
+ <div class="row"><span class="chip gg">First visit <b>$195</b> 75 min</span><span class="chip c">First visit <b>$195</b> 75 min</span><span class="chip i">First visit <b>$195</b> 75 min</span><span class="chip">First visit <b>$195</b> 75 min</span></div>
+ <div class="svc">
+  <div class="rw"><span class="w d">Checkup</span><span class="pr d"><small>from</small>$145</span><span class="sub">Exam and regular cleaning, 50 minutes. Row at rest.</span></div>
+  <div class="rw hc"><span class="w d">Whitening</span><span class="pr d"><small>from</small>$250</span><span class="sub">Hover or focus: ground swaps to the counter, word opens wide. <span class="r">14.94:1 <em>body-safe</em></span></span></div>
+  <div class="rw hg"><span class="w d">Aligners</span><span class="pr d"><small>from</small>$3,400</span><span class="sub">Alternative hover: ground colour. <span class="r">5.34:1 <em>body-safe</em></span></span></div>
+  <div class="rw hi"><span class="w d">Emergency</span><span class="pr d">$95</span><span class="sub">Alternative hover: ink. <span class="r onink">16.44:1 <em>body-safe</em></span></span></div>
+ </div>
+</div>
+<div class="tbl">
+ <h3>FINAL  Tangerine + lime, both taken from the two portraits: every text / ground pair <span>body-safe ≥ 4.5:1 · large-only ≥ 3:1 (display type 24px+, or 18.66px+ bold) · banned &lt; 3:1</span></h3>
+ <div class="pair"><div class="s" style="color:#26120b;background:#f9530a"><span class="dd">Aa</span><span class="">ink on ground</span></div><div class="m"><b>5.34:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff4e3;background:#f9530a"><span class="dd">Aa</span><span class="">paper on ground</span></div><div class="m"><b>3.08:1</b> large-only · display type 24px+ only</div></div>
+ <div class="pair"><div class="s" style="color:#cffb43;background:#f9530a"><span class="dd">Aa</span><span class="ban">counter on ground</span></div><div class="m"><b>2.80:1</b> banned · never as text</div></div>
+ <div class="pair"><div class="s" style="color:#26120b;background:#fff4e3"><span class="dd">Aa</span><span class="">ink on paper</span></div><div class="m"><b>16.44:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#f9530a;background:#fff4e3"><span class="dd">Aa</span><span class="">ground on paper</span></div><div class="m"><b>3.08:1</b> large-only · display type 24px+ only</div></div>
+ <div class="pair"><div class="s" style="color:#26120b;background:#cffb43"><span class="dd">Aa</span><span class="">ink on counter</span></div><div class="m"><b>14.94:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#fff4e3;background:#26120b"><span class="dd">Aa</span><span class="">paper on ink</span></div><div class="m"><b>16.44:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#f9530a;background:#26120b"><span class="dd">Aa</span><span class="">ground on ink</span></div><div class="m"><b>5.34:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#cffb43;background:#26120b"><span class="dd">Aa</span><span class="">counter on ink</span></div><div class="m"><b>14.94:1</b> body-safe · any size</div></div>
+ <div class="pair"><div class="s" style="color:#cffb43;background:#fff4e3"><span class="dd">Aa</span><span class="ban">counter on paper</span></div><div class="m"><b>1.10:1</b> banned · never as text</div></div>
+</div>
+</section>
+<style>
+.pf{--ground:#f9530a;--paper:#fff4e3;--ink:#26120b;--counter:#cffb43;
+ --rule:1.5px;
+ --gutter:clamp(16px,calc(7.09px + 2.286vw),40px);
+ --gap:clamp(12px,calc(7.54px + 1.143vw),24px);
+ --section-y:clamp(56px,calc(32.229px + 6.0952vw),120px);
+ --band-y:clamp(40px,calc(25.143px + 3.8095vw),80px);
+ --font-display:"Anybody","Arial Narrow",Impact,sans-serif;
+ --font-text:"Public Sans",ui-sans-serif,system-ui,sans-serif;
+ --fs-hero:clamp(3.5rem,calc(1.829rem + 6.857vw),8rem);
+ --fs-price:clamp(4.5rem,calc(2.689rem + 7.429vw),9.375rem);
+ --fs-d1:clamp(2.75rem,calc(1.357rem + 5.714vw),6.5rem);
+ --fs-d2:clamp(2.5rem,calc(1.757rem + 3.048vw),4.5rem);
+ --fs-d3:clamp(1.75rem,calc(1.471rem + 1.143vw),2.5rem);
+ --fs-d4:clamp(1.0625rem,calc(0.946rem + 0.476vw),1.375rem);
+ --fs-lead:clamp(1.125rem,calc(1.032rem + 0.381vw),1.375rem);
+ --fs-body:clamp(1.125rem,calc(1.079rem + 0.19vw),1.25rem);
+ --fs-ui:clamp(1rem,calc(0.977rem + 0.095vw),1.0625rem);
+ --fs-small:clamp(0.875rem,calc(0.852rem + 0.095vw),0.9375rem);
+ --fs-foot:0.8125rem;
+ --notch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0A35.29 35.29 0 0 0 21.53 32.5A35.29 35.29 0 0 0 67.5 78.47A35.29 35.29 0 0 0 100 100V0Z'/%3E%3C/svg%3E");
+ --bites-1:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L100 0Z'/%3E%3C/svg%3E");
+ --bites-2:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L100 0ZM98.42 29.7A23.29 23.29 0 0 0 78.28 45.73A23.29 23.29 0 0 0 50.71 78.6A23.29 23.29 0 0 0 38.42 101.2L104.17 95.45Z'/%3E%3C/svg%3E");
+ --bites-3:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L100 0ZM98.42 29.7A23.29 23.29 0 0 0 78.28 45.73A23.29 23.29 0 0 0 50.71 78.6A23.29 23.29 0 0 0 38.42 101.2L104.17 95.45ZM-1.2 61.58A23.29 23.29 0 0 0 21.4 49.29A23.29 23.29 0 0 0 54.27 21.72A23.29 23.29 0 0 0 70.3 1.58L4.55 -4.17Z'/%3E%3C/svg%3E");
+ color:var(--ink);font-family:var(--font-text);font-size:var(--fs-body);line-height:1.5}
+.pf *{box-sizing:border-box}
+.pf .dsp{font-family:var(--font-display);font-weight:900;letter-spacing:-0.01em}
+.pf a{color:inherit;text-decoration:none}
+.pf .note{font:400 12px/1.4 ui-monospace,Menlo,monospace;letter-spacing:0;margin:0}
+.pf h6{font:700 13px/1.3 ui-monospace,Menlo,monospace;margin:0 0 10px;letter-spacing:0}
+/* bite: the notch is cut from the element by a mask; size is relative to the element */
+.pf .bite,.pf .bite-w{clip-path:shape(from 0 0,hline to calc(100% - var(--n)),arc to calc(100% - var(--n)*.7847) calc(var(--n)*.325) of calc(var(--n)*.3529) ccw,arc to calc(100% - var(--n)*.325) calc(var(--n)*.7847) of calc(var(--n)*.3529) ccw,arc to 100% var(--n) of calc(var(--n)*.3529) ccw,vline to 100%,hline to 0,close)}
+.pf .btn{--n:34px}.pf .btn--md,.pf .bbar .btn{--n:26px}.pf .slot{--n:22px}
+.pf .frame{container-type:inline-size}
+.pf .bite-w{--n:24cqi}
+/* the same notch cut with mask-composite: exclude, kept only to show the hairline it leaves */
+.pf .bite-x{-webkit-mask:var(--notch) top right/auto 60% no-repeat,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:var(--notch) top right/auto 60% no-repeat,linear-gradient(#000 0 0);mask-composite:exclude}
+/* buttons */
+.pf .btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 28px;border-radius:999px;border:var(--rule) solid var(--ink);font:600 var(--fs-ui)/1 var(--font-text);white-space:nowrap;background:transparent;color:var(--ink)}
+.pf .btn--md{height:48px;padding:0 22px}
+.pf .btn--primary{background:var(--counter)}
+.pf .btn--hover{background:var(--ink);color:var(--counter)}
+.pf .btn--sec-hover{background:var(--ink);color:var(--paper)}
+.pf .btn--focus{outline:3px solid var(--ink);outline-offset:3px}
+.pf .btn--press{transform:scale(.96);transform-origin:0 100%}
+/* header */
+.pf .hd{height:72px;display:flex;align-items:center;gap:28px;padding:0 var(--gutter) 0 0;background:var(--ground);border-bottom:var(--rule) solid var(--ink)}
+.pf .wm.plate{height:72px;padding:0 44px 0 var(--gutter);--n:43px;align-self:stretch}
+.pf .wm{font-family:var(--font-display);font-weight:900;font-stretch:62.5%;font-size:26px;line-height:1;text-transform:uppercase;letter-spacing:0;white-space:nowrap}
+.pf .hd nav{display:flex;gap:28px;font:500 16px/1 var(--font-text);margin-left:12px}
+.pf .hd .sp{flex:1}
+.pf .status{font:500 15px/1 var(--font-text);white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.pf .dot{width:12px;height:12px;border-radius:50%;background:var(--ink);display:inline-block;flex:none}
+.pf .dot.closed{-webkit-mask:radial-gradient(circle 6.5px at 80% 20%,#0000 97%,#000);mask:radial-gradient(circle 6.5px at 80% 20%,#0000 97%,#000)}
+.pf .tel{font:600 16px/1 var(--font-text);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pf .st-s{display:none}
+/* hero */
+.pf .hero{position:relative;isolation:isolate;overflow:hidden;background:var(--ground);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);grid-template-rows:auto auto 1fr auto auto;padding:28px var(--gutter) 22px;min-height:clamp(640px,51.5vw,760px)}
+.pf .fig{grid-column:8/-1;grid-row:1/6;margin:-28px calc(var(--gutter) * -1) -22px 0;z-index:-1;position:relative;min-height:0}
+.pf .fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right top;display:block;-webkit-mask-image:linear-gradient(to right,#0000 0,#000 72px);mask-image:linear-gradient(to right,#0000 0,#000 72px)}
+.pf .h1{grid-column:1/-1;grid-row:1;margin:0;font-family:var(--font-display);font-weight:900;font-stretch:var(--wdth-hero,66%);font-size:var(--fs-hero);line-height:.9;letter-spacing:-0.01em;white-space:nowrap}
+.pf .h1 .l3{display:block}
+.pf .sub{grid-column:1/8;grid-row:2;margin:22px 0 0;font-size:var(--fs-lead);line-height:1.4;max-width:30em}
+.pf .who{grid-column:9/11;grid-row:4;align-self:end;margin:0 0 14px;font-family:var(--font-display);font-weight:800;font-stretch:75%;font-size:var(--fs-d4);line-height:1.05;text-transform:uppercase;letter-spacing:.005em}
+.pf .who span{display:block}
+.pf .who .ip{display:none;font-style:normal}
+.pf .strip{grid-column:1/9;grid-row:4;display:grid;grid-template-columns:auto minmax(0,1fr);align-self:end;border-top:var(--rule) solid var(--ink);border-bottom:var(--rule) solid var(--ink)}
+.pf .fv{padding:14px 28px 12px 0;display:flex;flex-direction:column;gap:2px}
+.pf .lab{font:600 var(--fs-small)/1.3 var(--font-text)}
+.pf .num{font-family:var(--font-display);font-weight:900;font-stretch:75%;font-size:var(--fs-price);line-height:.86;letter-spacing:-0.01em;font-variant-numeric:tabular-nums}
+.pf .cap{font:400 var(--fs-small)/1.3 var(--font-text)}
+.pf .op{padding:14px 0 12px 24px;border-left:var(--rule) solid var(--ink);display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.pf .slots{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pf .slot{display:inline-flex;align-items:center;height:48px;padding:0 18px;border-radius:999px;border:var(--rule) solid var(--ink);font:400 16px/1 var(--font-text);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pf .slot b{font-weight:700;margin-right:6px}
+.pf .slot.on{background:var(--counter)}
+.pf .slot.hov{background:var(--paper)}
+.pf .oph{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.pf .more{font:500 15px/1 var(--font-text);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.pf .opcap{font:400 var(--fs-foot)/1.35 var(--font-text);margin:-2px 0 0}
+.pf .cta{display:flex;gap:10px;flex-wrap:wrap}
+.pf .fn{grid-column:1/8;grid-row:5;margin:10px 0 0;font-size:var(--fs-foot);line-height:1.4;max-width:78ch}
+.pf .bbar{display:none}
+/* ticker */
+.pf .ticker{background:var(--ink);color:var(--paper);height:56px;display:flex;align-items:stretch;overflow:hidden;white-space:nowrap}
+.pf .ticker .pause{flex:none;width:72px;display:flex;align-items:center;justify-content:center;font:600 15px/1 var(--font-text);border-right:var(--rule) solid var(--paper);background:var(--ink)}
+.pf .ticker .track{display:flex;align-items:center;gap:22px;padding-left:22px;font-family:var(--font-display);font-weight:800;font-stretch:100%;font-size:20px;text-transform:uppercase;letter-spacing:.01em}
+.pf .ticker .sep{width:12px;height:12px;border-radius:50%;background:var(--ground);flex:none;-webkit-mask:radial-gradient(circle 6.5px at 80% 20%,#0000 97%,#000);mask:radial-gradient(circle 6.5px at 80% 20%,#0000 97%,#000)}
+/* sheets */
+.pf .sheet{background:var(--paper);padding:28px var(--gutter) 36px;border-top:var(--rule) solid var(--ink);overflow:hidden}
+.pf .cell{max-width:100%}
+.pf .foot{overflow:hidden}
+.pf .sheet.gr{background:var(--ground)}
+.pf .cols{display:flex;flex-wrap:wrap;gap:28px 40px;align-items:flex-start}
+.pf .cell{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.pf .rowx{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.pf .rowx .frame{width:240px}
+.pf .photo{width:100%;aspect-ratio:3/4;display:flex;align-items:flex-end;padding:10px}
+.pf .disc{width:120px;height:120px;flex:none;color:var(--ground);display:block}
+.pf .bigdot{width:48px;height:48px;border-radius:50%;background:var(--ink)}
+.pf .bigdot.closed{-webkit-mask:radial-gradient(circle 26px at 80% 20%,#0000 98%,#000);mask:radial-gradient(circle 26px at 80% 20%,#0000 98%,#000)}
+.pf .wmx{font-family:var(--font-display);font-weight:900;font-stretch:62.5%;line-height:1;text-transform:uppercase;letter-spacing:0;white-space:nowrap}
+.pf .tt{display:inline-block}
+.pf .tbite .tt{--n:.17em;clip-path:shape(from 0 0,hline to calc(100% - .0136em - var(--n)),vline to .1em,arc to calc(100% - .0136em - var(--n)*.7847) calc(.1em + var(--n)*.325) of calc(var(--n)*.3529) ccw,arc to calc(100% - .0136em - var(--n)*.325) calc(.1em + var(--n)*.7847) of calc(var(--n)*.3529) ccw,arc to calc(100% - .0136em) calc(.1em + var(--n)) of calc(var(--n)*.3529) ccw,hline to 100%,vline to 100%,hline to 0,close)}
+.pf .plate{display:inline-flex;align-items:center;background:var(--ink);color:var(--ground);height:2.77em;padding:0 1.7em 0 .9em;--n:1.66em;clip-path:shape(from 0 0,hline to calc(100% - var(--n)),arc to calc(100% - var(--n)*.7847) calc(var(--n)*.325) of calc(var(--n)*.3529) ccw,arc to calc(100% - var(--n)*.325) calc(var(--n)*.7847) of calc(var(--n)*.3529) ccw,arc to 100% var(--n) of calc(var(--n)*.3529) ccw,vline to 100%,hline to 0,close)}
+.pf .plate.onink{background:var(--ground);color:var(--ink)}
+/* services */
+/* services on the ground field, with one bitten still life beside the heading */
+.pf .sheet.gr{background:var(--ground)}
+.pf .svc-head{display:grid;grid-template-columns:minmax(0,1fr) 160px;column-gap:var(--gap);align-items:end;margin-bottom:18px}
+.pf .svc-head h2{margin:0 0 16px;font-family:var(--font-display);font-weight:900;font-stretch:66%;font-size:var(--fs-d1);line-height:.92;letter-spacing:-0.01em}
+.pf .svc-head .desig{margin:0}
+.pf .svc-head .frame{width:160px}
+.pf .svc-head .still{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;--n:25cqi}
+/* meet the dentist: lime field, the portrait bleeds from the left */
+.pf .meet{position:relative;isolation:isolate;overflow:hidden;background:var(--counter);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:var(--band-y) var(--gutter);min-height:clamp(640px,51.5vw,760px)}
+.pf .mfig{grid-column:1/6;grid-row:1;margin:calc(var(--band-y) * -1) 0 calc(var(--band-y) * -1) calc(var(--gutter) * -1);position:relative;z-index:-1}
+.pf .mfig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;display:block;-webkit-mask-image:linear-gradient(to left,#0000 0,#000 72px);mask-image:linear-gradient(to left,#0000 0,#000 72px)}
+.pf .mcap{grid-column:4/6;grid-row:1;align-self:end;justify-self:end;margin:0;font-size:var(--fs-small)}
+.pf .mtxt{grid-column:7/13;grid-row:1;display:flex;flex-direction:column;gap:18px;align-self:center}
+.pf .meet h2{margin:0;font-family:var(--font-display);font-weight:900;font-stretch:66%;font-size:var(--fs-d1);line-height:.92;letter-spacing:-0.01em}
+.pf .meet .bio{margin:0;max-width:36em}
+.pf .meet .pull{margin:0;font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:var(--fs-d3);line-height:1.05;letter-spacing:-0.005em}
+.pf .pts{list-style:none;margin:0;padding:0;border-top:var(--rule) solid var(--ink);counter-reset:pt}
+.pf .pts li{counter-increment:pt;display:grid;grid-template-columns:2.4em minmax(0,1fr);align-items:baseline;padding:10px 0;border-bottom:var(--rule) solid var(--ink)}
+.pf .pts li::before{content:counter(pt);font-family:var(--font-display);font-weight:900;font-stretch:75%;font-size:var(--fs-d3);line-height:1}
+.pf .pts b{display:block;font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:clamp(1.375rem,calc(1.236rem + 0.571vw),1.75rem);line-height:1.1}
+.pf .cred{margin:0;font-size:var(--fs-small);line-height:1.45}
+.pf .cred b{font-weight:600}
+
+.pf .desig{font-family:var(--font-display);font-weight:900;font-stretch:62.5%;font-size:var(--fs-d2);line-height:1;text-transform:uppercase;letter-spacing:0;margin:0 0 18px}
+.pf .lane{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);border-top:var(--rule) solid var(--ink)}
+.pf .lane .ll{grid-column:1/3;padding-top:14px;font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:var(--fs-d4);text-transform:uppercase;line-height:1.1}
+.pf .lane .ll small{display:block;font:400 var(--fs-small)/1.4 var(--font-text);text-transform:none;margin-top:6px;letter-spacing:0}
+.pf .lane .rows{grid-column:3/13}
+.pf .srow{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:center;column-gap:24px;row-gap:4px;padding:12px 12px 12px;border-bottom:var(--rule) solid var(--ink);min-height:96px}
+.pf .srow:last-child{border-bottom:0}
+.pf .srow .w{font-family:var(--font-display);font-weight:900;font-stretch:62.5%;font-size:var(--fs-d2);line-height:1;letter-spacing:-0.01em;white-space:nowrap}
+.pf .srow .w{grid-column:1;grid-row:1}
+.pf .srow .desc{grid-column:1;grid-row:2;font:400 var(--fs-small)/1.35 var(--font-text);max-width:34em}
+.pf .srow .pr{grid-column:2;grid-row:1/3}
+.pf .srow .crop{width:96px;height:72px;background:var(--ground)}
+.pf .srow .pr{display:flex;align-items:center;justify-content:flex-end;gap:10px;font-family:var(--font-display);font-weight:900;font-stretch:75%;font-size:var(--fs-d2);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;min-width:4.2em}
+.pf .srow .pr small{font:500 var(--fs-small)/1 var(--font-text);letter-spacing:0}
+.pf .srow.is-hover{background:var(--counter)}
+.pf .srow.is-hover .w{font-stretch:100%}
+/* steps */
+.pf .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap);border-top:var(--rule) solid var(--ink)}
+.pf .step{padding:16px 24px 20px;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:20px;row-gap:6px;align-items:start;border-right:var(--rule) solid var(--ink)}
+.pf .step:last-child{border-right:0}
+.pf .step:first-child{padding-left:0}
+.pf .step .n{font-family:var(--font-display);font-weight:900;font-stretch:75%;font-size:var(--fs-d1);line-height:.8;font-variant-numeric:tabular-nums}
+.pf .step .disc{justify-self:end}
+.pf .step h4{grid-column:1/-1;margin:14px 0 0;font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:var(--fs-d3);line-height:1.05;letter-spacing:-0.005em}
+.pf .step p{grid-column:1/-1;margin:0;max-width:32em}
+/* faq */
+.pf .faq{border-top:var(--rule) solid var(--ink);max-width:880px}
+.pf .q{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:72px;padding:14px 4px;border-bottom:var(--rule) solid var(--ink);font:600 clamp(1.125rem,calc(1.032rem + 0.381vw),1.375rem)/1.25 var(--font-text)}
+.pf .q .mk{width:20px;height:20px;position:relative;flex:none}
+.pf .q .mk::before,.pf .q .mk::after{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--ink)}
+.pf .q .mk::after{transform:rotate(90deg)}
+.pf .q.open .mk{transform:rotate(45deg)}
+.pf .a{padding:14px 4px 22px;border-bottom:var(--rule) solid var(--ink);max-width:36em}
+.pf .chip{display:inline-flex;align-items:baseline;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:var(--rule) solid var(--ink);font:500 var(--fs-small)/38px var(--font-text);white-space:nowrap}
+.pf .chip b{font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:20px;font-variant-numeric:tabular-nums}
+.pf .ink{background:var(--ink);color:var(--paper)}
+.pf .zero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:clamp(40px,calc(25.1px + 3.81vw),80px) var(--gutter)}
+.pf .zero .big{grid-column:1/6;font-family:var(--font-display);font-weight:900;font-stretch:150%;font-size:clamp(9rem,calc(5.1rem + 16vw),19.5rem);line-height:.74;color:var(--counter);letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+.pf .zero .txt{grid-column:6/13;display:flex;flex-direction:column;gap:18px}
+.pf .zero h3{margin:0;font-family:var(--font-display);font-weight:900;font-stretch:66%;font-size:var(--fs-d1);line-height:.92;letter-spacing:-0.01em}
+.pf .zero ol{list-style:none;margin:0;padding:0;border-top:var(--rule) solid var(--paper);counter-reset:p}
+.pf .zero li{counter-increment:p;display:grid;grid-template-columns:2.2em minmax(0,1fr);align-items:baseline;padding:12px 0;border-bottom:var(--rule) solid var(--paper);font-size:var(--fs-lead);line-height:1.35}
+.pf .zero li::before{content:counter(p);font-family:var(--font-display);font-weight:900;font-stretch:75%;font-size:var(--fs-d3);line-height:1;color:var(--ground)}
+.pf .hours{border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:var(--fs-body);min-width:min(100%,420px)}
+.pf .hours td{padding:9px 14px 9px 10px;border-top:var(--rule) solid var(--ink)}
+.pf .hours tr:last-child td{border-bottom:var(--rule) solid var(--ink)}
+.pf .hours td:last-child{text-align:right;padding-right:10px}
+.pf .hours tr.today td{background:var(--counter);font-weight:600}
+.pf .hours .tg{font:600 12px/1 var(--font-text);margin-left:10px}
+.pf .foot{background:var(--ink);color:var(--paper);padding:0 var(--gutter) 28px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:28px;font-size:var(--fs-small);line-height:1.5}
+.pf .foot .plate{grid-column:1/-1;justify-self:start;margin-left:calc(var(--gutter) * -1);padding-left:var(--gutter)}
+.pf .foot .fc{grid-column:span 3}
+.pf .foot .fc b{display:block;font-family:var(--font-display);font-weight:800;font-stretch:85%;font-size:var(--fs-d4);text-transform:uppercase;line-height:1.1;margin-bottom:8px;color:var(--ground)}
+.pf .foot .fc a{text-decoration:underline;text-underline-offset:3px}
+.pf .foot .legal{grid-column:1/9;font-size:var(--fs-foot);align-self:end;border-top:var(--rule) solid var(--paper);padding-top:12px}
+.pf .foot .cookie{grid-column:9/13;display:flex;align-items:center;gap:14px;justify-content:flex-end;border-top:var(--rule) solid var(--paper);padding-top:12px}
+.pf .foot .cookie .disc{width:56px;height:56px;color:var(--ground)}
+.pf .tbtn{font:600 var(--fs-small)/1 var(--font-text);text-decoration:underline;text-underline-offset:3px}
+@media (min-width:1024px) and (max-width:1279px){
+ .pf .st-l{display:none}
+ .pf .st-s{display:inline}
+ .pf .hd{gap:20px}
+ .pf .hd nav{gap:18px;white-space:nowrap;margin-left:4px}
+ .pf .h1{--wdth-hero:56%}
+ .pf .who{grid-column:1/9;grid-row:3;align-self:end;justify-self:end;margin:0 0 10px}
+ .pf .who span{display:inline}
+ .pf .who .ip{display:inline}
+ .pf .slots{flex-wrap:nowrap}
+ .pf .slot{flex:1;justify-content:center;padding:0 6px;font-size:15px}
+ .pf .cta .btn{padding:0 20px}
+ .pf .cta .tn{display:none}
+}
+@media (max-width:1023px){
+ .pf .hd nav,.pf .hd .tel,.pf .st-l{display:none}
+ .pf .st-s{display:inline}
+ .pf .hero{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto var(--fig-h) auto auto;padding:20px var(--gutter) 28px;min-height:0;--fig-h:min(46vw,400px)}
+ .pf .h1{--wdth-hero:72%;grid-column:1;grid-row:1}
+ .pf .h1 .l1,.pf .h1 .l2{display:block}
+ .pf .sub{grid-column:1;grid-row:2;margin:14px 0 18px}
+ .pf .fig{grid-column:1;grid-row:3;margin:0 calc(var(--gutter) * -1);z-index:0}
+ .pf .fig img{object-position:right 6%;-webkit-mask-image:linear-gradient(#0000 0,#000 32px);mask-image:linear-gradient(#0000 0,#000 32px)}
+ .pf .who{grid-column:1;grid-row:3;align-self:start;justify-self:start;margin:16px 0 0;z-index:1}
+ .pf .strip{display:contents}
+ .pf .fv{grid-column:1;grid-row:3;align-self:end;justify-self:start;z-index:1;padding:0 0 12px}
+ .pf .op{grid-column:1;grid-row:4;border-left:0;border-top:var(--rule) solid var(--ink);padding:14px 0 0}
+ .pf .fn{grid-column:1;grid-row:5;margin:12px 0 0}
+ .pf .meet{display:block;min-height:0;padding:var(--band-y) var(--gutter)}
+ .pf .mfig{margin:18px calc(var(--gutter) * -1) 0;height:min(70vw,460px)}
+ .pf .mfig img{object-position:left 4%;-webkit-mask-image:linear-gradient(#0000 0,#000 32px);mask-image:linear-gradient(#0000 0,#000 32px)}
+ .pf .mcap{margin:8px 0 18px;text-align:left}
+ .pf .svc-head{display:block}
+ .pf .svc-head .frame{display:none}
+ .pf .lane{display:block}
+ .pf .lane .ll{padding:12px 0 10px}
+ .pf .lane .rows{border-top:var(--rule) solid var(--ink)}
+ .pf .steps{display:block}
+ .pf .step{border-right:0;border-bottom:var(--rule) solid var(--ink);padding:16px 0}
+}
+@media (max-width:639px){
+ .pf .hd{height:56px;gap:12px;padding-right:var(--gutter)}
+ .pf .hd .btn{display:none}
+ .pf .wm{font-size:22px}
+ .pf .wm.plate{height:56px;padding:0 34px 0 var(--gutter);--n:33.6px}
+ .pf #hero-proof{position:relative;height:100vh;overflow:hidden;background:var(--ground)}
+ .pf .hero{padding:12px var(--gutter) 76px;--fig-h:240px}
+ .pf .h1{--wdth-hero:75%}
+ .pf .sub{margin:10px 0 12px;font-size:17px;line-height:1.4}
+ .pf .who{margin-top:12px;font-size:17px}
+ .pf .fv{padding-bottom:10px}
+ .pf .num{font-size:3.5rem}
+ .pf .op{padding:10px 0 0;gap:7px}
+ .pf .op .cta{display:none}
+ .pf .slot{padding:0 4px;font-size:15px;flex:1;justify-content:center}
+ .pf .slots{gap:6px;flex-wrap:nowrap}
+ .pf .fn{margin:8px 0 0}
+ .pf .bbar{display:flex;gap:8px;position:absolute;left:0;right:0;bottom:0;height:64px;padding:8px 12px;background:var(--ink);z-index:2}
+ .pf .bbar .btn{height:48px;padding:0 12px;flex:1}
+ .pf .bbar .btn--primary{flex:1.35}
+ .pf .bbar .btn--sec{color:var(--paper);border-color:var(--paper)}
+ .pf .ticker{height:48px}
+ .pf .ticker .pause{width:64px}
+ .pf .ticker .track{font-size:17px}
+ .pf .srow{grid-template-columns:minmax(0,1fr) auto;padding:10px 4px 10px;min-height:72px;column-gap:12px;align-items:end}
+ .pf .srow .w{grid-column:1/-1}
+ .pf .srow .crop{display:none}
+ .pf .srow .pr{grid-column:2;grid-row:2;min-width:0}
+ .pf .desig .ip{display:none}
+ .pf .desig .br{display:block}
+ .pf .disc{width:72px;height:72px}
+ .pf .step{padding:14px 0}
+ .pf .rowx .frame{width:150px}
+ .pf .zero{display:block}
+ .pf .zero .big{margin-bottom:18px}
+ .pf .foot .fc{grid-column:span 6}
+ .pf .foot .legal,.pf .foot .cookie{grid-column:1/-1;justify-content:flex-start}
+}
+</style>
+<section class="pf" id="proof">
+ <div class="intro" style="border-top:1.5px solid #26120b"><h1>Proof in the final palette (ground #f9530a, counter #cffb43, paper #fff4e3, ink #26120b)</h1><p>Real layout values from <code>brand/02-visual-system.md</code>: the hero first screen with the generated portrait from <code>assets/img/src/paloma-hero.png</code>, the bite at every size it is used, and the ruled components. Lime and tangerine blocks in the bite sheet are placeholders for photographs.</p></div>
+ <div id="hero-proof">
+ <header class="hd">
+  <a class="wm plate">Feast Dental</a>
+  <nav><a>First visit</a><a>Services</a><a>Cost</a><a>Find us</a></nav>
+  <span class="sp"></span>
+  <span class="status"><i class="dot"></i><span class="st-l">Open now till 7:30.</span><span class="st-s">Open till 7:30</span></span>
+  <a class="tel">(512) 555-0142</a>
+  <a class="btn btn--md btn--primary">Book online</a>
+ </header>
+ <div class="hero">
+  <figure class="fig"><img src="../../assets/img/src/paloma-hero.png" alt="Dr. Paloma Krenek in dark scrubs on a tangerine backdrop."></figure>
+  <h1 class="h1"><span class="l1">I don’t</span> <span class="l2">care how long</span> <span class="l3">it’s been.</span></h1>
+  <p class="sub">I care about what’s bothering you now. I’m Paloma, a general dentist on the east side. You get a proper look, the price in writing, and no lecture.</p>
+  <p class="who"><span>Dr. Paloma </span><span>Krenek, DDS</span><i class="ip"> · </i><span>General </span><span>Dentist</span></p>
+  <div class="strip">
+   <div class="fv"><span class="lab">First visit · 75 min</span><span class="num">$195</span><span class="cap">without insurance<sup>1</sup></span></div>
+   <div class="op">
+    <div class="oph"><span class="lab">Next openings</span><a class="more">More times</a></div>
+    <div class="slots"><span class="slot"><b>Tue</b>5:45 pm</span><span class="slot"><b>Wed</b>8:00 am</span><span class="slot on bite"><b>Thu</b>5:30 pm</span></div>
+    <p class="opcap">Sample times for this demo, not real openings. As of 6:42 pm.</p>
+    <div class="cta"><a class="btn btn--primary">Book Thu 5:30 pm</a><a class="btn">Call or text<span class="tn">&nbsp;(512) 555-0142</span></a></div>
+   </div>
+  </div>
+  <p class="fn"><sup>1</sup> Exam, X-rays and a regular cleaning. If your gums need more than a regular cleaning, I show you why and price it first.</p>
+ </div>
+ <div class="bbar"><a class="btn btn--primary">Book online</a><a class="btn btn--sec">Call or text</a></div>
+ </div>
+ <div class="ticker" id="ticker-proof"><span class="pause">Pause</span><div class="track"><span>No lecture</span><i class="sep"></i><span>Price in writing first</span><i class="sep"></i><span>Raise a hand and I stop</span><i class="sep"></i><span>Evenings and Saturdays</span><i class="sep"></i><span>Holly, East Austin</span><i class="sep"></i><span>Se habla español</span><i class="sep"></i><span>No lecture</span><i class="sep"></i><span>Price in writing first</span></div></div>
+
+ <div class="sheet" id="bite-proof">
+  <h6>The bite: one notch, three arcs, always the top-right corner. Black construction lines are for this sheet only.</h6>
+  <div class="cols">
+   <div class="cell"><svg width="260" height="260" viewBox="-6 -6 112 112" style="background:var(--paper)"><rect x="0" y="0" width="100" height="100" fill="var(--ground)"/><path d="M0 0A35.29 35.29 0 0 0 21.53 32.5A35.29 35.29 0 0 0 67.5 78.47A35.29 35.29 0 0 0 100 100V0Z" fill="var(--paper)"/><g fill="none" stroke="var(--ink)" stroke-width=".5" stroke-dasharray="1.5 1.5"><circle cx="35.29" cy="0" r="35.29"/><circle cx="54.25" cy="45.75" r="35.29"/><circle cx="100" cy="64.71" r="35.29"/><circle cx="100" cy="0" r="64.71"/></g><g fill="var(--ink)"><circle cx="100" cy="0" r="1.6"/><circle cx="35.29" cy="0" r="1.2"/><circle cx="54.25" cy="45.75" r="1.2"/><circle cx="100" cy="64.71" r="1.2"/><circle cx="21.53" cy="32.5" r="1.2"/><circle cx="67.5" cy="78.47" r="1.2"/></g></svg><p class="note">Unit notch, 100 × 100. Three r = 35.29 arcs,<br>centres 64.71 from the corner at 0°, 45°, 90°.</p></div>
+   <div class="cell"><div class="rowx" style="background:var(--ground);padding:16px"><div class="frame"><div class="photo bite-w" style="background:var(--counter)"><p class="note">photo on ground field, notch 24% of width</p></div></div></div><p class="note">Photo, lime sweep on the ground field</p></div>
+   <div class="cell"><div class="rowx" style="padding:16px;border:1px dashed var(--ink)"><div class="frame"><div class="photo bite-w" style="background:var(--ground)"><p class="note">photo on paper, notch 24% of width</p></div></div></div><p class="note">Photo, tangerine sweep on paper</p></div>
+   <div class="cell"><div class="rowx"><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="currentColor"/></svg><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pb2" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pb2)"/></svg><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pb4" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12ZM98.42 29.7A23.29 23.29 0 0 0 78.28 45.73A23.29 23.29 0 0 0 50.71 78.6A23.29 23.29 0 0 0 38.42 101.2L39.46 113.16L117.17 106.36L110.37 28.66Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pb4)"/></svg><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pb6" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12ZM98.42 29.7A23.29 23.29 0 0 0 78.28 45.73A23.29 23.29 0 0 0 50.71 78.6A23.29 23.29 0 0 0 38.42 101.2L39.46 113.16L117.17 106.36L110.37 28.66ZM-1.2 61.58A23.29 23.29 0 0 0 21.4 49.29A23.29 23.29 0 0 0 54.27 21.72A23.29 23.29 0 0 0 70.3 1.58L71.34 -10.37L-6.36 -17.17L-13.16 60.54Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pb6)"/></svg></div><p class="note">Portion disc: whole, then one, two, three bites (cumulative masks, 68% / 44% / 21% left)</p>
+    <div class="rowx" style="margin-top:10px"><span class="bigdot"></span><span class="bigdot closed"></span><span class="status"><i class="dot"></i>Open now · until 7:30 pm</span><span class="status"><i class="dot closed"></i>Closed · opens 8:00 am</span></div><p class="note">Status dot at 48px and at its real 12px: whole when open, one round cut when closed</p></div>
+  </div>
+  <div class="cols" style="margin-top:26px">
+   <div class="cell"><div class="rowx" style="background:var(--ground);padding:16px"><a class="btn btn--primary">Book online</a><a class="btn btn--primary bite">Book online</a><a class="btn btn--primary bite" style="--n:44.8px">Book online</a><a class="btn btn--primary bite-x">Book online</a></div><p class="note">56px pill on ground: whole; bitten with a 34px notch (the spec: 0.6 of the height); 45px (too big: it reaches the label); and the same notch cut with mask-composite: exclude, which leaves a hairline of the old outline</p></div>
+   <div class="cell"><div class="rowx" style="padding:16px;border:1px dashed var(--ink)"><a class="btn btn--primary">Book online</a><a class="btn btn--primary bite">Book online</a><a class="btn btn--primary bite" style="--n:44.8px">Book online</a><a class="btn btn--primary bite-x">Book online</a></div><p class="note">The same on paper</p></div>
+  </div>
+  <div class="cols" style="margin-top:26px">
+   <div class="cell"><div class="rowx" style="background:var(--ground);padding:16px"><a class="btn btn--primary" style="height:112px;padding:0 56px;font-size:34px;border-width:3px">Book online</a><a class="btn btn--primary bite" style="--n:67.2px;height:112px;padding:0 56px;font-size:34px;border-width:3px">Book online</a><a class="btn btn--primary bite" style="--n:89.6px;height:112px;padding:0 56px;font-size:34px;border-width:3px">Book online</a><a class="btn btn--primary bite-x" style="height:112px;padding:0 56px;font-size:34px;border-width:3px">Book online</a></div><p class="note">Enlarged 2× to inspect the cut: whole, 60%, 80%, and 60% by mask-composite</p></div>
+  </div>
+  <div class="cols" style="margin-top:26px">
+   <div class="cell"><div class="rowx" style="background:var(--ground);padding:16px"><span class="slot"><b>Thu</b>5:30 pm</span><span class="slot hov"><b>Thu</b>5:30 pm</span><span class="slot on bite"><b>Thu</b>5:30 pm</span></div><p class="note">48px slot chip: rest, hover, chosen (counter fill, 22px notch)</p></div>
+   <div class="cell"><div class="rowx" style="background:var(--ground);padding:16px"><a class="btn btn--primary">Book online</a><a class="btn btn--hover">Book online</a><a class="btn btn--primary btn--focus">Book online</a><a class="btn btn--primary btn--press">Book online</a><a class="btn">Call or text</a><a class="btn btn--sec-hover">Call or text</a></div><p class="note">Pill states: rest, hover, focus-visible, pressed (4% squash toward bottom-left), secondary rest, secondary hover</p></div>
+  </div>
+  <div class="cols" style="margin-top:26px;align-items:flex-end">
+   <div class="cell"><span class="wmx tbite" style="font-size:26px">Feas<span class="tt">t</span> Dental</span><p class="note">A. notch on the T, 26px</p></div>
+   <div class="cell"><span class="wmx tbite" style="font-size:64px">Feas<span class="tt">t</span> Dental</span><p class="note">A. 64px</p></div>
+   <div class="cell"><span class="wmx tbite" style="font-size:150px">Feas<span class="tt">t</span> Dental</span><p class="note">A. 150px: the notch can be no bigger than the bar of the T, so it reads as damage, not a bite</p></div>
+  </div>
+  <div class="cols" style="margin-top:26px;align-items:flex-end">
+   <div class="cell"><span class="wmx plate" style="font-size:26px">Feast Dental</span><p class="note">B. ink plate with the bite, 26px type, 72px plate (header)</p></div>
+   <div class="cell"><span class="wmx plate" style="font-size:17px">Feast Dental</span><p class="note">B. 17px type, 47px plate</p></div>
+   <div class="cell"><span class="wmx plate" style="font-size:64px">Feast Dental</span><p class="note">B. 64px type: letters whole, the plate is bitten</p></div>
+   <div class="cell"><div style="background:var(--ink);padding:16px"><span class="wmx plate onink" style="font-size:26px">Feast Dental</span></div><p class="note">B. on the ink field (footer): plate in the ground colour</p></div>
+   <div class="cell"><span class="wmx plate" style="font-size:30px;height:64px;width:64px;padding:0 0 6px 10px;align-items:flex-end;--n:29px">F</span><p class="note">B. avatar / favicon: bitten square</p></div>
+  </div>
+ </div>
+
+ <div class="sheet gr" id="rows-proof">
+  <h6>Services on the ground field: heading, the designation at the size of the service words, one bitten still life (assets/img/src/bite-toast.png); third row in its hover / focus state</h6>
+  <div class="svc-head"><div><h2>What I do, and what it costs.</h2><p class="desig">Dr. Paloma Krenek, DDS<span class="ip"> · </span><span class="br"></span>General Dentist</p></div><div class="frame"><img class="still bite-w" src="../../assets/img/src/bite-toast.png" alt=""></div></div>
+  <div class="lane"><div class="ll">Keep your teeth working</div><div class="rows">
+   <div class="srow"><span class="w">Checkups</span><span class="desc">After your first visit: exam and a regular cleaning. X-rays when they’re due. 50 min.</span><span class="pr"><small>from</small>$145</span></div>
+   <div class="srow"><span class="w">Fillings</span><span class="desc">Tooth-colored. I draw the spot and price it before I start.</span><span class="pr"><small>from</small>$190</span></div>
+   <div class="srow is-hover"><span class="w">Emergency</span><span class="desc">Something hurts or broke. I look and X-ray that tooth. Treatment is priced before it starts.</span><span class="pr">$95</span></div>
+  </div></div>
+  <div class="lane"><div class="ll">Change how they look<small>Only if you want to.</small></div><div class="rows">
+   <div class="srow"><span class="w">Whitening</span><span class="desc">Trays to take home, or done here in the chair. You pick. In-chair from $450.</span><span class="pr"><small>from</small>$250</span></div>
+   <div class="srow"><span class="w">Aligners</span><span class="desc">Start with a 3D scan and a plain answer on cost and time. Consult $0 · 30 min.</span><span class="pr"><small>from</small>$3,400</span></div>
+  </div></div>
+ </div>
+ <div class="sheet" id="steps-proof">
+  <h6>First visit in three steps: numeral, portion disc, ruled columns</h6>
+  <div class="steps">
+   <div class="step"><span class="n">1</span><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pb3" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pb3)"/></svg><h4>A proper look</h4><p>Exam and a full set of X-rays. I draw you what I see.</p></div>
+   <div class="step"><span class="n">2</span><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pb5" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12ZM98.42 29.7A23.29 23.29 0 0 0 78.28 45.73A23.29 23.29 0 0 0 50.71 78.6A23.29 23.29 0 0 0 38.42 101.2L39.46 113.16L117.17 106.36L110.37 28.66Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pb5)"/></svg><h4>Tell me what you’ve stopped eating</h4><p>That is how I find the tooth that is bothering you.</p></div>
+   <div class="step"><span class="n">3</span><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pb7" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12ZM98.42 29.7A23.29 23.29 0 0 0 78.28 45.73A23.29 23.29 0 0 0 50.71 78.6A23.29 23.29 0 0 0 38.42 101.2L39.46 113.16L117.17 106.36L110.37 28.66ZM-1.2 61.58A23.29 23.29 0 0 0 21.4 49.29A23.29 23.29 0 0 0 54.27 21.72A23.29 23.29 0 0 0 70.3 1.58L71.34 -10.37L-6.36 -17.17L-13.16 60.54Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pb7)"/></svg><h4>A plan with prices</h4><p>In writing, before I do anything.</p></div>
+  </div>
+  <h6 style="margin-top:28px">FAQ row (closed, open), price chip on paper, caption and footnote</h6>
+  <div class="faq"><div class="q">Do you take my insurance?<span class="mk"></span></div><div class="q open">What if I haven’t been in years?<span class="mk"></span></div><div class="a">Then you’re welcome here. There is no wrong answer and no lecture.</div></div>
+  <div class="rowx" style="margin-top:18px"><span class="chip" style="background:var(--ground)">First visit <b>$195</b> 75 min</span><a class="btn btn--primary">Book online</a><span style="font-size:var(--fs-small)">Apple. 4:10 pm.</span><span style="font-size:var(--fs-foot)"><sup>1</sup> Footnote, 13px.</span></div>
+ </div>
+ <div class="sheet" id="hours-proof">
+  <h6>Hours table on paper: tabular figures, today marked with the counter</h6>
+  <table class="hours"><tr><td>Mon</td><td>8:00 am – 5:00 pm</td></tr><tr class="today"><td>Tue<span class="tg">Today</span></td><td>11:00 am – 7:30 pm</td></tr><tr><td>Wed</td><td>8:00 am – 5:00 pm</td></tr><tr><td>Thu</td><td>11:00 am – 7:30 pm</td></tr><tr><td>Fri</td><td>8:00 am – 2:00 pm</td></tr><tr><td>Sat</td><td>9:00 am – 1:00 pm</td></tr><tr><td>Sun</td><td>Closed</td></tr></table>
+ </div>
+ <div class="meet" id="meet-proof">
+  <figure class="mfig"><img src="../../assets/img/src/paloma-apple.png" alt="Paloma holding a green apple with one bite out of it, on a lime backdrop."></figure>
+  <p class="mcap">Paloma. Apple. 4:10 pm.</p>
+  <div class="mtxt">
+   <h2>I’m Paloma.</h2>
+   <p class="bio">I’m a general dentist, and I opened Feast Dental on the east side this October. In college I went four years without a cleaning: no insurance, and scared of the bill. So you won’t get a lecture from me about how long it’s been.</p>
+   <p class="pull">Teeth are for biting.<br>I keep them at it.</p>
+   <ol class="pts"><li><span><b>I ask first.</b>One question, and your answer tells me where to look.</span></li><li><span><b>I draw it.</b>You see the tooth and the fix on paper.</span></li><li><span><b>I price it in writing.</b>You get the number before I do anything.</span></li></ol>
+   <p class="cred"><b>Dr. Paloma Krenek, DDS · General Dentist</b><br>DDS, [dental school, year] · [university, year]</p>
+  </div>
+ </div>
+ <div class="ink zero" id="zero-proof"><div class="big">0</div><div class="txt"><h3>reviews. I opened<br>in October.</h3><ol><li>You get the price in writing before I do anything.</li><li>Raise a hand and I stop. Every time.</li><li>No lecture, whatever the answer.</li></ol></div></div>
+ <div class="foot" id="foot-proof">
+  <span class="wmx plate onink" style="font-size:26px">Feast Dental</span>
+  <div class="fc"><b>Find us</b>2217 Tejocote Street<br>Austin, TX 78702<br><a>Directions</a></div>
+  <div class="fc"><b>Call or text</b><span style="font-variant-numeric:tabular-nums">(512) 555-0142</span><br><a>Book online</a></div>
+  <div class="fc"><b>Hours</b>Mon, Wed 8–5 · Tue, Thu 11–7:30<br>Fri 8–2 · Sat 9–1 · Sun closed</div>
+  <div class="fc"><b>The dentist</b>Dr. Paloma Krenek, DDS<br>General Dentist</div>
+  <div class="legal">Placeholder practice for a demo. Every name, price and hour on this page is invented. <a class="tbtn">Stop the motion</a></div>
+  <div class="cookie"><svg class="disc" viewBox="0 0 100 100" aria-hidden="true"><mask id="pbc" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120"><rect x="-10" y="-10" width="120" height="120" fill="#fff"/><path d="M34 0A23.29 23.29 0 0 0 48.21 21.45A23.29 23.29 0 0 0 78.55 51.79A23.29 23.29 0 0 0 100 66L112 66L112 -12L34 -12Z" fill="#000"/></mask><circle cx="50" cy="50" r="50" fill="currentColor" mask="url(#pbc)"/></svg><span>The only cookie on this site.</span></div>
+ </div>
+</section>
+
+</body>
+</html>

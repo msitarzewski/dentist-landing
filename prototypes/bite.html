@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype: the bite</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="proto-tokens.css">
+<link rel="stylesheet" href="../assets/css/bite.css">
+<link rel="stylesheet" href="proto-bite.css">
+<style>
+/* ============ page chrome (prototype only) ============ */
+body { font-family: system-ui, sans-serif; font-size: 1rem; }
+.proto { padding: 2.5rem var(--gutter); border-top: var(--rule) solid var(--ink); }
+.proto > h2 { font: 800 1.5rem/1.1 system-ui, sans-serif; margin-bottom: .35rem; }
+.proto > p.note, .label { font-size: .8125rem; line-height: 1.35; max-width: 70ch; }
+.label { font-weight: 700; margin: 1.25rem 0 .5rem; }
+.row { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: flex-start; }
+.on-ground { background: var(--ground); padding: 1.25rem; }
+.on-ink { background: var(--ink); padding: 1.25rem; }
+
+/* ============ A. static bite on a photo ============ */
+.a-row { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 15rem) minmax(0, 7rem); gap: 1rem; align-items: start; }
+.frame { container-type: inline-size; margin: 0; }
+.frame > * { display: block; width: 100%; object-fit: cover; }
+.r45 > * { aspect-ratio: 4 / 5; } .r169 > * { aspect-ratio: 16 / 9; } .r11 > * { aspect-ratio: 1; }
+.fill { background: var(--ink); }
+
+/* A2 (recommended): ONE mask layer. Each --bite-* image in bite.css is a solid field with the bite out of one corner,
+   drawn var(--bite-reach) times larger than the bite and pinned to that corner, so it covers the whole element.
+   The 1px overhang keeps the image's own soft outer edge outside the element. */
+.bitten {
+  -webkit-mask: var(--bite-img, var(--proto-bite-tr)) var(--bite-pos, calc(100% + 1px) -1px) / calc(var(--bite-size) * var(--bite-reach)) auto no-repeat;
+  mask: var(--bite-img, var(--proto-bite-tr)) var(--bite-pos, calc(100% + 1px) -1px) / calc(var(--bite-size) * var(--bite-reach)) auto no-repeat;
+}
+.bitten--tl { --bite-img: var(--proto-bite-tl); --bite-pos: -1px -1px; }
+.bitten--br { --bite-img: var(--proto-bite-br); --bite-pos: calc(100% + 1px) calc(100% + 1px); }
+.bitten--bl { --bite-img: var(--proto-bite-bl); --bite-pos: -1px calc(100% + 1px); }
+.bitten--nibble { --bite-img: var(--proto-nibble-tr); }
+.bitten--official { --bite-img: var(--bite-tr); --bite-size: 25%; }   /* THE bite (brand/02 section 4.1) at --bite-photo, 25% of the width */
+
+/* A1: radial-gradient layers, intersected. Corner chosen with four custom properties. Needs a LENGTH for the size. */
+.bite-grad {
+  --bite-size: 30cqi; --bite-x: 100%; --bite-sx: -1; --bite-y: 0%; --bite-sy: 1;
+  mask-image:
+      radial-gradient(circle at calc(var(--bite-x) + var(--bite-sx) * var(--bite-size) * -0.0800) calc(var(--bite-y) + var(--bite-sy) * var(--bite-size) * -0.0800), #0000 calc(var(--bite-size) * 0.8000 - .5px), #000 calc(var(--bite-size) * 0.8000 + .5px)),
+      radial-gradient(circle at calc(var(--bite-x) + var(--bite-sx) * var(--bite-size) * 0.7140) calc(var(--bite-y) + var(--bite-sy) * var(--bite-size) * 0.0175), #0000 calc(var(--bite-size) * 0.1900 - .5px), #000 calc(var(--bite-size) * 0.1900 + .5px)),
+      radial-gradient(circle at calc(var(--bite-x) + var(--bite-sx) * var(--bite-size) * 0.6087) calc(var(--bite-y) + var(--bite-sy) * var(--bite-size) * 0.2862), #0000 calc(var(--bite-size) * 0.2600 - .5px), #000 calc(var(--bite-size) * 0.2600 + .5px)),
+      radial-gradient(circle at calc(var(--bite-x) + var(--bite-sx) * var(--bite-size) * 0.3941) calc(var(--bite-y) + var(--bite-sy) * var(--bite-size) * 0.5268), #0000 calc(var(--bite-size) * 0.2400 - .5px), #000 calc(var(--bite-size) * 0.2400 + .5px)),
+      radial-gradient(circle at calc(var(--bite-x) + var(--bite-sx) * var(--bite-size) * 0.1433) calc(var(--bite-y) + var(--bite-sy) * var(--bite-size) * 0.6986), #0000 calc(var(--bite-size) * 0.2100 - .5px), #000 calc(var(--bite-size) * 0.2100 + .5px));
+  mask-composite: intersect;
+}
+.bite-grad--bl { --bite-x: 0%; --bite-sx: 1; --bite-y: 100%; --bite-sy: -1; }
+
+/* A3: clip-path: shape(). Crisp, but it also clips outlines, shadows and the hit area, and each corner needs its own string. */
+@supports (clip-path: shape(from 0 0, line to 10px 10px)) {
+  .bite-shape { --bite-size: 30cqi; clip-path: shape(from 0 0, hline to calc(100% - var(--bite-size) * 0.9032), arc to calc(100% - var(--bite-size) * 0.8372) calc(var(--bite-size) * 0.1621) of calc(var(--bite-size) * 0.1900) ccw small, arc to calc(100% - var(--bite-size) * 0.6334) calc(var(--bite-size) * 0.5450) of calc(var(--bite-size) * 0.2600) ccw small, arc to calc(100% - var(--bite-size) * 0.3437) calc(var(--bite-size) * 0.7614) of calc(var(--bite-size) * 0.2400) ccw small, arc to calc(100% - var(--bite-size) * 0.0000) calc(var(--bite-size) * 0.8521) of calc(var(--bite-size) * 0.2100) ccw small, vline to 100%, hline to 0, close); }
+}
+
+/* A4: SVG clipPath in objectBoundingBox units. One path per aspect ratio, or the bite stretches. */
+.bite-obb-45 { clip-path: url(#bite-obb-45); } .bite-obb-169 { clip-path: url(#bite-obb-169); } .bite-obb-11 { clip-path: url(#bite-obb-11); }
+
+/* ============ B. bite on press ============ */
+.btn {
+  --btn-h: var(--tap);
+  position: relative; isolation: isolate;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--btn-h); padding: 0 2rem; border: 0; border-radius: 999px;
+  background: none; color: var(--btn-fg, var(--paper));
+  font: 700 1rem/1 system-ui, sans-serif; text-decoration: none; white-space: nowrap;
+  cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;
+}
+/* The fill is a pseudo-element, so the mask never touches the label, the hit area or the focus ring. */
+.btn::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: var(--btn-bg, var(--ink));
+  clip-path: inset(0 round 999px);   /* rounded by clip-path: border-radius on a masked box makes Chrome draw the mask coarsely */
+  --_s: calc(var(--btn-h) * var(--bite-reach));
+  /* bite parked one button-height outside the top trailing corner */
+  -webkit-mask: var(--proto-chomp-tr) calc(100% + 1px + var(--btn-h)) calc(-1px - var(--btn-h)) / var(--_s) var(--_s) no-repeat;
+  mask: var(--proto-chomp-tr) calc(100% + 1px + var(--btn-h)) calc(-1px - var(--btn-h)) / var(--_s) var(--_s) no-repeat;
+  transition: mask-position var(--bite-heal) var(--ease-out), -webkit-mask-position var(--bite-heal) var(--ease-out);
+}
+.btn:active::before, .btn[data-bitten]::before {
+  /* the jaw slides in from the corner and stops a little short, so the bite stays clear of the label */
+  -webkit-mask-position: calc(100% + 1px + var(--btn-h) * var(--chomp-x, .14)) calc(-1px - var(--btn-h) * var(--chomp-y, .04));
+  mask-position: calc(100% + 1px + var(--btn-h) * var(--chomp-x, .14)) calc(-1px - var(--btn-h) * var(--chomp-y, .04));
+  transition: mask-position var(--bite-snap) cubic-bezier(.3, 1.7, .5, 1), -webkit-mask-position var(--bite-snap) cubic-bezier(.3, 1.7, .5, 1);
+}
+.btn--counter { --btn-bg: var(--counter); --btn-fg: var(--ink); }
+.btn--paper { --btn-bg: var(--paper); --btn-fg: var(--ink); }
+.btn--lg { --btn-h: 4rem; padding: 0 2.5rem; font-size: 1.25rem; }
+@media (hover: hover) and (pointer: fine) { .btn:hover { --btn-bg: var(--counter); --btn-fg: var(--ink); } .btn--counter:hover { --btn-bg: var(--ink); --btn-fg: var(--counter); } }
+.on-ground .btn:focus-visible, .on-ink .btn:focus-visible { outline-color: var(--paper); }
+@media (prefers-reduced-motion: reduce) { .btn::before { transition: none !important; } }
+@media (forced-colors: active) { .btn { border: 2px solid ButtonText; } }
+
+/* ============ C. a shape eaten by scroll ============ */
+@property --b1 { syntax: "<number>"; inherits: true; initial-value: 1; }
+@property --b2 { syntax: "<number>"; inherits: true; initial-value: 1; }
+@property --b3 { syntax: "<number>"; inherits: true; initial-value: 1; }
+.eat { display: grid; grid-template-columns: 40vmin minmax(0, 1fr); gap: var(--gutter); timeline-scope: --step-1, --step-2, --step-3; }
+.eat__stage { position: sticky; top: calc(50svh - 20vmin); align-self: start; inline-size: 40vmin; block-size: 40vmin; }
+.disc { inline-size: 100%; block-size: 100%; overflow: visible; fill: var(--ground); }
+.disc__bite { transform: scale(var(--b)); }
+.disc__bite--1 { --b: var(--b1); } .disc__bite--2 { --b: var(--b2); } .disc__bite--3 { --b: var(--b3); }
+.eat__steps { display: grid; }
+.eat__steps > li { min-height: 72svh; padding-block: 1rem; border-top: var(--rule) solid var(--ink); }
+/* the inset halves the timeline's viewport, so "entry 0%" is the moment a step's top edge crosses the middle of the screen */
+.eat__steps > li { view-timeline-inset: 0% 50%; }
+.eat__steps > li:nth-child(1) { view-timeline-name: --step-1; }
+.eat__steps > li:nth-child(2) { view-timeline-name: --step-2; }
+.eat__steps > li:nth-child(3) { view-timeline-name: --step-3; }
+.eat__steps b { display: block; font: 800 clamp(1.5rem, 5vw, 3rem)/1 system-ui, sans-serif; }
+
+/* default (no JS, no scroll-driven CSS, reduced motion): --b1..3 keep their initial value 1, so the disc shows all three bites */
+@media (prefers-reduced-motion: no-preference) {
+  /* the time-based snap: the bite groups transition whenever their inherited --b value flips */
+  .disc__bite { transition: transform var(--bite-snap) cubic-bezier(.3, 1.7, .5, 1); }
+
+  /* tier 1: scroll-driven. Each step flips one number from 0 to 1 as it crosses the middle of the viewport, and back. */
+  @supports (animation-timeline: view()) and (timeline-scope: --x) {
+    html:not(.force-io) .eat__stage {
+      animation: eat-1 steps(1, jump-start) both, eat-2 steps(1, jump-start) both, eat-3 steps(1, jump-start) both;
+      animation-timeline: --step-1, --step-2, --step-3;
+      animation-range: entry 0% entry 2%;
+    }
+    /* variant for comparison: scrub the bite open over a short range instead of flipping it */
+    html.eat-scrub:not(.force-io) .eat__stage { animation-timing-function: linear; animation-range: entry 0% entry 14%; }
+    html.eat-scrub .disc__bite { transition: none; }
+  }
+  /* tier 2: IntersectionObserver sets data-bites (also forced with ?eat=io for testing) */
+  @supports not ((animation-timeline: view()) and (timeline-scope: --x)) {
+    .js-eat .eat__stage { --b1: 0; --b2: 0; --b3: 0; }
+    .js-eat .eat__stage[data-bites="1"] { --b1: 1; }
+    .js-eat .eat__stage[data-bites="2"] { --b1: 1; --b2: 1; }
+    .js-eat .eat__stage[data-bites="3"] { --b1: 1; --b2: 1; --b3: 1; }
+  }
+  .force-io .eat__stage { --b1: 0; --b2: 0; --b3: 0; }
+  .force-io .eat__stage[data-bites="1"] { --b1: 1; }
+  .force-io .eat__stage[data-bites="2"] { --b1: 1; --b2: 1; }
+  .force-io .eat__stage[data-bites="3"] { --b1: 1; --b2: 1; --b3: 1; }
+}
+@keyframes eat-1 { from { --b1: 0; } to { --b1: 1; } }
+@keyframes eat-2 { from { --b2: 0; } to { --b2: 1; } }
+@keyframes eat-3 { from { --b3: 0; } to { --b3: 1; } }
+
+/* ============ D. bitten chip ============ */
+.chip {
+  position: relative; isolation: isolate;
+  display: inline-flex; align-items: center; gap: .4em;
+  min-height: 2.25rem; padding: 0 1.6rem 0 .875rem;
+  font: 700 .9375rem/1 system-ui, sans-serif; color: var(--chip-fg, var(--ink)); text-decoration: none; white-space: nowrap;
+  rotate: var(--chip-tilt, -2deg);
+  transition: rotate var(--spring-snappy-dur) var(--spring-snappy);
+}
+.chip::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: var(--chip-bg, var(--counter));
+  --_n: calc(var(--nibble-size, 1.5rem) * var(--bite-reach));
+  -webkit-mask: var(--proto-nibble-tr) calc(100% + 1px) -1px / var(--_n) var(--_n) no-repeat;
+  mask: var(--proto-nibble-tr) calc(100% + 1px) -1px / var(--_n) var(--_n) no-repeat;
+  transition: mask-size var(--bite-heal) var(--ease-out), -webkit-mask-size var(--bite-heal) var(--ease-out);
+}
+.chip--lg { min-height: 3rem; padding: 0 2.25rem 0 1.125rem; font-size: 1.25rem; --nibble-size: 2.1rem; }
+a.chip, button.chip { cursor: pointer; border: 0; background: none; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+@media (hover: hover) and (pointer: fine) { a.chip:hover, button.chip:hover { --chip-bg: var(--ink); --chip-fg: var(--counter); --chip-tilt: 1.5deg; } }
+a.chip:active::before, button.chip:active::before, .chip[data-bitten]::before {   /* pressing takes a bigger bite */
+  --_n: calc(var(--nibble-size, 1.5rem) * 1.55 * var(--bite-reach));
+  transition: mask-size var(--bite-snap) cubic-bezier(.3, 1.7, .5, 1), -webkit-mask-size var(--bite-snap) cubic-bezier(.3, 1.7, .5, 1);
+}
+@media (prefers-reduced-motion: reduce) { .chip, .chip::before { transition: none !important; } }
+
+/* ============ E. variable-font axis motion ============ */
+@font-face { font-family: "Anybody"; src: url("fonts/anybody-latin-wdth-wght.woff2") format("woff2"); font-weight: 100 900; font-stretch: 50% 150%; font-display: block; }
+@font-face { font-family: "Archivo"; src: url("fonts/archivo-latin-wdth-wght.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: block; }
+@font-face { font-family: "Saira"; src: url("fonts/saira-latin-wdth-wght.woff2") format("woff2"); font-weight: 100 900; font-stretch: 50% 125%; font-display: block; }
+.vf { --vf-family: "Anybody"; --wdth-lo: 60%; --wdth-rest: 100%; --wdth-hi: 130%; --wght-lo: 300; --wght-rest: 800; --wght-hi: 900; }
+.vf[data-font="archivo"] { --vf-family: "Archivo"; --wdth-lo: 62%; --wdth-hi: 125%; }
+.vf[data-font="saira"] { --vf-family: "Saira"; --wdth-lo: 55%; --wdth-hi: 125%; }
+/* layout shift is contained by giving the headline a box that never changes: fixed block size, clipped, layout-contained.
+   --vf-size is set by the script so the WIDEST state of the longest line still fits the box. */
+.vf__box { contain: layout paint; block-size: calc(var(--vf-size, 3rem) * 0.95 * 2); overflow: clip; margin-block: 1rem; background: var(--ground); }
+.vf__head { font-family: var(--vf-family), sans-serif; font-size: var(--vf-size, 3rem); line-height: .95; font-weight: var(--wght-rest); font-stretch: var(--wdth-rest); text-transform: uppercase; letter-spacing: -0.01em; color: var(--ink); margin: 0; }
+.vf__line { display: block; white-space: nowrap; }
+@keyframes vf-enter { from { font-stretch: var(--wdth-lo); font-weight: var(--wght-hi); } }
+@keyframes vf-axis { from { font-stretch: var(--wdth-lo); font-weight: var(--wght-lo); } to { font-stretch: var(--wdth-hi); font-weight: var(--wght-hi); } }
+@keyframes vf-scale { from { scale: .6 1; } to { scale: 1.2 1; } }
+@media (prefers-reduced-motion: no-preference) {
+  .vf__head--enter.is-playing { animation: vf-enter var(--spring-bouncy-dur) var(--spring-bouncy) both; }
+  @supports (animation-timeline: view()) {
+    .vf__head--scroll { animation: vf-axis linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
+    .vf__head--control { transform-origin: 0 50%; animation: vf-scale linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
+  }
+}
+.vf__controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-block: .75rem; }
+.vf__controls button { min-height: 2.25rem; padding: 0 .9rem; border: var(--rule) solid var(--ink); background: none; font: 600 .875rem/1 system-ui, sans-serif; }
+.vf__controls button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+#vf-out { font: .75rem/1.4 ui-monospace, monospace; white-space: pre-wrap; }
+.spacer { block-size: 60svh; }
+</style>
+</head>
+<body>
+
+<header class="proto" style="border-top:0">
+  <h1 style="font:800 2rem/1 system-ui,sans-serif">The bite: technical prototype</h1>
+  <p class="note">This page answers the technique questions (which mask, which fallback, what it costs). The behaviour in <code>brand/03-interaction-spec.md</code> (a bite that cuts in one frame on click, squash and recoil, crumbs, one-shot portions, chew and open wide) is built in <a href="interaction.html">interaction.html</a>; sections B, C and E here follow the earlier brief instead.</p>
+  <p class="note">The shapes on this page are the provisional ones it was built with (<code>--proto-*</code> in <code>assets/css/bite.css</code>), except row A2b, which shows the bite the visual system settled on. Geometry comes from <code>tools/bite.mjs</code>. Rows marked "comparison" embed a frozen copy of that geometry; everything else reads <code>assets/css/bite.css</code> and updates when the tool is re-run. Query flags: <code>?eat=io</code> forces the observer fallback in section C, <code>?eat=scrub</code> scrubs instead of snapping, <code>?font=archivo|saira</code> switches the test face in section E and <code>?vf=poster</code> swaps in a larger four-line headline.</p>
+</header>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="bite-obb-45" clipPathUnits="objectBoundingBox"><path d="M0 0H0.72904A0.05700 0.04560 0 0 0 0.74884 0.03892A0.07800 0.06240 0 0 0 0.80998 0.13081A0.07200 0.05760 0 0 0 0.89690 0.18275A0.06300 0.05040 0 0 0 1.00000 0.20451V1H0Z"/></clipPath>
+    <clipPath id="bite-obb-169" clipPathUnits="objectBoundingBox"><path d="M0 0H0.72904A0.05700 0.10133 0 0 0 0.74884 0.08648A0.07800 0.13867 0 0 0 0.80998 0.29068A0.07200 0.12800 0 0 0 0.89690 0.40610A0.06300 0.11200 0 0 0 1.00000 0.45446V1H0Z"/></clipPath>
+    <clipPath id="bite-obb-11" clipPathUnits="objectBoundingBox"><path d="M0 0H0.72904A0.05700 0.05700 0 0 0 0.74884 0.04864A0.07800 0.07800 0 0 0 0.80998 0.16351A0.07200 0.07200 0 0 0 0.89690 0.22843A0.06300 0.06300 0 0 0 1.00000 0.25563V1H0Z"/></clipPath>
+  </defs>
+</svg>
+
+<section class="proto" id="a">
+  <h2>A. Static bite on a photo</h2>
+  <p class="note">Same bite, four techniques, three box shapes (4:5 photo, 16:9, small square). Bite size is 30% of the box width in every case.</p>
+
+  <p class="label">A2. mask: one oversized SVG tile (recommended)</p>
+  <div class="a-row" id="a2">
+        <figure class="frame r45"><img class="bitten " src="../assets/img/src/test-apple.png" alt="" width="1122" height="1402"></figure>
+        <figure class="frame r169"><div class="fill bitten "></div></figure>
+        <figure class="frame r11"><div class="fill bitten "></div></figure></div>
+
+  <p class="label">A2b. the same technique with the bite from brand/02-visual-system.md (three equal arcs, tile 25% of the width). The swap was one line in tools/bite.mjs</p>
+  <div class="a-row" id="a2b">
+        <figure class="frame r45"><img class="bitten bitten--official " src="../assets/img/src/test-apple.png" alt="" width="1122" height="1402"></figure>
+        <figure class="frame r169"><div class="fill bitten bitten--official "></div></figure>
+        <figure class="frame r11"><div class="fill bitten bitten--official "></div></figure></div>
+
+  <p class="label">A1. mask: radial gradients, intersected (comparison)</p>
+  <div class="a-row" id="a1">
+        <figure class="frame r45"><img class="bite-grad " src="../assets/img/src/test-apple.png" alt="" width="1122" height="1402"></figure>
+        <figure class="frame r169"><div class="fill bite-grad "></div></figure>
+        <figure class="frame r11"><div class="fill bite-grad "></div></figure></div>
+
+  <p class="label">A3. clip-path: shape() (comparison)</p>
+  <div class="a-row" id="a3">
+        <figure class="frame r45"><img class="bite-shape " src="../assets/img/src/test-apple.png" alt="" width="1122" height="1402"></figure>
+        <figure class="frame r169"><div class="fill bite-shape "></div></figure>
+        <figure class="frame r11"><div class="fill bite-shape "></div></figure></div>
+
+  <p class="label">A4. SVG clipPath, objectBoundingBox, one path per aspect ratio (comparison)</p>
+  <div class="a-row" id="a4">
+        <figure class="frame r45"><img class="bite-obb-45" src="../assets/img/src/test-apple.png" alt="" width="1122" height="1402"></figure>
+        <figure class="frame r169"><div class="fill bite-obb-169"></div></figure>
+        <figure class="frame r11"><div class="fill bite-obb-11"></div></figure>
+  </div>
+  <p class="label">A4b. the same clipPath reused on the wrong aspect ratio (what goes wrong)</p>
+  <div class="a-row" id="a4b">
+        <figure class="frame r45"><div class="fill bite-obb-11"></div></figure>
+        <figure class="frame r169"><div class="fill bite-obb-11"></div></figure>
+        <figure class="frame r11"><div class="fill bite-obb-169"></div></figure>
+  </div>
+
+  <p class="label">Parameters of the recommended technique: corner, size, scallop count (bite = 4 marks, nibble = 3)</p>
+  <div class="row" id="a-params">
+    <div class="fill bitten" style="inline-size:9rem;block-size:7rem"></div>
+    <div class="fill bitten bitten--tl" style="inline-size:9rem;block-size:7rem"></div>
+    <div class="fill bitten bitten--br" style="inline-size:9rem;block-size:7rem"></div>
+    <div class="fill bitten bitten--bl" style="inline-size:9rem;block-size:7rem"></div>
+    <div class="fill bitten" style="inline-size:9rem;block-size:7rem;--bite-size:48%"></div>
+    <div class="fill bitten" style="inline-size:9rem;block-size:7rem;--bite-size:3rem"></div>
+    <div class="fill bitten bitten--nibble" style="inline-size:9rem;block-size:7rem"></div>
+    <div class="fill bitten bitten--nibble" style="inline-size:4rem;block-size:3rem;--bite-size:1.6rem"></div>
+  </div>
+  <p class="label">Edge cases for the recommended technique: rotated, rounded (with clip-path, not border-radius), half-pixel offset, and a wide band with a small bite</p>
+  <div class="row" id="a-edge" style="align-items:center">
+    <div class="fill bitten" style="inline-size:9rem;block-size:6rem;rotate:-4deg"></div>
+    <div class="fill bitten" style="inline-size:9rem;block-size:6rem;clip-path:inset(0 round 1.25rem)"></div>
+    <div class="fill bitten" style="inline-size:9rem;block-size:6rem;translate:.5px .5px"></div>
+    <div class="fill bitten" style="inline-size:min(100%, 44rem);block-size:5rem;--bite-size:3rem"></div>
+  </div>
+</section>
+
+<section class="proto" id="b">
+  <h2>B. Bite on press</h2>
+  <p class="note">Press and hold with a pointer, or focus and press Enter or Space. The label never moves and the whole pill stays clickable.</p>
+  <div class="row" id="b-row" style="align-items:center">
+    <a class="btn" href="#b" data-bite id="btn-1">Book a first visit</a>
+    <button class="btn btn--counter" type="button" data-bite id="btn-2">Call or text</button>
+    <a class="btn btn--lg" href="#b" data-bite id="btn-3">Book online</a>
+  </div>
+  <div class="row on-ground" style="align-items:center;margin-top:1rem" id="b-ground">
+    <a class="btn" href="#b" data-bite>Book a first visit</a>
+    <a class="btn btn--paper" href="#b" data-bite>See prices</a>
+  </div>
+  <p class="label">Held in the bitten state (for screenshots)</p>
+  <div class="row" id="b-bitten" style="align-items:center">
+    <a class="btn" href="#b" data-bitten>Book a first visit</a>
+    <button class="btn btn--counter" type="button" data-bitten>Call or text</button>
+    <a class="btn btn--lg" href="#b" data-bitten>Book online</a>
+  </div>
+</section>
+
+<section class="proto" id="d">
+  <h2>D. Bitten chip</h2>
+  <p class="note">A price tag with one nibble. Linked chips swap colour and tilt on hover; pressing takes a bigger bite.</p>
+  <div class="row" id="d-row" style="align-items:center;gap:2rem">
+    <span class="chip">First visit <b>&pound;45</b></span>
+    <a class="chip" href="#d" data-bite id="chip-1">45 minutes</a>
+    <span class="chip chip--lg">First visit <b>&pound;45</b></span>
+    <a class="chip chip--lg" href="#d" data-bitten>pressed state</a>
+  </div>
+  <div class="row on-ground" id="d-ground" style="align-items:center;gap:2rem;margin-top:1rem">
+    <span class="chip">First visit <b>&pound;45</b></span>
+    <span class="chip" style="--chip-bg:var(--ink);--chip-fg:var(--paper)">Open till 8</span>
+    <span class="chip chip--lg" style="--chip-bg:var(--paper)">This week</span>
+  </div>
+</section>
+
+<section class="proto" id="e" >
+  <h2>E. Variable-font axis motion</h2>
+  <p class="note">Width and weight animate; the orange box never changes size. First headline: one-shot entrance. Second: axes tied to scroll (a new layout and repaint on every frame). Third: the same range faked with a transform, as a cost baseline.</p>
+  <div class="vf" id="vf" data-font="anybody">
+    <div class="vf__controls" role="group" aria-label="Test face">
+      <button type="button" data-set-font="anybody" aria-pressed="true">Anybody</button>
+      <button type="button" data-set-font="archivo" aria-pressed="false">Archivo</button>
+      <button type="button" data-set-font="saira" aria-pressed="false">Saira</button>
+      <button type="button" id="vf-replay">Replay entrance</button>
+    </div>
+    <p class="label">E1. entrance, one shot</p>
+    <div class="vf__box" id="vf-box-enter"><h3 class="vf__head vf__head--enter"><span class="vf__line">Teeth are</span><span class="vf__line">for biting.</span></h3></div>
+    <div class="spacer" style="block-size:30svh"></div>
+    <p class="label">E2. axes follow scroll (per-frame)</p>
+    <div class="vf__box" id="vf-box-scroll"><h3 class="vf__head vf__head--scroll"><span class="vf__line">Teeth are</span><span class="vf__line">for biting.</span></h3></div>
+    <div class="spacer" style="block-size:30svh"></div>
+    <p class="label">E3. control: transform only</p>
+    <div class="vf__box" id="vf-box-control"><h3 class="vf__head vf__head--control"><span class="vf__line">Teeth are</span><span class="vf__line">for biting.</span></h3></div>
+    <pre id="vf-out" aria-live="off"></pre>
+  </div>
+</section>
+
+<section class="proto" id="c">
+  <h2>C. A shape eaten by scroll</h2>
+  <p class="note">One bite per step as each step crosses the middle of the screen; scroll back and it is whole again.</p>
+  <div class="eat" id="eat">
+    <div class="eat__stage" id="eat-stage" data-bites="0">
+      <svg class="disc" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <defs>
+          <mask id="disc-mask" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120">
+            <rect x="-10" y="-10" width="120" height="120" fill="#fff"/>
+            <g fill="#000" class="disc__bite disc__bite--1" style="transform-origin:95.02px 0.00px"><circle cx="95.02" cy="0.00" r="28.80"/><circle cx="67.17" cy="7.33" r="6.84"/><circle cx="72.23" cy="16.41" r="9.36"/><circle cx="81.05" cy="23.95" r="8.64"/><circle cx="90.83" cy="28.86" r="7.56"/></g>
+            <g fill="#000" class="disc__bite disc__bite--2" style="transform-origin:107.16px 83.00px"><circle cx="107.16" cy="83.00" r="28.00"/><circle cx="77.56" cy="82.48" r="9.20"/><circle cx="82.56" cy="68.80" r="11.60"/><circle cx="91.71" cy="57.28" r="10.00"/></g>
+            <g fill="#000" class="disc__bite disc__bite--3" style="transform-origin:-15.05px 63.83px"><circle cx="-15.05" cy="63.83" r="26.40"/><circle cx="3.54" cy="45.08" r="6.27"/><circle cx="8.42" cy="53.25" r="8.58"/><circle cx="10.36" cy="63.72" r="7.92"/><circle cx="9.78" cy="73.73" r="6.93"/></g>
+          </mask>
+        </defs>
+        <circle cx="50" cy="50" r="50" mask="url(#disc-mask)"/>
+      </svg>
+    </div>
+    <ol class="eat__steps" id="eat-steps">
+      <li><b>1. Say hello</b>Ten minutes, no chair. Tell me what has been bothering you.</li>
+      <li><b>2. A proper look</b>Check, photos and a clean if you want one.</li>
+      <li><b>3. A written plan</b>What it needs, what it costs, before anything starts.</li>
+    </ol>
+  </div>
+  <div class="spacer"></div>
+</section>
+
+<script type="module">
+const root = document.documentElement;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const params = new URLSearchParams(location.search);
+
+/* ---------- B and D: press takes a bite ----------
+   Pointer: bitten while held, for at least MIN ms so a quick tap still shows.
+   Keyboard (Enter or Space) and programmatic clicks: bitten for HOLD ms, then it grows back.
+   Without this script, :active still gives pointer presses the bite. */
+const HOLD = 600, MIN = 220;
+const state = new WeakMap();
+function biteDown(el, held) {
+  clearTimeout(state.get(el)?.timer);
+  el.setAttribute('data-bitten', '');
+  state.set(el, { t0: performance.now(), timer: held ? 0 : setTimeout(() => biteUp(el, true), HOLD) });
+}
+function biteUp(el, now = false) {
+  const s = state.get(el); if (!s) return;
+  clearTimeout(s.timer);
+  s.timer = setTimeout(() => { el.removeAttribute('data-bitten'); state.delete(el); }, now ? 0 : Math.max(0, MIN - (performance.now() - s.t0)));
+}
+addEventListener('pointerdown', (e) => { const el = e.target.closest?.('[data-bite]'); if (el && e.button === 0) biteDown(el, true); });
+for (const type of ['pointerup', 'pointercancel']) addEventListener(type, () => document.querySelectorAll('[data-bite][data-bitten]').forEach((el) => biteUp(el)));
+addEventListener('pointerout', (e) => { const el = e.target.closest?.('[data-bite][data-bitten]'); if (el && !el.contains(e.relatedTarget)) biteUp(el); });
+addEventListener('keydown', (e) => { if (e.repeat || (e.key !== 'Enter' && e.key !== ' ')) return; const el = e.target.closest?.('[data-bite]'); if (el) biteDown(el, false); });
+addEventListener('click', (e) => { if (e.detail !== 0) return; const el = e.target.closest?.('[data-bite]'); if (el && !el.hasAttribute('data-bitten')) biteDown(el, false); });
+// prototype only: the demo links go nowhere, so stop them jumping the page
+document.querySelectorAll('a[data-bite], a[data-bitten]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
+
+/* ---------- C: observer fallback for the eaten disc ---------- */
+const stage = document.getElementById('eat-stage');
+const steps = [...document.querySelectorAll('#eat-steps > li')];
+const sda = CSS.supports('(animation-timeline: view()) and (timeline-scope: --x)');
+if (params.get('eat') === 'io') root.classList.add('force-io');
+if (params.get('eat') === 'scrub') root.classList.add('eat-scrub');
+if (!reduce && (!sda || root.classList.contains('force-io'))) {
+  root.classList.add('js-eat');
+  const count = () => { stage.dataset.bites = String(steps.filter((li) => li.getBoundingClientRect().top < innerHeight * 0.5).length); };
+  const io = new IntersectionObserver(count, { rootMargin: '-50% 0px -50% 0px' });
+  steps.forEach((li) => io.observe(li));
+  count();
+}
+
+/* ---------- E: variable-font harness ---------- */
+const vf = document.getElementById('vf');
+const out = document.getElementById('vf-out');
+const heads = [...vf.querySelectorAll('.vf__head')];
+async function fit() {
+  // size the type so the widest, heaviest state of the longest line still fits its box
+  await document.fonts.ready;
+  const box = document.getElementById('vf-box-enter');
+  const probe = heads[0].cloneNode(true);
+  probe.className = 'vf__head'; probe.style.cssText = 'position:absolute;visibility:hidden;font-size:100px;font-stretch:var(--wdth-hi);font-weight:var(--wght-hi);animation:none';
+  vf.append(probe);
+  const widest = Math.max(...[...probe.children].map((l) => l.getBoundingClientRect().width));
+  probe.remove();
+  vf.style.setProperty('--vf-size', Math.floor((box.clientWidth / widest) * 100 * 0.98) + 'px');
+}
+async function setFont(name) {
+  vf.dataset.font = name;
+  vf.querySelectorAll('[data-set-font]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.setFont === name)));
+  await document.fonts.load('800 40px "' + getComputedStyle(vf).getPropertyValue('--vf-family').trim().replace(/"/g, '') + '"');
+  await fit();
+}
+function playEntrance() { const h = heads[0]; h.classList.remove('is-playing'); void h.offsetWidth; h.classList.add('is-playing'); }
+vf.querySelectorAll('[data-set-font]').forEach((b) => b.addEventListener('click', () => setFont(b.dataset.setFont)));
+document.getElementById('vf-replay').addEventListener('click', playEntrance);
+addEventListener('resize', fit);
+if (params.get('vf') === 'poster') heads.forEach((h) => { h.innerHTML = ['Teeth', 'are for', 'biting', 'things.'].map((t) => '<span class="vf__line">' + t + '</span>').join(''); h.parentElement.style.blockSize = 'calc(var(--vf-size) * 0.95 * 4)'; }); // heavier test: four short lines, so the type is larger
+await setFont(['anybody', 'archivo', 'saira'].includes(params.get('font')) ? params.get('font') : 'anybody');
+new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { playEntrance(); io.disconnect(); } }, { threshold: 0.6 }).observe(document.getElementById('vf-box-enter'));
+
+// measurement: frame pacing while one effect runs. mode = 'enter' | 'scroll' | 'control' | 'idle'
+window.__measure = async function (mode, ms = 3000) {
+  const frames = []; const loaf = []; const shifts = [];
+  let po1, po2;
+  try { po1 = new PerformanceObserver((l) => loaf.push(...l.getEntries().map((e) => e.duration))); po1.observe({ type: 'long-animation-frame' }); } catch {}
+  try { po2 = new PerformanceObserver((l) => shifts.push(...l.getEntries().filter((e) => !e.hadRecentInput).map((e) => e.value))); po2.observe({ type: 'layout-shift' }); } catch {}
+  const target = { enter: 'vf-box-enter', scroll: 'vf-box-scroll', control: 'vf-box-control', idle: 'vf-box-enter' }[mode];
+  const box = document.getElementById(target);
+  const top = box.getBoundingClientRect().top + scrollY;
+  const from = top - innerHeight, to = top + box.offsetHeight;      // the whole pass of the box through the viewport
+  scrollTo(0, mode === 'enter' || mode === 'idle' ? top - innerHeight * 0.3 : from);
+  await new Promise((r) => setTimeout(r, 300));
+  performance.mark('vf-start-' + mode);
+  let last = performance.now(); const t0 = last; let running = true; let replay = -1;
+  await new Promise((done) => {
+    const tick = (now) => {
+      frames.push(now - last); last = now;
+      const t = now - t0;
+      if (mode === 'scroll' || mode === 'control') scrollTo(0, from + (to - from) * Math.min(1, t / ms));
+      if (mode === 'enter') { const n = Math.floor(t / 1000); if (n !== replay) { replay = n; playEntrance(); } }
+      if (t < ms) requestAnimationFrame(tick); else done();
+    };
+    requestAnimationFrame(tick);
+  });
+  performance.mark('vf-end-' + mode);
+  po1?.disconnect(); po2?.disconnect();
+  frames.shift();
+  const sorted = [...frames].sort((a, b) => a - b);
+  const q = (p) => +sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * p))].toFixed(1);
+  const res = { mode, font: vf.dataset.font, frames: frames.length, fps: +(frames.length / (ms / 1000)).toFixed(1), median: q(0.5), p95: q(0.95), max: +sorted.at(-1).toFixed(1),
+    over25ms: frames.filter((d) => d > 25).length, over50ms: frames.filter((d) => d > 50).length, longAnimationFrames: loaf.length, loafTotalMs: Math.round(loaf.reduce((a, b) => a + b, 0)), layoutShift: +shifts.reduce((a, b) => a + b, 0).toFixed(4), fontSizePx: parseFloat(getComputedStyle(heads[0]).fontSize) };
+  out.textContent += JSON.stringify(res) + '\n';
+  return res;
+};
+document.title = 'ready';
+</script>
+</body>
+</html>

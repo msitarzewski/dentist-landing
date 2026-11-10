@@ -1,0 +1,48 @@
+/* proto-tokens.css
+   The PROVISIONAL tokens the two prototypes were built with, frozen here so they keep working now that
+   the site has its own stylesheet (assets/css/page.css, values from brand/02-visual-system.md).
+   Not part of the site. */
+
+@layer tokens, base, components, motion, utilities;
+
+@layer tokens {
+  :root {
+    --ground: #FF5B1F; --paper: #FFF4E0; --ink: #1D1410; --counter: #CCFF33;
+    --font-display: system-ui, sans-serif;
+    --font-text: system-ui, sans-serif;
+    --display-wght: 800;
+    --display-wdth: 100%;
+    --rule: 1.5px;
+    --radius: 0.75rem;
+    --gutter: clamp(1.25rem, 2.8vw, 2.5rem);
+    --header-h: 4rem;
+    --tap: 3rem;
+    --bite-size: 30%;
+    --bite-snap: 140ms;
+    --bite-heal: 260ms;
+    --bite-hold: 600ms;
+    --ease-out: cubic-bezier(.22, 1, .36, 1);
+    --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+    --spring-snappy: linear(0, 0.081, 0.265, 0.485, 0.692, 0.862, 0.984, 1.059, 1.096, 1.103, 1.092, 1.072, 1.049, 1.028, 1.012, 1, 0.993, 0.99, 0.989, 0.991, 0.993, 0.995, 0.997, 0.999, 1, 1.001, 1.001, 1.001, 1);
+    --spring-snappy-dur: 600ms;
+    --spring-bouncy: linear(0, 0.081, 0.278, 0.528, 0.777, 0.987, 1.138, 1.223, 1.25, 1.23, 1.181, 1.119, 1.057, 1.004, 0.966, 0.945, 0.938, 0.942, 0.954, 0.97, 0.985, 0.999, 1.008, 1.014, 1.016, 1.014, 1.011, 1.008, 1.004, 1, 0.998, 0.997, 0.996, 0.996, 0.997, 0.998, 1);
+    --spring-bouncy-dur: 890ms;
+  }
+  @supports not (transition-timing-function: linear(0, 1)) {
+    :root { --spring-snappy: cubic-bezier(.34, 1.56, .64, 1); --spring-bouncy: cubic-bezier(.34, 1.8, .64, 1); }
+  }
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + 1rem); }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-text); font-size: clamp(1.125rem, 1.05rem + .3vw, 1.375rem); line-height: 1.5; }
+  h1, h2, h3, p, figure, ol, ul { margin: 0; }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+}
+
+@layer utilities {
+  .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; padding: 0; margin: -1px; }
+}

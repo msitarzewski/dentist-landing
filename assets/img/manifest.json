@@ -1,0 +1,2773 @@
+{
+  "generator": "tools/build-images.mjs",
+  "note": "Generated. Do not edit; change IMAGES in the generator and run it again.",
+  "encoders": {
+    "avif": {
+      "quality": 63,
+      "speed": 4,
+      "yuv": "444",
+      "cicp": "1/13/6",
+      "range": "full",
+      "jobs": 4
+    },
+    "webp": {
+      "quality": 82,
+      "method": 6,
+      "sharpYuv": true
+    },
+    "jpeg": {
+      "quality": 80,
+      "sampling": "4:2:0",
+      "progressive": true
+    },
+    "resize": "Lanczos, in sRGB values, no sharpening",
+    "colour": "sources are untagged sRGB; outputs carry no ICC profile (AVIF is tagged CICP 1/13/6, full range)"
+  },
+  "breakpoints": [1440, 1024, 768, 390],
+  "totals": {
+    "files": 147,
+    "bytes": 5945492,
+    "byFormat": {
+      "avif": {
+        "files": 49,
+        "bytes": 1552100
+      },
+      "webp": {
+        "files": 49,
+        "bytes": 1768494
+      },
+      "jpeg": {
+        "files": 49,
+        "bytes": 2624898
+      }
+    }
+  },
+  "images": {
+    "paloma-hero": {
+      "source": "assets/img/src/paloma-hero.png",
+      "sourceSize": {
+        "width": 1122,
+        "height": 1402
+      },
+      "section": "3 Hero, ground field",
+      "media": "(min-width: 1024px)",
+      "crop": {
+        "box": null,
+        "ratio": "1122:1402",
+        "baked": false
+      },
+      "loading": "eager",
+      "slots": {
+        "390": null,
+        "768": null,
+        "1024": {
+          "width": 421,
+          "height": 673,
+          "drawnWidth": 539,
+          "widthFor2x": 1078,
+          "sourceCoversDensity": 2.08
+        },
+        "1440": {
+          "width": 593,
+          "height": 710,
+          "drawnWidth": 593,
+          "widthFor2x": 1186,
+          "sourceCoversDensity": 1.89
+        }
+      },
+      "sizes": "max(41.2vw, 560px)",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 640,
+          "height": 800,
+          "path": "assets/img/paloma-hero-640.avif",
+          "bytes": 23268
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 640,
+          "height": 800,
+          "path": "assets/img/paloma-hero-640.webp",
+          "bytes": 25568
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 640,
+          "height": 800,
+          "path": "assets/img/paloma-hero-640.jpg",
+          "bytes": 44409
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 800,
+          "height": 1000,
+          "path": "assets/img/paloma-hero-800.avif",
+          "bytes": 35499
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 800,
+          "height": 1000,
+          "path": "assets/img/paloma-hero-800.webp",
+          "bytes": 37332
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 800,
+          "height": 1000,
+          "path": "assets/img/paloma-hero-800.jpg",
+          "bytes": 71155
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1122,
+          "height": 1402,
+          "path": "assets/img/paloma-hero-1122.avif",
+          "bytes": 70459
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1122,
+          "height": 1402,
+          "path": "assets/img/paloma-hero-1122.webp",
+          "bytes": 75324
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1122,
+          "height": 1402,
+          "path": "assets/img/paloma-hero-1122.jpg",
+          "bytes": 149468
+        }
+      ],
+      "seam": {
+        "token": "--ground",
+        "field": "#f9530a",
+        "fieldRgb": [249, 83, 10],
+        "tolerance": 3,
+        "method": "Per-channel median of decoded pixels. \"<side> edge\": a strip along the whole edge (8px at source scale), skipping any stretch more than 30 levels off the field (subject or shadow). Other named lines: the same strip inside the frame, where CSS puts a feathered edge. \"flat third\": the flat third of the backdrop. delta = value - field; fromSource = value - the source PNG's value.",
+        "innerLines": {
+          "band top below 1024": {
+            "side": "top",
+            "at": 0.04
+          },
+          "left at 1024": {
+            "side": "left",
+            "at": 0.247
+          }
+        },
+        "source": {
+          "stripPx": 8,
+          "probes": {
+            "left edge": {
+              "rgb": [249, 84, 11],
+              "covered": 1,
+              "delta": [0, 1, 1],
+              "withinTolerance": true
+            },
+            "top edge": {
+              "rgb": [249, 79, 7],
+              "covered": 1,
+              "delta": [0, -4, -3],
+              "withinTolerance": false
+            },
+            "band top below 1024": {
+              "rgb": [248, 81, 8],
+              "covered": 1,
+              "delta": [-1, -2, -2],
+              "withinTolerance": true
+            },
+            "left at 1024": {
+              "rgb": [249, 82, 9],
+              "covered": 1,
+              "delta": [0, -1, -1],
+              "withinTolerance": true
+            },
+            "flat third": {
+              "rgb": [249, 82, 10],
+              "delta": [0, -1, 0],
+              "withinTolerance": true
+            }
+          }
+        },
+        "variants": {
+          "paloma-hero-640.avif": {
+            "stripPx": 5,
+            "probes": {
+              "left edge": {
+                "rgb": [249, 84, 12],
+                "covered": 1,
+                "delta": [0, 1, 2],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 1]
+              },
+              "top edge": {
+                "rgb": [249, 80, 8],
+                "covered": 1,
+                "delta": [0, -3, -2],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 1]
+              },
+              "band top below 1024": {
+                "rgb": [248, 81, 8],
+                "covered": 1,
+                "delta": [-1, -2, -2],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              },
+              "left at 1024": {
+                "rgb": [249, 82, 10],
+                "covered": 1,
+                "delta": [0, -1, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 1]
+              },
+              "flat third": {
+                "rgb": [249, 82, 10],
+                "delta": [0, -1, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-hero-640.webp": {
+            "stripPx": 5,
+            "probes": {
+              "left edge": {
+                "rgb": [249, 85, 11],
+                "covered": 1,
+                "delta": [0, 2, 1],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              },
+              "top edge": {
+                "rgb": [248, 80, 7],
+                "covered": 1,
+                "delta": [-1, -3, -3],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              },
+              "band top below 1024": {
+                "rgb": [248, 82, 8],
+                "covered": 1,
+                "delta": [-1, -1, -2],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              },
+              "left at 1024": {
+                "rgb": [249, 83, 10],
+                "covered": 1,
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 1]
+              },
+              "flat third": {
+                "rgb": [249, 83, 10],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              }
+            }
+          },
+          "paloma-hero-640.jpg": {
+            "stripPx": 5,
+            "probes": {
+              "left edge": {
+                "rgb": [248, 85, 11],
+                "covered": 1,
+                "delta": [-1, 2, 1],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              },
+              "top edge": {
+                "rgb": [248, 80, 7],
+                "covered": 1,
+                "delta": [-1, -3, -3],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              },
+              "band top below 1024": {
+                "rgb": [248, 82, 8],
+                "covered": 1,
+                "delta": [-1, -1, -2],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              },
+              "left at 1024": {
+                "rgb": [249, 82, 9],
+                "covered": 1,
+                "delta": [0, -1, -1],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              },
+              "flat third": {
+                "rgb": [248, 83, 10],
+                "delta": [-1, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              }
+            }
+          },
+          "paloma-hero-800.avif": {
+            "stripPx": 6,
+            "probes": {
+              "left edge": {
+                "rgb": [248, 84, 12],
+                "covered": 1,
+                "delta": [-1, 1, 2],
+                "withinTolerance": true,
+                "fromSource": [-1, 0, 1]
+              },
+              "top edge": {
+                "rgb": [249, 80, 8],
+                "covered": 1,
+                "delta": [0, -3, -2],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 1]
+              },
+              "band top below 1024": {
+                "rgb": [248, 81, 9],
+                "covered": 1,
+                "delta": [-1, -2, -1],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 1]
+              },
+              "left at 1024": {
+                "rgb": [249, 82, 10],
+                "covered": 1,
+                "delta": [0, -1, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 1]
+              },
+              "flat third": {
+                "rgb": [249, 82, 10],
+                "delta": [0, -1, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-hero-800.webp": {
+            "stripPx": 6,
+            "probes": {
+              "left edge": {
+                "rgb": [249, 84, 11],
+                "covered": 1,
+                "delta": [0, 1, 1],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              },
+              "top edge": {
+                "rgb": [248, 80, 7],
+                "covered": 1,
+                "delta": [-1, -3, -3],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              },
+              "band top below 1024": {
+                "rgb": [248, 82, 8],
+                "covered": 1,
+                "delta": [-1, -1, -2],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              },
+              "left at 1024": {
+                "rgb": [249, 82, 10],
+                "covered": 1,
+                "delta": [0, -1, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 1]
+              },
+              "flat third": {
+                "rgb": [249, 83, 10],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              }
+            }
+          },
+          "paloma-hero-800.jpg": {
+            "stripPx": 6,
+            "probes": {
+              "left edge": {
+                "rgb": [248, 85, 11],
+                "covered": 1,
+                "delta": [-1, 2, 1],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              },
+              "top edge": {
+                "rgb": [248, 80, 7],
+                "covered": 1,
+                "delta": [-1, -3, -3],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              },
+              "band top below 1024": {
+                "rgb": [248, 82, 8],
+                "covered": 1,
+                "delta": [-1, -1, -2],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              },
+              "left at 1024": {
+                "rgb": [248, 82, 9],
+                "covered": 1,
+                "delta": [-1, -1, -1],
+                "withinTolerance": true,
+                "fromSource": [-1, 0, 0]
+              },
+              "flat third": {
+                "rgb": [248, 83, 10],
+                "delta": [-1, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              }
+            }
+          },
+          "paloma-hero-1122.avif": {
+            "stripPx": 8,
+            "probes": {
+              "left edge": {
+                "rgb": [248, 84, 12],
+                "covered": 1,
+                "delta": [-1, 1, 2],
+                "withinTolerance": true,
+                "fromSource": [-1, 0, 1]
+              },
+              "top edge": {
+                "rgb": [249, 80, 7],
+                "covered": 1,
+                "delta": [0, -3, -3],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              },
+              "band top below 1024": {
+                "rgb": [248, 82, 9],
+                "covered": 1,
+                "delta": [-1, -1, -1],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 1]
+              },
+              "left at 1024": {
+                "rgb": [249, 82, 10],
+                "covered": 1,
+                "delta": [0, -1, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 1]
+              },
+              "flat third": {
+                "rgb": [249, 82, 10],
+                "delta": [0, -1, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-hero-1122.webp": {
+            "stripPx": 8,
+            "probes": {
+              "left edge": {
+                "rgb": [249, 84, 11],
+                "covered": 1,
+                "delta": [0, 1, 1],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              },
+              "top edge": {
+                "rgb": [248, 80, 7],
+                "covered": 1,
+                "delta": [-1, -3, -3],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              },
+              "band top below 1024": {
+                "rgb": [248, 82, 8],
+                "covered": 1,
+                "delta": [-1, -1, -2],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              },
+              "left at 1024": {
+                "rgb": [249, 82, 10],
+                "covered": 1,
+                "delta": [0, -1, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 1]
+              },
+              "flat third": {
+                "rgb": [249, 83, 10],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              }
+            }
+          },
+          "paloma-hero-1122.jpg": {
+            "stripPx": 8,
+            "probes": {
+              "left edge": {
+                "rgb": [248, 85, 11],
+                "covered": 1,
+                "delta": [-1, 2, 1],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              },
+              "top edge": {
+                "rgb": [248, 80, 7],
+                "covered": 1,
+                "delta": [-1, -3, -3],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              },
+              "band top below 1024": {
+                "rgb": [248, 82, 8],
+                "covered": 1,
+                "delta": [-1, -1, -2],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              },
+              "left at 1024": {
+                "rgb": [249, 83, 9],
+                "covered": 1,
+                "delta": [0, 0, -1],
+                "withinTolerance": true,
+                "fromSource": [0, 1, 0]
+              },
+              "flat third": {
+                "rgb": [248, 83, 10],
+                "delta": [-1, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [-1, 1, 0]
+              }
+            }
+          }
+        }
+      }
+    },
+    "paloma-hero-band": {
+      "source": "assets/img/src/paloma-hero.png",
+      "sourceSize": {
+        "width": 1122,
+        "height": 1402
+      },
+      "section": "3 Hero, ground field",
+      "crop": {
+        "box": {
+          "x": 0,
+          "y": 41,
+          "width": 1122,
+          "height": 716
+        },
+        "ratio": "1122:716",
+        "baked": true
+      },
+      "loading": "eager",
+      "slots": {
+        "390": {
+          "width": 390,
+          "height": 193,
+          "drawnWidth": 390,
+          "widthFor2x": 780,
+          "sourceCoversDensity": 2.88
+        },
+        "768": {
+          "width": 768,
+          "height": 246,
+          "drawnWidth": 768,
+          "widthFor2x": 1536,
+          "sourceCoversDensity": 1.46,
+          "computed": true
+        },
+        "1024": null,
+        "1440": null
+      },
+      "sizes": "100vw",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 640,
+          "height": 408,
+          "path": "assets/img/paloma-hero-band-640.avif",
+          "bytes": 13059
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 640,
+          "height": 408,
+          "path": "assets/img/paloma-hero-band-640.webp",
+          "bytes": 15040
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 640,
+          "height": 408,
+          "path": "assets/img/paloma-hero-band-640.jpg",
+          "bytes": 24506
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 800,
+          "height": 511,
+          "path": "assets/img/paloma-hero-band-800.avif",
+          "bytes": 19959
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 800,
+          "height": 511,
+          "path": "assets/img/paloma-hero-band-800.webp",
+          "bytes": 22232
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 800,
+          "height": 511,
+          "path": "assets/img/paloma-hero-band-800.jpg",
+          "bytes": 38875
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1122,
+          "height": 716,
+          "path": "assets/img/paloma-hero-band-1122.avif",
+          "bytes": 39780
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1122,
+          "height": 716,
+          "path": "assets/img/paloma-hero-band-1122.webp",
+          "bytes": 41996
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1122,
+          "height": 716,
+          "path": "assets/img/paloma-hero-band-1122.jpg",
+          "bytes": 80482
+        }
+      ]
+    },
+    "bite-apple": {
+      "source": "assets/img/src/bite-apple.png",
+      "sourceSize": {
+        "width": 1122,
+        "height": 1402
+      },
+      "section": "6 Food strip, 1 of 4",
+      "crop": {
+        "box": {
+          "x": 0,
+          "y": 280,
+          "width": 1122,
+          "height": 1122
+        },
+        "ratio": "1:1",
+        "baked": true
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": {
+          "width": 240,
+          "height": 240,
+          "drawnWidth": 240,
+          "widthFor2x": 480,
+          "sourceCoversDensity": 4.67
+        },
+        "768": {
+          "width": 171,
+          "height": 171,
+          "drawnWidth": 171,
+          "widthFor2x": 342,
+          "sourceCoversDensity": 6.56,
+          "computed": true
+        },
+        "1024": {
+          "width": 228,
+          "height": 228,
+          "drawnWidth": 228,
+          "widthFor2x": 456,
+          "sourceCoversDensity": 4.92
+        },
+        "1440": {
+          "width": 320,
+          "height": 320,
+          "drawnWidth": 320,
+          "widthFor2x": 640,
+          "sourceCoversDensity": 3.51
+        }
+      },
+      "sizes": "(min-width: 640px) 22.22vw, 240px",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 320,
+          "height": 320,
+          "path": "assets/img/bite-apple-320.avif",
+          "bytes": 5070
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 320,
+          "height": 320,
+          "path": "assets/img/bite-apple-320.webp",
+          "bytes": 5094
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 320,
+          "height": 320,
+          "path": "assets/img/bite-apple-320.jpg",
+          "bytes": 7816
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 480,
+          "height": 480,
+          "path": "assets/img/bite-apple-480.avif",
+          "bytes": 9408
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 480,
+          "height": 480,
+          "path": "assets/img/bite-apple-480.webp",
+          "bytes": 9770
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 480,
+          "height": 480,
+          "path": "assets/img/bite-apple-480.jpg",
+          "bytes": 15021
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 640,
+          "height": 640,
+          "path": "assets/img/bite-apple-640.avif",
+          "bytes": 14755
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 640,
+          "height": 640,
+          "path": "assets/img/bite-apple-640.webp",
+          "bytes": 14982
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 640,
+          "height": 640,
+          "path": "assets/img/bite-apple-640.jpg",
+          "bytes": 24428
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 800,
+          "height": 800,
+          "path": "assets/img/bite-apple-800.avif",
+          "bytes": 20476
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 800,
+          "height": 800,
+          "path": "assets/img/bite-apple-800.webp",
+          "bytes": 22368
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 800,
+          "height": 800,
+          "path": "assets/img/bite-apple-800.jpg",
+          "bytes": 36758
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 960,
+          "height": 960,
+          "path": "assets/img/bite-apple-960.avif",
+          "bytes": 27232
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 960,
+          "height": 960,
+          "path": "assets/img/bite-apple-960.webp",
+          "bytes": 28590
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 960,
+          "height": 960,
+          "path": "assets/img/bite-apple-960.jpg",
+          "bytes": 52456
+        }
+      ]
+    },
+    "bite-toast": {
+      "source": "assets/img/src/bite-toast.png",
+      "sourceSize": {
+        "width": 1122,
+        "height": 1402
+      },
+      "section": "6 Food strip, 2 of 4",
+      "crop": {
+        "box": {
+          "x": 0,
+          "y": 280,
+          "width": 1122,
+          "height": 1122
+        },
+        "ratio": "1:1",
+        "baked": true
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": {
+          "width": 240,
+          "height": 240,
+          "drawnWidth": 240,
+          "widthFor2x": 480,
+          "sourceCoversDensity": 4.67
+        },
+        "768": {
+          "width": 171,
+          "height": 171,
+          "drawnWidth": 171,
+          "widthFor2x": 342,
+          "sourceCoversDensity": 6.56,
+          "computed": true
+        },
+        "1024": {
+          "width": 228,
+          "height": 228,
+          "drawnWidth": 228,
+          "widthFor2x": 456,
+          "sourceCoversDensity": 4.92
+        },
+        "1440": {
+          "width": 320,
+          "height": 320,
+          "drawnWidth": 320,
+          "widthFor2x": 640,
+          "sourceCoversDensity": 3.51
+        }
+      },
+      "sizes": "(min-width: 640px) 22.22vw, 240px",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 320,
+          "height": 320,
+          "path": "assets/img/bite-toast-320.avif",
+          "bytes": 9333
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 320,
+          "height": 320,
+          "path": "assets/img/bite-toast-320.webp",
+          "bytes": 10442
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 320,
+          "height": 320,
+          "path": "assets/img/bite-toast-320.jpg",
+          "bytes": 12262
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 480,
+          "height": 480,
+          "path": "assets/img/bite-toast-480.avif",
+          "bytes": 20349
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 480,
+          "height": 480,
+          "path": "assets/img/bite-toast-480.webp",
+          "bytes": 23570
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 480,
+          "height": 480,
+          "path": "assets/img/bite-toast-480.jpg",
+          "bytes": 25421
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 640,
+          "height": 640,
+          "path": "assets/img/bite-toast-640.avif",
+          "bytes": 36177
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 640,
+          "height": 640,
+          "path": "assets/img/bite-toast-640.webp",
+          "bytes": 41858
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 640,
+          "height": 640,
+          "path": "assets/img/bite-toast-640.jpg",
+          "bytes": 44111
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 800,
+          "height": 800,
+          "path": "assets/img/bite-toast-800.avif",
+          "bytes": 54331
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 800,
+          "height": 800,
+          "path": "assets/img/bite-toast-800.webp",
+          "bytes": 64200
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 800,
+          "height": 800,
+          "path": "assets/img/bite-toast-800.jpg",
+          "bytes": 67309
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 960,
+          "height": 960,
+          "path": "assets/img/bite-toast-960.avif",
+          "bytes": 72937
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 960,
+          "height": 960,
+          "path": "assets/img/bite-toast-960.webp",
+          "bytes": 85508
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 960,
+          "height": 960,
+          "path": "assets/img/bite-toast-960.jpg",
+          "bytes": 95085
+        }
+      ]
+    },
+    "bite-corn": {
+      "source": "assets/img/src/bite-corn.png",
+      "sourceSize": {
+        "width": 1536,
+        "height": 1024
+      },
+      "section": "6 Food strip, 3 of 4",
+      "crop": {
+        "box": null,
+        "ratio": "3:2",
+        "baked": false
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": {
+          "width": 360,
+          "height": 240,
+          "drawnWidth": 360,
+          "widthFor2x": 720,
+          "sourceCoversDensity": 4.27
+        },
+        "768": {
+          "width": 256,
+          "height": 171,
+          "drawnWidth": 256,
+          "widthFor2x": 512,
+          "sourceCoversDensity": 6,
+          "computed": true
+        },
+        "1024": {
+          "width": 341,
+          "height": 228,
+          "drawnWidth": 341,
+          "widthFor2x": 682,
+          "sourceCoversDensity": 4.5
+        },
+        "1440": {
+          "width": 480,
+          "height": 320,
+          "drawnWidth": 480,
+          "widthFor2x": 960,
+          "sourceCoversDensity": 3.2
+        }
+      },
+      "sizes": "(min-width: 640px) 33.33vw, 360px",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 480,
+          "height": 320,
+          "path": "assets/img/bite-corn-480.avif",
+          "bytes": 9842
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 480,
+          "height": 320,
+          "path": "assets/img/bite-corn-480.webp",
+          "bytes": 10344
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 480,
+          "height": 320,
+          "path": "assets/img/bite-corn-480.jpg",
+          "bytes": 12094
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 720,
+          "height": 480,
+          "path": "assets/img/bite-corn-720.avif",
+          "bytes": 18088
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 720,
+          "height": 480,
+          "path": "assets/img/bite-corn-720.webp",
+          "bytes": 19110
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 720,
+          "height": 480,
+          "path": "assets/img/bite-corn-720.jpg",
+          "bytes": 23204
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 960,
+          "height": 640,
+          "path": "assets/img/bite-corn-960.avif",
+          "bytes": 26755
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 960,
+          "height": 640,
+          "path": "assets/img/bite-corn-960.webp",
+          "bytes": 29890
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 960,
+          "height": 640,
+          "path": "assets/img/bite-corn-960.jpg",
+          "bytes": 37167
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1200,
+          "height": 800,
+          "path": "assets/img/bite-corn-1200.avif",
+          "bytes": 36722
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1200,
+          "height": 800,
+          "path": "assets/img/bite-corn-1200.webp",
+          "bytes": 41572
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1200,
+          "height": 800,
+          "path": "assets/img/bite-corn-1200.jpg",
+          "bytes": 53816
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1440,
+          "height": 960,
+          "path": "assets/img/bite-corn-1440.avif",
+          "bytes": 46728
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1440,
+          "height": 960,
+          "path": "assets/img/bite-corn-1440.webp",
+          "bytes": 53546
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1440,
+          "height": 960,
+          "path": "assets/img/bite-corn-1440.jpg",
+          "bytes": 73561
+        }
+      ]
+    },
+    "bite-taco": {
+      "source": "assets/img/src/bite-taco.png",
+      "sourceSize": {
+        "width": 1122,
+        "height": 1402
+      },
+      "section": "6 Food strip, 4 of 4",
+      "crop": {
+        "box": {
+          "x": 0,
+          "y": 280,
+          "width": 1122,
+          "height": 1122
+        },
+        "ratio": "1:1",
+        "baked": true
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": {
+          "width": 240,
+          "height": 240,
+          "drawnWidth": 240,
+          "widthFor2x": 480,
+          "sourceCoversDensity": 4.67
+        },
+        "768": {
+          "width": 171,
+          "height": 171,
+          "drawnWidth": 171,
+          "widthFor2x": 342,
+          "sourceCoversDensity": 6.56,
+          "computed": true
+        },
+        "1024": {
+          "width": 228,
+          "height": 228,
+          "drawnWidth": 228,
+          "widthFor2x": 456,
+          "sourceCoversDensity": 4.92
+        },
+        "1440": {
+          "width": 320,
+          "height": 320,
+          "drawnWidth": 320,
+          "widthFor2x": 640,
+          "sourceCoversDensity": 3.51
+        }
+      },
+      "sizes": "(min-width: 640px) 22.22vw, 240px",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 320,
+          "height": 320,
+          "path": "assets/img/bite-taco-320.avif",
+          "bytes": 10031
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 320,
+          "height": 320,
+          "path": "assets/img/bite-taco-320.webp",
+          "bytes": 12528
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 320,
+          "height": 320,
+          "path": "assets/img/bite-taco-320.jpg",
+          "bytes": 14218
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 480,
+          "height": 480,
+          "path": "assets/img/bite-taco-480.avif",
+          "bytes": 19252
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 480,
+          "height": 480,
+          "path": "assets/img/bite-taco-480.webp",
+          "bytes": 24472
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 480,
+          "height": 480,
+          "path": "assets/img/bite-taco-480.jpg",
+          "bytes": 28142
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 640,
+          "height": 640,
+          "path": "assets/img/bite-taco-640.avif",
+          "bytes": 30528
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 640,
+          "height": 640,
+          "path": "assets/img/bite-taco-640.webp",
+          "bytes": 38482
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 640,
+          "height": 640,
+          "path": "assets/img/bite-taco-640.jpg",
+          "bytes": 47162
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 800,
+          "height": 800,
+          "path": "assets/img/bite-taco-800.avif",
+          "bytes": 43548
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 800,
+          "height": 800,
+          "path": "assets/img/bite-taco-800.webp",
+          "bytes": 55272
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 800,
+          "height": 800,
+          "path": "assets/img/bite-taco-800.jpg",
+          "bytes": 71639
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 960,
+          "height": 960,
+          "path": "assets/img/bite-taco-960.avif",
+          "bytes": 57977
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 960,
+          "height": 960,
+          "path": "assets/img/bite-taco-960.webp",
+          "bytes": 73686
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 960,
+          "height": 960,
+          "path": "assets/img/bite-taco-960.jpg",
+          "bytes": 101394
+        }
+      ]
+    },
+    "paloma-listening": {
+      "source": "assets/img/src/paloma-listening.png",
+      "sourceSize": {
+        "width": 1536,
+        "height": 1024
+      },
+      "section": "8 Comfort, paper",
+      "crop": {
+        "box": null,
+        "ratio": "3:2",
+        "baked": false
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": {
+          "width": 358,
+          "height": 239,
+          "drawnWidth": 358,
+          "widthFor2x": 716,
+          "sourceCoversDensity": 4.29
+        },
+        "768": {
+          "width": 351,
+          "height": 234,
+          "drawnWidth": 351,
+          "widthFor2x": 702,
+          "sourceCoversDensity": 4.38,
+          "computed": true
+        },
+        "1024": {
+          "width": 472,
+          "height": 315,
+          "drawnWidth": 472,
+          "widthFor2x": 944,
+          "sourceCoversDensity": 3.25
+        },
+        "1440": {
+          "width": 668,
+          "height": 445,
+          "drawnWidth": 668,
+          "widthFor2x": 1336,
+          "sourceCoversDensity": 2.3
+        }
+      },
+      "sizes": "(min-width: 1600px) 748px, (min-width: 1024px) 46.6vw, (min-width: 768px) 47.2vw, calc(95.4vw - 14px)",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 480,
+          "height": 320,
+          "path": "assets/img/paloma-listening-480.avif",
+          "bytes": 8235
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 480,
+          "height": 320,
+          "path": "assets/img/paloma-listening-480.webp",
+          "bytes": 9978
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 480,
+          "height": 320,
+          "path": "assets/img/paloma-listening-480.jpg",
+          "bytes": 15204
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 720,
+          "height": 480,
+          "path": "assets/img/paloma-listening-720.avif",
+          "bytes": 15097
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 720,
+          "height": 480,
+          "path": "assets/img/paloma-listening-720.webp",
+          "bytes": 17816
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 720,
+          "height": 480,
+          "path": "assets/img/paloma-listening-720.jpg",
+          "bytes": 28290
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1080,
+          "height": 720,
+          "path": "assets/img/paloma-listening-1080.avif",
+          "bytes": 29110
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1080,
+          "height": 720,
+          "path": "assets/img/paloma-listening-1080.webp",
+          "bytes": 33144
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1080,
+          "height": 720,
+          "path": "assets/img/paloma-listening-1080.jpg",
+          "bytes": 56335
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1536,
+          "height": 1024,
+          "path": "assets/img/paloma-listening-1536.avif",
+          "bytes": 52850
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1536,
+          "height": 1024,
+          "path": "assets/img/paloma-listening-1536.webp",
+          "bytes": 58884
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1536,
+          "height": 1024,
+          "path": "assets/img/paloma-listening-1536.jpg",
+          "bytes": 108859
+        }
+      ]
+    },
+    "paloma-apple": {
+      "source": "assets/img/src/paloma-apple.png",
+      "sourceSize": {
+        "width": 1122,
+        "height": 1402
+      },
+      "section": "9 Meet the dentist, counter field (bleeding portrait)",
+      "crop": {
+        "box": null,
+        "ratio": "1122:1402",
+        "baked": false
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": {
+          "width": 390,
+          "height": 273,
+          "drawnWidth": 390,
+          "widthFor2x": 780,
+          "sourceCoversDensity": 2.88
+        },
+        "768": {
+          "width": 768,
+          "height": 460,
+          "drawnWidth": 768,
+          "widthFor2x": 1536,
+          "sourceCoversDensity": 1.46,
+          "computed": true
+        },
+        "1024": {
+          "width": 421,
+          "height": 991,
+          "drawnWidth": 636,
+          "widthFor2x": 1272,
+          "sourceCoversDensity": 1.76
+        },
+        "1440": {
+          "width": 593,
+          "height": 1007,
+          "drawnWidth": 806,
+          "widthFor2x": 1612,
+          "sourceCoversDensity": 1.39
+        }
+      },
+      "sizes": "(min-width: 1024px) min(62vw, 810px), 100vw",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 640,
+          "height": 800,
+          "path": "assets/img/paloma-apple-640.avif",
+          "bytes": 24519
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 640,
+          "height": 800,
+          "path": "assets/img/paloma-apple-640.webp",
+          "bytes": 28570
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 640,
+          "height": 800,
+          "path": "assets/img/paloma-apple-640.jpg",
+          "bytes": 43387
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 820,
+          "height": 1025,
+          "path": "assets/img/paloma-apple-820.avif",
+          "bytes": 37209
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 820,
+          "height": 1025,
+          "path": "assets/img/paloma-apple-820.webp",
+          "bytes": 42406
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 820,
+          "height": 1025,
+          "path": "assets/img/paloma-apple-820.jpg",
+          "bytes": 67495
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1122,
+          "height": 1402,
+          "path": "assets/img/paloma-apple-1122.avif",
+          "bytes": 62507
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1122,
+          "height": 1402,
+          "path": "assets/img/paloma-apple-1122.webp",
+          "bytes": 71146
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1122,
+          "height": 1402,
+          "path": "assets/img/paloma-apple-1122.jpg",
+          "bytes": 117276
+        }
+      ],
+      "seam": {
+        "token": "--counter",
+        "field": "#cffb43",
+        "fieldRgb": [207, 251, 67],
+        "tolerance": 3,
+        "method": "Per-channel median of decoded pixels. \"<side> edge\": a strip along the whole edge (8px at source scale), skipping any stretch more than 30 levels off the field (subject or shadow). Other named lines: the same strip inside the frame, where CSS puts a feathered edge. \"flat third\": the flat third of the backdrop. delta = value - field; fromSource = value - the source PNG's value.",
+        "innerLines": {
+          "band top below 1024": {
+            "side": "top",
+            "at": 0.02
+          }
+        },
+        "source": {
+          "stripPx": 8,
+          "probes": {
+            "right edge": {
+              "rgb": [208, 251, 71],
+              "covered": 1,
+              "delta": [1, 0, 4],
+              "withinTolerance": false
+            },
+            "top edge": {
+              "rgb": [208, 251, 60],
+              "covered": 1,
+              "delta": [1, 0, -7],
+              "withinTolerance": false
+            },
+            "band top below 1024": {
+              "rgb": [207, 251, 60],
+              "covered": 1,
+              "delta": [0, 0, -7],
+              "withinTolerance": false
+            },
+            "flat third": {
+              "rgb": [207, 251, 67],
+              "delta": [0, 0, 0],
+              "withinTolerance": true
+            }
+          }
+        },
+        "variants": {
+          "paloma-apple-640.avif": {
+            "stripPx": 5,
+            "probes": {
+              "right edge": {
+                "rgb": [208, 251, 71],
+                "covered": 1,
+                "delta": [1, 0, 4],
+                "withinTolerance": false,
+                "fromSource": [0, 0, 0]
+              },
+              "top edge": {
+                "rgb": [209, 251, 61],
+                "covered": 1,
+                "delta": [2, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 1]
+              },
+              "band top below 1024": {
+                "rgb": [208, 251, 61],
+                "covered": 1,
+                "delta": [1, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 1]
+              },
+              "flat third": {
+                "rgb": [207, 251, 67],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-apple-640.webp": {
+            "stripPx": 5,
+            "probes": {
+              "right edge": {
+                "rgb": [208, 251, 70],
+                "covered": 1,
+                "delta": [1, 0, 3],
+                "withinTolerance": true,
+                "fromSource": [0, 0, -1]
+              },
+              "top edge": {
+                "rgb": [209, 251, 61],
+                "covered": 1,
+                "delta": [2, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 1]
+              },
+              "band top below 1024": {
+                "rgb": [207, 251, 60],
+                "covered": 1,
+                "delta": [0, 0, -7],
+                "withinTolerance": false,
+                "fromSource": [0, 0, 0]
+              },
+              "flat third": {
+                "rgb": [207, 251, 67],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-apple-640.jpg": {
+            "stripPx": 5,
+            "probes": {
+              "right edge": {
+                "rgb": [208, 251, 72],
+                "covered": 1,
+                "delta": [1, 0, 5],
+                "withinTolerance": false,
+                "fromSource": [0, 0, 1]
+              },
+              "top edge": {
+                "rgb": [209, 251, 61],
+                "covered": 1,
+                "delta": [2, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 1]
+              },
+              "band top below 1024": {
+                "rgb": [208, 251, 61],
+                "covered": 1,
+                "delta": [1, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 1]
+              },
+              "flat third": {
+                "rgb": [207, 251, 67],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-apple-820.avif": {
+            "stripPx": 6,
+            "probes": {
+              "right edge": {
+                "rgb": [208, 251, 70],
+                "covered": 1,
+                "delta": [1, 0, 3],
+                "withinTolerance": true,
+                "fromSource": [0, 0, -1]
+              },
+              "top edge": {
+                "rgb": [209, 251, 61],
+                "covered": 1,
+                "delta": [2, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 1]
+              },
+              "band top below 1024": {
+                "rgb": [208, 251, 60],
+                "covered": 1,
+                "delta": [1, 0, -7],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 0]
+              },
+              "flat third": {
+                "rgb": [207, 251, 67],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-apple-820.webp": {
+            "stripPx": 6,
+            "probes": {
+              "right edge": {
+                "rgb": [208, 251, 69],
+                "covered": 1,
+                "delta": [1, 0, 2],
+                "withinTolerance": true,
+                "fromSource": [0, 0, -2]
+              },
+              "top edge": {
+                "rgb": [208, 252, 60],
+                "covered": 1,
+                "delta": [1, 1, -7],
+                "withinTolerance": false,
+                "fromSource": [0, 1, 0]
+              },
+              "band top below 1024": {
+                "rgb": [207, 251, 60],
+                "covered": 1,
+                "delta": [0, 0, -7],
+                "withinTolerance": false,
+                "fromSource": [0, 0, 0]
+              },
+              "flat third": {
+                "rgb": [207, 251, 67],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-apple-820.jpg": {
+            "stripPx": 6,
+            "probes": {
+              "right edge": {
+                "rgb": [208, 251, 70],
+                "covered": 1,
+                "delta": [1, 0, 3],
+                "withinTolerance": true,
+                "fromSource": [0, 0, -1]
+              },
+              "top edge": {
+                "rgb": [209, 251, 61],
+                "covered": 1,
+                "delta": [2, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 1]
+              },
+              "band top below 1024": {
+                "rgb": [208, 251, 61],
+                "covered": 1,
+                "delta": [1, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 1]
+              },
+              "flat third": {
+                "rgb": [207, 251, 67],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-apple-1122.avif": {
+            "stripPx": 8,
+            "probes": {
+              "right edge": {
+                "rgb": [208, 251, 70],
+                "covered": 1,
+                "delta": [1, 0, 3],
+                "withinTolerance": true,
+                "fromSource": [0, 0, -1]
+              },
+              "top edge": {
+                "rgb": [208, 251, 61],
+                "covered": 1,
+                "delta": [1, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [0, 0, 1]
+              },
+              "band top below 1024": {
+                "rgb": [208, 251, 60],
+                "covered": 1,
+                "delta": [1, 0, -7],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 0]
+              },
+              "flat third": {
+                "rgb": [207, 251, 67],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-apple-1122.webp": {
+            "stripPx": 8,
+            "probes": {
+              "right edge": {
+                "rgb": [208, 251, 70],
+                "covered": 1,
+                "delta": [1, 0, 3],
+                "withinTolerance": true,
+                "fromSource": [0, 0, -1]
+              },
+              "top edge": {
+                "rgb": [208, 252, 61],
+                "covered": 1,
+                "delta": [1, 1, -6],
+                "withinTolerance": false,
+                "fromSource": [0, 1, 1]
+              },
+              "band top below 1024": {
+                "rgb": [207, 251, 60],
+                "covered": 1,
+                "delta": [0, 0, -7],
+                "withinTolerance": false,
+                "fromSource": [0, 0, 0]
+              },
+              "flat third": {
+                "rgb": [207, 251, 67],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          },
+          "paloma-apple-1122.jpg": {
+            "stripPx": 8,
+            "probes": {
+              "right edge": {
+                "rgb": [207, 251, 70],
+                "covered": 1,
+                "delta": [0, 0, 3],
+                "withinTolerance": true,
+                "fromSource": [-1, 0, -1]
+              },
+              "top edge": {
+                "rgb": [209, 251, 61],
+                "covered": 1,
+                "delta": [2, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 1]
+              },
+              "band top below 1024": {
+                "rgb": [208, 251, 61],
+                "covered": 1,
+                "delta": [1, 0, -6],
+                "withinTolerance": false,
+                "fromSource": [1, 0, 1]
+              },
+              "flat third": {
+                "rgb": [207, 251, 67],
+                "delta": [0, 0, 0],
+                "withinTolerance": true,
+                "fromSource": [0, 0, 0]
+              }
+            }
+          }
+        }
+      }
+    },
+    "paloma-drawing-4x5": {
+      "source": "assets/img/src/paloma-drawing.png",
+      "sourceSize": {
+        "width": 1536,
+        "height": 1024
+      },
+      "section": "9 Meet the dentist, beside the pull line",
+      "media": "(min-width: 640px)",
+      "crop": {
+        "box": {
+          "x": 90,
+          "y": 0,
+          "width": 820,
+          "height": 1024
+        },
+        "ratio": "4:5",
+        "baked": true
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": null,
+        "768": {
+          "width": 270,
+          "height": 338,
+          "drawnWidth": 270,
+          "widthFor2x": 540,
+          "sourceCoversDensity": 3.04,
+          "computed": true
+        },
+        "1024": {
+          "width": 226,
+          "height": 283,
+          "drawnWidth": 226,
+          "widthFor2x": 452,
+          "sourceCoversDensity": 3.63
+        },
+        "1440": {
+          "width": 322,
+          "height": 403,
+          "drawnWidth": 322,
+          "widthFor2x": 644,
+          "sourceCoversDensity": 2.55
+        }
+      },
+      "sizes": "(min-width: 1600px) 362px, (min-width: 1024px) 22.5vw, 36.3vw",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 360,
+          "height": 450,
+          "path": "assets/img/paloma-drawing-4x5-360.avif",
+          "bytes": 15101
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 360,
+          "height": 450,
+          "path": "assets/img/paloma-drawing-4x5-360.webp",
+          "bytes": 18642
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 360,
+          "height": 450,
+          "path": "assets/img/paloma-drawing-4x5-360.jpg",
+          "bytes": 25680
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 480,
+          "height": 600,
+          "path": "assets/img/paloma-drawing-4x5-480.avif",
+          "bytes": 23374
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 480,
+          "height": 600,
+          "path": "assets/img/paloma-drawing-4x5-480.webp",
+          "bytes": 28606
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 480,
+          "height": 600,
+          "path": "assets/img/paloma-drawing-4x5-480.jpg",
+          "bytes": 40090
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 720,
+          "height": 900,
+          "path": "assets/img/paloma-drawing-4x5-720.avif",
+          "bytes": 45544
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 720,
+          "height": 900,
+          "path": "assets/img/paloma-drawing-4x5-720.webp",
+          "bytes": 52406
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 720,
+          "height": 900,
+          "path": "assets/img/paloma-drawing-4x5-720.jpg",
+          "bytes": 79196
+        }
+      ]
+    },
+    "paloma-drawing": {
+      "source": "assets/img/src/paloma-drawing.png",
+      "sourceSize": {
+        "width": 1536,
+        "height": 1024
+      },
+      "section": "9 Meet the dentist, beside the pull line",
+      "crop": {
+        "box": null,
+        "ratio": "3:2",
+        "baked": false
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": {
+          "width": 358,
+          "height": 239,
+          "drawnWidth": 358,
+          "widthFor2x": 716,
+          "sourceCoversDensity": 4.29
+        },
+        "768": null,
+        "1024": null,
+        "1440": null
+      },
+      "sizes": "calc(95.4vw - 14px)",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 720,
+          "height": 480,
+          "path": "assets/img/paloma-drawing-720.avif",
+          "bytes": 18519
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 720,
+          "height": 480,
+          "path": "assets/img/paloma-drawing-720.webp",
+          "bytes": 23014
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 720,
+          "height": 480,
+          "path": "assets/img/paloma-drawing-720.jpg",
+          "bytes": 34630
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1080,
+          "height": 720,
+          "path": "assets/img/paloma-drawing-1080.avif",
+          "bytes": 34501
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1080,
+          "height": 720,
+          "path": "assets/img/paloma-drawing-1080.webp",
+          "bytes": 42014
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1080,
+          "height": 720,
+          "path": "assets/img/paloma-drawing-1080.jpg",
+          "bytes": 66337
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1536,
+          "height": 1024,
+          "path": "assets/img/paloma-drawing-1536.avif",
+          "bytes": 61121
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1536,
+          "height": 1024,
+          "path": "assets/img/paloma-drawing-1536.webp",
+          "bytes": 72730
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1536,
+          "height": 1024,
+          "path": "assets/img/paloma-drawing-1536.jpg",
+          "bytes": 121277
+        }
+      ]
+    },
+    "the-drawing": {
+      "source": "assets/img/src/the-drawing.png",
+      "sourceSize": {
+        "width": 1122,
+        "height": 1402
+      },
+      "section": "11 Cost, ground field",
+      "crop": {
+        "box": null,
+        "ratio": "4:5",
+        "baked": false
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": {
+          "width": 358,
+          "height": 448,
+          "drawnWidth": 358,
+          "widthFor2x": 716,
+          "sourceCoversDensity": 3.13
+        },
+        "768": {
+          "width": 229,
+          "height": 286,
+          "drawnWidth": 229,
+          "widthFor2x": 458,
+          "sourceCoversDensity": 4.9,
+          "computed": true
+        },
+        "1024": {
+          "width": 226,
+          "height": 283,
+          "drawnWidth": 226,
+          "widthFor2x": 452,
+          "sourceCoversDensity": 4.96
+        },
+        "1440": {
+          "width": 322,
+          "height": 403,
+          "drawnWidth": 322,
+          "widthFor2x": 644,
+          "sourceCoversDensity": 3.48
+        }
+      },
+      "sizes": "(min-width: 1600px) 362px, (min-width: 1024px) 22.5vw, (min-width: 640px) 31.1vw, calc(95.4vw - 14px)",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 360,
+          "height": 450,
+          "path": "assets/img/the-drawing-360.avif",
+          "bytes": 8800
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 360,
+          "height": 450,
+          "path": "assets/img/the-drawing-360.webp",
+          "bytes": 12218
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 360,
+          "height": 450,
+          "path": "assets/img/the-drawing-360.jpg",
+          "bytes": 18882
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 480,
+          "height": 600,
+          "path": "assets/img/the-drawing-480.avif",
+          "bytes": 13754
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 480,
+          "height": 600,
+          "path": "assets/img/the-drawing-480.webp",
+          "bytes": 17706
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 480,
+          "height": 600,
+          "path": "assets/img/the-drawing-480.jpg",
+          "bytes": 28527
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 720,
+          "height": 900,
+          "path": "assets/img/the-drawing-720.avif",
+          "bytes": 24090
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 720,
+          "height": 900,
+          "path": "assets/img/the-drawing-720.webp",
+          "bytes": 30602
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 720,
+          "height": 900,
+          "path": "assets/img/the-drawing-720.jpg",
+          "bytes": 55355
+        }
+      ]
+    },
+    "storefront": {
+      "source": "assets/img/src/storefront.png",
+      "sourceSize": {
+        "width": 1536,
+        "height": 1024
+      },
+      "section": "12 Find us, paper",
+      "crop": {
+        "box": null,
+        "ratio": "3:2",
+        "baked": false
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": {
+          "width": 358,
+          "height": 239,
+          "drawnWidth": 358,
+          "widthFor2x": 716,
+          "sourceCoversDensity": 4.29
+        },
+        "768": {
+          "width": 412,
+          "height": 275,
+          "drawnWidth": 412,
+          "widthFor2x": 824,
+          "sourceCoversDensity": 3.73,
+          "computed": true
+        },
+        "1024": {
+          "width": 554,
+          "height": 369,
+          "drawnWidth": 554,
+          "widthFor2x": 1108,
+          "sourceCoversDensity": 2.77
+        },
+        "1440": {
+          "width": 783,
+          "height": 522,
+          "drawnWidth": 783,
+          "widthFor2x": 1566,
+          "sourceCoversDensity": 1.96
+        }
+      },
+      "sizes": "(min-width: 1600px) 877px, (min-width: 1024px) 54.6vw, (min-width: 768px) 55.2vw, calc(95.4vw - 14px)",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 570,
+          "height": 380,
+          "path": "assets/img/storefront-570.avif",
+          "bytes": 16823
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 570,
+          "height": 380,
+          "path": "assets/img/storefront-570.webp",
+          "bytes": 17382
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 570,
+          "height": 380,
+          "path": "assets/img/storefront-570.jpg",
+          "bytes": 27740
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 810,
+          "height": 540,
+          "path": "assets/img/storefront-810.avif",
+          "bytes": 34797
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 810,
+          "height": 540,
+          "path": "assets/img/storefront-810.webp",
+          "bytes": 36148
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 810,
+          "height": 540,
+          "path": "assets/img/storefront-810.jpg",
+          "bytes": 54126
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1140,
+          "height": 760,
+          "path": "assets/img/storefront-1140.avif",
+          "bytes": 71055
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1140,
+          "height": 760,
+          "path": "assets/img/storefront-1140.webp",
+          "bytes": 74560
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1140,
+          "height": 760,
+          "path": "assets/img/storefront-1140.jpg",
+          "bytes": 107563
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 1536,
+          "height": 1024,
+          "path": "assets/img/storefront-1536.avif",
+          "bytes": 128579
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 1536,
+          "height": 1024,
+          "path": "assets/img/storefront-1536.webp",
+          "bytes": 137484
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 1536,
+          "height": 1024,
+          "path": "assets/img/storefront-1536.jpg",
+          "bytes": 196402
+        }
+      ]
+    },
+    "bite-peach": {
+      "source": "assets/img/src/bite-peach.png",
+      "sourceSize": {
+        "width": 1122,
+        "height": 1402
+      },
+      "section": "14 Closing, ground field",
+      "crop": {
+        "box": null,
+        "ratio": "4:5",
+        "baked": false
+      },
+      "loading": "lazy",
+      "slots": {
+        "390": {
+          "width": 358,
+          "height": 448,
+          "drawnWidth": 358,
+          "widthFor2x": 716,
+          "sourceCoversDensity": 3.13
+        },
+        "768": {
+          "width": 229,
+          "height": 286,
+          "drawnWidth": 229,
+          "widthFor2x": 458,
+          "sourceCoversDensity": 4.9,
+          "computed": true
+        },
+        "1024": {
+          "width": 226,
+          "height": 283,
+          "drawnWidth": 226,
+          "widthFor2x": 452,
+          "sourceCoversDensity": 4.96
+        },
+        "1440": {
+          "width": 322,
+          "height": 403,
+          "drawnWidth": 322,
+          "widthFor2x": 644,
+          "sourceCoversDensity": 3.48
+        }
+      },
+      "sizes": "(min-width: 1600px) 362px, (min-width: 1024px) 22.5vw, (min-width: 640px) 31.1vw, calc(95.4vw - 14px)",
+      "variants": [
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 360,
+          "height": 450,
+          "path": "assets/img/bite-peach-360.avif",
+          "bytes": 8643
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 360,
+          "height": 450,
+          "path": "assets/img/bite-peach-360.webp",
+          "bytes": 9148
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 360,
+          "height": 450,
+          "path": "assets/img/bite-peach-360.jpg",
+          "bytes": 12812
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 480,
+          "height": 600,
+          "path": "assets/img/bite-peach-480.avif",
+          "bytes": 14844
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 480,
+          "height": 600,
+          "path": "assets/img/bite-peach-480.webp",
+          "bytes": 16098
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 480,
+          "height": 600,
+          "path": "assets/img/bite-peach-480.jpg",
+          "bytes": 21445
+        },
+        {
+          "format": "avif",
+          "type": "image/avif",
+          "width": 720,
+          "height": 900,
+          "path": "assets/img/bite-peach-720.avif",
+          "bytes": 31465
+        },
+        {
+          "format": "webp",
+          "type": "image/webp",
+          "width": 720,
+          "height": 900,
+          "path": "assets/img/bite-peach-720.webp",
+          "bytes": 35016
+        },
+        {
+          "format": "jpeg",
+          "type": "image/jpeg",
+          "width": 720,
+          "height": 900,
+          "path": "assets/img/bite-peach-720.jpg",
+          "bytes": 46031
+        }
+      ]
+    }
+  },
+  "icons": [
+    {
+      "path": "assets/img/favicon.svg",
+      "format": "svg",
+      "width": 100,
+      "height": 100,
+      "bytes": 197,
+      "purpose": "favicon: the bitten square in the ground colour, no letter"
+    },
+    {
+      "path": "assets/img/favicon-96.png",
+      "format": "png",
+      "width": 96,
+      "height": 96,
+      "bytes": 733,
+      "purpose": "favicon 96px, drawn from favicon.svg's path, transparent corner"
+    },
+    {
+      "path": "assets/img/favicon-32.png",
+      "format": "png",
+      "width": 32,
+      "height": 32,
+      "bytes": 261,
+      "purpose": "favicon 32px, drawn from favicon.svg's path, transparent corner"
+    },
+    {
+      "path": "assets/img/favicon-16.png",
+      "format": "png",
+      "width": 16,
+      "height": 16,
+      "bytes": 154,
+      "purpose": "favicon 16px, drawn from favicon.svg's path, transparent corner"
+    },
+    {
+      "path": "assets/img/apple-touch-icon.png",
+      "format": "png",
+      "width": 180,
+      "height": 180,
+      "bytes": 1164,
+      "purpose": "touch icon 180px: ground field, centred 116px ink square, notch tile 52px"
+    },
+    {
+      "path": "assets/img/avatar-400.png",
+      "format": "png",
+      "width": 400,
+      "height": 400,
+      "bytes": 5919,
+      "purpose": "profile picture 400px: the bitten ink square inside a ground field, so a circular crop cannot cut the bite"
+    },
+    {
+      "path": "assets/img/social-card.jpg",
+      "format": "jpeg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 110225,
+      "purpose": "og:image 1200 x 630: disclosure strip, plate, headline, designation, hero portrait feathered 60px on its left"
+    }
+  ],
+  "files": [
+    "assets/img/apple-touch-icon.png",
+    "assets/img/avatar-400.png",
+    "assets/img/bite-apple-320.avif",
+    "assets/img/bite-apple-320.jpg",
+    "assets/img/bite-apple-320.webp",
+    "assets/img/bite-apple-480.avif",
+    "assets/img/bite-apple-480.jpg",
+    "assets/img/bite-apple-480.webp",
+    "assets/img/bite-apple-640.avif",
+    "assets/img/bite-apple-640.jpg",
+    "assets/img/bite-apple-640.webp",
+    "assets/img/bite-apple-800.avif",
+    "assets/img/bite-apple-800.jpg",
+    "assets/img/bite-apple-800.webp",
+    "assets/img/bite-apple-960.avif",
+    "assets/img/bite-apple-960.jpg",
+    "assets/img/bite-apple-960.webp",
+    "assets/img/bite-corn-1200.avif",
+    "assets/img/bite-corn-1200.jpg",
+    "assets/img/bite-corn-1200.webp",
+    "assets/img/bite-corn-1440.avif",
+    "assets/img/bite-corn-1440.jpg",
+    "assets/img/bite-corn-1440.webp",
+    "assets/img/bite-corn-480.avif",
+    "assets/img/bite-corn-480.jpg",
+    "assets/img/bite-corn-480.webp",
+    "assets/img/bite-corn-720.avif",
+    "assets/img/bite-corn-720.jpg",
+    "assets/img/bite-corn-720.webp",
+    "assets/img/bite-corn-960.avif",
+    "assets/img/bite-corn-960.jpg",
+    "assets/img/bite-corn-960.webp",
+    "assets/img/bite-peach-360.avif",
+    "assets/img/bite-peach-360.jpg",
+    "assets/img/bite-peach-360.webp",
+    "assets/img/bite-peach-480.avif",
+    "assets/img/bite-peach-480.jpg",
+    "assets/img/bite-peach-480.webp",
+    "assets/img/bite-peach-720.avif",
+    "assets/img/bite-peach-720.jpg",
+    "assets/img/bite-peach-720.webp",
+    "assets/img/bite-taco-320.avif",
+    "assets/img/bite-taco-320.jpg",
+    "assets/img/bite-taco-320.webp",
+    "assets/img/bite-taco-480.avif",
+    "assets/img/bite-taco-480.jpg",
+    "assets/img/bite-taco-480.webp",
+    "assets/img/bite-taco-640.avif",
+    "assets/img/bite-taco-640.jpg",
+    "assets/img/bite-taco-640.webp",
+    "assets/img/bite-taco-800.avif",
+    "assets/img/bite-taco-800.jpg",
+    "assets/img/bite-taco-800.webp",
+    "assets/img/bite-taco-960.avif",
+    "assets/img/bite-taco-960.jpg",
+    "assets/img/bite-taco-960.webp",
+    "assets/img/bite-toast-320.avif",
+    "assets/img/bite-toast-320.jpg",
+    "assets/img/bite-toast-320.webp",
+    "assets/img/bite-toast-480.avif",
+    "assets/img/bite-toast-480.jpg",
+    "assets/img/bite-toast-480.webp",
+    "assets/img/bite-toast-640.avif",
+    "assets/img/bite-toast-640.jpg",
+    "assets/img/bite-toast-640.webp",
+    "assets/img/bite-toast-800.avif",
+    "assets/img/bite-toast-800.jpg",
+    "assets/img/bite-toast-800.webp",
+    "assets/img/bite-toast-960.avif",
+    "assets/img/bite-toast-960.jpg",
+    "assets/img/bite-toast-960.webp",
+    "assets/img/favicon-16.png",
+    "assets/img/favicon-32.png",
+    "assets/img/favicon-96.png",
+    "assets/img/favicon.svg",
+    "assets/img/paloma-apple-1122.avif",
+    "assets/img/paloma-apple-1122.jpg",
+    "assets/img/paloma-apple-1122.webp",
+    "assets/img/paloma-apple-640.avif",
+    "assets/img/paloma-apple-640.jpg",
+    "assets/img/paloma-apple-640.webp",
+    "assets/img/paloma-apple-820.avif",
+    "assets/img/paloma-apple-820.jpg",
+    "assets/img/paloma-apple-820.webp",
+    "assets/img/paloma-drawing-1080.avif",
+    "assets/img/paloma-drawing-1080.jpg",
+    "assets/img/paloma-drawing-1080.webp",
+    "assets/img/paloma-drawing-1536.avif",
+    "assets/img/paloma-drawing-1536.jpg",
+    "assets/img/paloma-drawing-1536.webp",
+    "assets/img/paloma-drawing-4x5-360.avif",
+    "assets/img/paloma-drawing-4x5-360.jpg",
+    "assets/img/paloma-drawing-4x5-360.webp",
+    "assets/img/paloma-drawing-4x5-480.avif",
+    "assets/img/paloma-drawing-4x5-480.jpg",
+    "assets/img/paloma-drawing-4x5-480.webp",
+    "assets/img/paloma-drawing-4x5-720.avif",
+    "assets/img/paloma-drawing-4x5-720.jpg",
+    "assets/img/paloma-drawing-4x5-720.webp",
+    "assets/img/paloma-drawing-720.avif",
+    "assets/img/paloma-drawing-720.jpg",
+    "assets/img/paloma-drawing-720.webp",
+    "assets/img/paloma-hero-1122.avif",
+    "assets/img/paloma-hero-1122.jpg",
+    "assets/img/paloma-hero-1122.webp",
+    "assets/img/paloma-hero-640.avif",
+    "assets/img/paloma-hero-640.jpg",
+    "assets/img/paloma-hero-640.webp",
+    "assets/img/paloma-hero-800.avif",
+    "assets/img/paloma-hero-800.jpg",
+    "assets/img/paloma-hero-800.webp",
+    "assets/img/paloma-hero-band-1122.avif",
+    "assets/img/paloma-hero-band-1122.jpg",
+    "assets/img/paloma-hero-band-1122.webp",
+    "assets/img/paloma-hero-band-640.avif",
+    "assets/img/paloma-hero-band-640.jpg",
+    "assets/img/paloma-hero-band-640.webp",
+    "assets/img/paloma-hero-band-800.avif",
+    "assets/img/paloma-hero-band-800.jpg",
+    "assets/img/paloma-hero-band-800.webp",
+    "assets/img/paloma-listening-1080.avif",
+    "assets/img/paloma-listening-1080.jpg",
+    "assets/img/paloma-listening-1080.webp",
+    "assets/img/paloma-listening-1536.avif",
+    "assets/img/paloma-listening-1536.jpg",
+    "assets/img/paloma-listening-1536.webp",
+    "assets/img/paloma-listening-480.avif",
+    "assets/img/paloma-listening-480.jpg",
+    "assets/img/paloma-listening-480.webp",
+    "assets/img/paloma-listening-720.avif",
+    "assets/img/paloma-listening-720.jpg",
+    "assets/img/paloma-listening-720.webp",
+    "assets/img/social-card.jpg",
+    "assets/img/storefront-1140.avif",
+    "assets/img/storefront-1140.jpg",
+    "assets/img/storefront-1140.webp",
+    "assets/img/storefront-1536.avif",
+    "assets/img/storefront-1536.jpg",
+    "assets/img/storefront-1536.webp",
+    "assets/img/storefront-570.avif",
+    "assets/img/storefront-570.jpg",
+    "assets/img/storefront-570.webp",
+    "assets/img/storefront-810.avif",
+    "assets/img/storefront-810.jpg",
+    "assets/img/storefront-810.webp",
+    "assets/img/the-drawing-360.avif",
+    "assets/img/the-drawing-360.jpg",
+    "assets/img/the-drawing-360.webp",
+    "assets/img/the-drawing-480.avif",
+    "assets/img/the-drawing-480.jpg",
+    "assets/img/the-drawing-480.webp",
+    "assets/img/the-drawing-720.avif",
+    "assets/img/the-drawing-720.jpg",
+    "assets/img/the-drawing-720.webp"
+  ]
+}

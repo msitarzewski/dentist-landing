@@ -1,0 +1,870 @@
+/* page.css — Feast Dental landing page
+   Look and layout: brand/02-visual-system.md and brand/04-image-placement.md (lifted from the designer's
+   proofs in brand/specimens/). Motion: brand/03-interaction-spec.md (lifted from prototypes/interaction.html).
+   The bite shapes come from bite.css, which tools/bite.mjs generates.
+
+   Four colours, two typefaces, one radius (the pill), 1.5px ink rules, no shadows, no gradients as decoration. */
+
+/* ---------- fonts (self-hosted, SIL OFL 1.1; licences in assets/fonts/) ---------- */
+@font-face {
+  font-family: "Anybody"; src: url("../fonts/anybody-wdth-wght.woff2") format("woff2");
+  font-weight: 100 900; font-stretch: 50% 150%; font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Public Sans"; src: url("../fonts/public-sans-wght.woff2") format("woff2");
+  font-weight: 100 900; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Metric-matched fallbacks (measured in Chrome at 100px), so a late font swap does not shift the layout.
+   The Anybody fallback is matched at the hero's desktop width (66); Impact has no width axis. */
+@font-face { font-family: "Anybody fb"; src: local("Impact"), local("Arial Narrow Bold");
+  size-adjust: 97%; ascent-override: 81%; descent-override: 25%; line-gap-override: 0%; font-weight: 100 900; }
+@font-face { font-family: "Public Sans fb"; src: local("Arial"), local("Helvetica"), local("Roboto");
+  size-adjust: 103%; ascent-override: 92%; descent-override: 22%; line-gap-override: 0%; font-weight: 100 900; }
+
+/* ---------- tokens ---------- */
+:root {
+  --ground: #f9530a;   /* tangerine: sampled from the hero photograph's backdrop, so the portrait bleeds into it */
+  --paper: #fff4e3;
+  --ink: #26120b;
+  --counter: #cffb43;  /* lime: sampled from the apple portrait's backdrop */
+
+  --rule: 1.5px;
+  --content-max: 1520px;
+  --gutter: clamp(16px, calc(7.09px + 2.286vw), 40px);
+  /* page margin; bands stay full-bleed. The safe-area insets keep text clear of the sensor housing on a phone held sideways. */
+  --edge: max(var(--gutter), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px), calc((100vw - var(--content-max)) / 2));
+  --gap: clamp(12px, calc(7.54px + 1.143vw), 24px);
+  --section-y: clamp(56px, calc(32.229px + 6.0952vw), 120px);
+  --band-y: clamp(40px, calc(25.143px + 3.8095vw), 80px);
+  --header-h: 72px;
+  --bar-h: 0px;
+  --tap: 48px;
+  --h-lg: 56px;
+
+  --font-display: "Anybody", "Anybody fb", "Arial Narrow", Impact, sans-serif;
+  --font-text: "Public Sans", "Public Sans fb", ui-sans-serif, system-ui, sans-serif;
+  --fs-hero: clamp(3.5rem, calc(1.829rem + 6.857vw), 8rem);
+  --fs-zero: clamp(9rem, calc(5.1rem + 16vw), 19.5rem);
+  --fs-d1: clamp(2.75rem, calc(1.357rem + 5.714vw), 6.5rem);
+  --fs-d2: clamp(2.5rem, calc(1.757rem + 3.048vw), 4.5rem);
+  --fs-d3: clamp(1.75rem, calc(1.471rem + 1.143vw), 2.5rem);
+  --fs-d4: clamp(1.0625rem, calc(0.946rem + 0.476vw), 1.375rem);
+  --fs-lead: clamp(1.125rem, calc(1.032rem + 0.381vw), 1.375rem);
+  --fs-body: clamp(1.125rem, calc(1.079rem + 0.19vw), 1.25rem);
+  --fs-ui: clamp(1rem, calc(0.977rem + 0.095vw), 1.0625rem);
+  --fs-small: clamp(0.875rem, calc(0.852rem + 0.095vw), 0.9375rem);
+  --fs-foot: 0.8125rem;
+  --fs-ticker: clamp(1.0625rem, calc(0.9929rem + 0.2857vw), 1.25rem);
+  --fs-faq: clamp(1.125rem, calc(1.0321rem + 0.381vw), 1.375rem);
+
+  /* widths the display face rests at and moves between (Anybody's wdth axis runs 50 to 150) */
+  --wdth-hero: 75%;        --wdth-hero-tight: 57.5%;
+  --wdth-word: 62.5%;      --wdth-word-tight: 50%;     --wdth-word-wide: 100%;
+  --wdth-numeral: 75%;     --wdth-numeral-wide: 150%;
+  --display-wght-tight: 840;
+
+  /* the bite: tile sizes */
+  --bite-lg: 35px; --bite-md: 27px; --bite-chip: 23px;
+
+  /* motion: one family. Down = in fast, hard stop. Up = the spring. A cut = no transition at all. */
+  --ease-down: cubic-bezier(.25, .8, .3, 1);
+  --spring: linear(0, 0.081, 0.265, 0.485, 0.692, 0.862, 0.984, 1.059, 1.096, 1.103, 1.092, 1.072, 1.049, 1.028, 1.012, 1, 0.993, 0.99, 0.989, 0.991, 0.993, 0.995, 0.997, 0.999, 1, 1.001, 1.001, 1.001, 1);
+  --spring-soft: linear(0, 0.044, 0.152, 0.292, 0.44, 0.581, 0.706, 0.811, 0.894, 0.956, 0.999, 1.027, 1.043, 1.049, 1.049, 1.045, 1.039, 1.032, 1.024, 1.018, 1.012, 1.007, 1.004, 1.001, 0.999, 0.998, 0.998, 0.997, 1);
+  --t-colour: 80ms; --t-squash: 80ms; --t-recoil: 480ms; --t-recoil-chip: 420ms; --t-crumbs: 240ms;
+  --t-restock: 160ms; --t-chew: 540ms; --t-open: 360ms; --t-close: 200ms;
+}
+@supports not (transition-timing-function: linear(0, 1)) { :root { --spring: cubic-bezier(.34, 1.56, .64, 1); --spring-soft: cubic-bezier(.34, 1.25, .64, 1); } }
+@media (min-width: 640px)  { :root { --wdth-hero: 72%; --wdth-hero-tight: 55%; } }
+@media (min-width: 1024px) { :root { --wdth-hero: 60%; --wdth-hero-tight: 50%; } }   /* 60, not 56: the axis stops at 50, and a 17% chew reads where 11% did not */
+@media (min-width: 1280px) { :root { --wdth-hero: 66%; --wdth-hero-tight: 50.75%; } }
+@media (max-width: 639.98px)  { :root { --header-h: 56px; --bar-h: 64px; } }
+@media (max-width: 389.98px)  { :root { --fs-d2: min(2.5rem, 10.1vw); } }   /* the Services designation keeps to two lines; service words stay the same size as it */
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%; text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 12px);
+  scroll-padding-bottom: calc(var(--bar-h) + 12px);
+  background: var(--paper); color: var(--ink);
+}
+body {
+  margin: 0; font-family: var(--font-text); font-size: var(--fs-body); line-height: 1.5;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4, p, figure, ol, ul, dl, dd { margin: 0; }
+ol[class], ul[class] { padding: 0; list-style: none; }
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+sup { font-size: .62em; line-height: 0; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+:focus:not(:focus-visible) { outline: none; }
+.on-ink :focus-visible { outline-color: var(--counter); }
+[hidden] { display: none !important; }
+::selection { background: var(--ink); color: var(--counter); }
+.on-ink ::selection { background: var(--counter); color: var(--ink); }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip-link { position: absolute; left: 12px; top: -80px; z-index: 100; padding: 12px 16px; background: var(--ink); color: var(--paper); font: 600 var(--fs-ui)/1 var(--font-text); }
+.skip-link:focus { top: 12px; }
+
+/* text links */
+.tlink { font: 500 var(--fs-ui)/1.3 var(--font-text); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.tlink:hover { text-decoration-thickness: 3px; }
+
+/* ---------- pill button (structure from prototypes/interaction.html) ----------
+   .btn        the box: hit area and focus ring. Never transformed, never masked.
+   .btn__body  what squashes and recoils.
+   .btn__face  the masked layer; the rounded, ruled pill is its ::before. The mask is always applied and
+               parked one tile outside the corner; a bite moves it in with no transition, so it is a cut. */
+.btn {
+  --btn-h: var(--h-lg); --btn-pad: 28px; --notch: var(--bite-lg);
+  --btn-bg: var(--counter); --btn-fg: var(--ink); --btn-rule: var(--ink);
+  position: relative; display: inline-flex; min-height: var(--btn-h);
+  border: 0; padding: 0; background: none; border-radius: 999px;
+  color: var(--btn-fg); font: 600 var(--fs-ui)/1 var(--font-text); text-decoration: none;
+  cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;
+  transition: color var(--t-colour) var(--ease-down);
+}
+.btn--md { --btn-h: var(--tap); --btn-pad: 22px; --notch: var(--bite-md); }
+.btn__body {
+  position: relative; isolation: isolate; flex: 1;
+  display: inline-flex; align-items: center; justify-content: center; padding: 0 var(--btn-pad); white-space: nowrap;
+  transform-origin: 0 100%;
+}
+.btn__face {
+  position: absolute; inset: 0; z-index: -1;
+  --_s: calc(var(--notch) * var(--bite-reach));
+  -webkit-mask: var(--bite-tr) calc(100% + 1px + var(--notch)) calc(-1px - var(--notch)) / var(--_s) var(--_s) no-repeat;
+  mask: var(--bite-tr) calc(100% + 1px + var(--notch)) calc(-1px - var(--notch)) / var(--_s) var(--_s) no-repeat;
+}
+.btn__face::before {
+  content: ""; position: absolute; inset: 0;
+  border: var(--rule) solid var(--btn-rule); border-radius: 999px; background: var(--btn-bg);
+  transition: background-color var(--t-colour) var(--ease-down), border-color var(--t-colour) var(--ease-down);
+}
+/* two rules, not one list: a browser that cannot parse :has() would drop the whole list and no button would ever show its notch */
+[data-bitten] > .btn__body > .btn__face { -webkit-mask-position: calc(100% + 1px) -1px; mask-position: calc(100% + 1px) -1px; }
+.slot:has(:checked) .btn__face { -webkit-mask-position: calc(100% + 1px) -1px; mask-position: calc(100% + 1px) -1px; }
+.btn .w__t { display: inline-block; transform-origin: 0 50%; }
+
+.btn--sec { --btn-bg: transparent; }                                   /* secondary: colour swap, never a notch */
+.on-ink .btn { --btn-rule: var(--counter); }
+.on-ink .btn--sec { --btn-fg: var(--paper); --btn-rule: var(--paper); }
+.on-counter .btn { --btn-bg: var(--ink); --btn-fg: var(--counter); }
+.on-counter .btn--sec { --btn-bg: transparent; --btn-fg: var(--ink); }
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { --btn-bg: var(--ink); --btn-fg: var(--counter); }
+  .btn--sec:hover { --btn-bg: var(--ink); --btn-fg: var(--paper); }
+  .on-ink .btn:hover { --btn-bg: var(--paper); --btn-fg: var(--ink); --btn-rule: var(--paper); }
+  .on-counter .btn:hover { --btn-bg: var(--paper); --btn-fg: var(--ink); }
+}
+/* crumbs: one dot with two box-shadow copies, parked inside the notch, hidden until a bite */
+.btn::after, .slot::after {
+  content: ""; position: absolute; z-index: 1; pointer-events: none; visibility: hidden;
+  top: calc(var(--notch) * .2); right: calc(var(--notch) * .3);
+  inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--btn-bg);
+  box-shadow: 10px 4px 0 -1px var(--btn-bg), 1px -9px 0 -1.5px var(--btn-bg);
+  transform-origin: 0 100%;
+}
+.slot::after { box-shadow: 6px 2px 0 -.5px var(--btn-bg); }
+.btn--sec::after { content: none; }
+
+/* price chip: a label, not a control */
+.chip { display: inline-flex; align-items: baseline; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; border: var(--rule) solid var(--ink); font: 500 var(--fs-small)/38px var(--font-text); white-space: nowrap; background: var(--paper); }
+.chip b { font-family: var(--font-display); font-weight: 800; font-stretch: 85%; font-size: 20px; font-variant-numeric: tabular-nums; }
+.paper .chip { background: var(--ground); }
+a.chip:hover { background: var(--counter); }   /* outside Cost, the chip links to the terms of its price */
+
+/* ---------- animated words: the cell is sized by a hidden copy at its widest resting state ---------- */
+.w { display: inline-grid; white-space: nowrap; vertical-align: baseline; }
+.w > .w__t, .w::after { grid-area: 1 / 1; }
+.w > .w__t { contain: inline-size; }
+.w::after { content: attr(data-text); visibility: hidden; pointer-events: none; font-stretch: var(--w-rest); }
+.w--wide::after { font-stretch: var(--w-wide); }
+.once-wide .w__t { font-stretch: var(--w-wide); }       /* default, script off, motion off: shown wide */
+
+/* ---------- disclosure strip (delete the element in index.html to remove it) ---------- */
+.demo-strip { background: var(--paper); color: var(--ink); font: 500 var(--fs-foot)/1.35 var(--font-text); padding: 7px var(--edge); border-bottom: var(--rule) solid var(--ink); }
+
+/* ---------- header ---------- */
+.hd { position: sticky; top: 0; z-index: 10; height: var(--header-h); display: flex; align-items: center; gap: 28px; padding: 0 var(--edge) 0 0; background: var(--ground); border-bottom: var(--rule) solid var(--ink); }
+.plate {
+  display: inline-flex; align-items: center; align-self: stretch; flex: none;
+  background: var(--ink); color: var(--ground);
+  font-family: var(--font-display); font-weight: 900; font-stretch: 62.5%; font-size: 26px; line-height: 1; text-transform: uppercase; letter-spacing: 0; white-space: nowrap;
+  padding: 0 44px 0 var(--edge); --notch: 45px;
+  -webkit-mask: var(--bite-tr) calc(100% + 1px) -1px / calc(var(--notch) * var(--bite-reach)) calc(var(--notch) * var(--bite-reach)) no-repeat;
+  mask: var(--bite-tr) calc(100% + 1px) -1px / calc(var(--notch) * var(--bite-reach)) calc(var(--notch) * var(--bite-reach)) no-repeat;
+}
+.plate:focus-visible { outline-offset: -6px; outline-color: var(--ground); }
+.foot .plate:focus-visible { outline-color: var(--ink); }   /* the footer plate is ground-coloured; its ring must not be */
+.hd nav { display: flex; gap: 28px; font: 500 16px/1 var(--font-text); margin-left: 12px; white-space: nowrap; }
+.hd nav a { padding: 8px 0; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+.hd nav a:hover, .hd nav a:focus-visible { text-decoration: underline; text-decoration-thickness: 1.5px; }
+.hd .sp { flex: 1; }
+.status { font: 500 15px/1.15 var(--font-text); white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: currentColor; display: inline-block; flex: none; }
+.dot.is-closed { -webkit-mask: radial-gradient(circle 6.5px at 80% 20%, #0000 97%, #000); mask: radial-gradient(circle 6.5px at 80% 20%, #0000 97%, #000); }
+.status .st-s { display: none; }
+.tel { font: 600 16px/1 var(--font-text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+a[href^="tel:"], a[href^="sms:"] { font-variant-numeric: tabular-nums; }
+.tel:hover { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden; background: var(--ground);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap);
+  grid-template-rows: auto auto 1fr auto auto;
+  padding: 28px var(--edge) 22px; min-height: clamp(620px, 49.3vw, 710px);
+}
+.hero__fig { grid-column: 8 / -1; grid-row: 1 / 6; margin: -28px calc(var(--edge) * -1) -22px 0; z-index: -1; position: relative; min-height: 0; }
+.hero__fig img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 0%; -webkit-mask-image: linear-gradient(to right, #0000 0, #000 72px); mask-image: linear-gradient(to right, #0000 0, #000 72px); }
+.h1 {
+  --w-rest: var(--wdth-hero); --w-tight: var(--wdth-hero-tight);
+  grid-column: 1 / -1; grid-row: 1; margin: 0;
+  font-family: var(--font-display); font-weight: 900; font-stretch: var(--w-rest); font-size: var(--fs-hero); line-height: .9; letter-spacing: -0.01em; white-space: nowrap;
+}
+.h1 .l3 { display: block; }
+.hero__sub { grid-column: 1 / 8; grid-row: 2; margin: 22px 0 0; font-size: var(--fs-lead); line-height: 1.4; max-width: 30em; }
+.hero__hrs { grid-column: 1 / 8; grid-row: 3; align-self: start; margin: 12px 0 18px; font: 600 var(--fs-small)/1.35 var(--font-text); text-wrap: balance; }
+.nb { white-space: nowrap; }
+.who { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-d4); line-height: 1.05; text-transform: uppercase; letter-spacing: .005em; }   /* placement: HERO LOCK-UP */
+.who .ip { display: none; font-style: normal; }
+/* the separator is the display face's round bullet (U+2022): its middle dot draws as a short bar and reads as a dash */
+.ip { font-style: normal; }
+.strip { grid-column: 1 / 9; grid-row: 4; display: grid; grid-template-columns: auto minmax(0, 1fr); align-self: end; border-top: var(--rule) solid var(--ink); border-bottom: var(--rule) solid var(--ink); }
+.fv { padding: 14px 28px 12px 0; display: flex; flex-direction: column; gap: 2px; }
+.lab { font: 600 var(--fs-small)/1.3 var(--font-text); }
+.num { font-family: var(--font-display); font-weight: 900; line-height: .86; letter-spacing: -0.01em; font-variant-numeric: tabular-nums lining-nums; }
+.cap { font: 400 var(--fs-small)/1.3 var(--font-text); }
+.cap a { text-decoration: none; padding: 0 3px; }
+.op { padding: 14px 0 12px 24px; border-left: var(--rule) solid var(--ink); display: flex; flex-direction: column; gap: 10px; justify-content: space-between; min-width: 0; }
+.oph { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.oph .tlink { font-size: 15px; white-space: nowrap; }
+.opcap { font: 400 var(--fs-foot)/1.35 var(--font-text); margin: -2px 0 0; text-wrap: balance; }
+.cta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.fn { grid-column: 1 / 8; grid-row: 5; margin: 10px 0 0; font-size: var(--fs-foot); line-height: 1.4; max-width: 78ch; text-wrap: pretty; }
+
+/* next-openings chips: native radios */
+.slots { border: 0; padding: 0; margin: 0; min-inline-size: 0; display: flex; flex-wrap: wrap; gap: 8px; min-height: var(--tap); align-items: center; }
+.slots__msg { font: 400 var(--fs-small)/1.3 var(--font-text); }
+.slot {
+  --btn-h: var(--tap); --btn-pad: 18px; --notch: var(--bite-chip);
+  --btn-bg: transparent; --btn-fg: var(--ink); --btn-rule: var(--ink);
+  position: relative; display: inline-flex; min-height: var(--btn-h); border-radius: 999px;
+  color: var(--btn-fg); font: 400 16px/1 var(--font-text); font-variant-numeric: tabular-nums; cursor: pointer;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;
+}
+.slot b { font-weight: 700; }
+.slot input { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.slot .btn__body { gap: .4em; }
+.slot:has(:checked) { --btn-bg: var(--counter); }
+.slot:has(:focus-visible) { outline: 3px solid var(--ink); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .slot:hover:not(:has(:checked)) { --btn-bg: var(--paper); } }
+
+/* ---------- ticker ---------- */
+.ticker { background: var(--ink); color: var(--paper); display: flex; align-items: stretch; min-height: 56px; overflow: hidden; }
+.ticker__pause { display: none; flex: none; width: 72px; border: 0; border-right: var(--rule) solid var(--paper); background: var(--ink); color: var(--paper); font: 600 15px/1 var(--font-text); position: relative; z-index: 1; }
+.ticker__pause:focus-visible { outline-offset: -5px; }
+.ticker.is-paused .ticker__pause { background: var(--paper); color: var(--ink); }
+.ticker.is-paused .ticker__pause:focus-visible { outline-color: var(--ink); }
+.ticker__view { flex: 1; min-width: 0; display: flex; align-items: center; overflow: hidden; }
+.ticker__track { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; padding: 12px var(--edge); font-family: var(--font-display); font-weight: 800; font-stretch: 100%; font-size: var(--fs-ticker); line-height: 1; text-transform: uppercase; letter-spacing: .01em; }
+.ticker__track li { display: flex; align-items: center; gap: 22px; }   /* nowrap belongs to the moving track only: the still list must wrap on narrow phones */
+.ticker__track li::after { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--ground); flex: none; -webkit-mask: radial-gradient(circle 6.5px at 80% 20%, #0000 97%, #000); mask: radial-gradient(circle 6.5px at 80% 20%, #0000 97%, #000); }
+.ticker__track[aria-hidden="true"] { display: none; }
+
+/* ---------- sections ---------- */
+.sec { padding: var(--section-y) var(--edge); }
+.paper { background: var(--paper); }
+.gr { background: var(--ground); }
+.sec.ruled { border-top: var(--rule) solid var(--ink); }
+.sec-h { margin: 0 0 28px; font-family: var(--font-display); font-weight: 900; font-stretch: 66%; font-size: var(--fs-d1); line-height: .92; letter-spacing: -0.01em; text-wrap: balance; }
+.g12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); align-items: start; }
+.pcap { margin: 8px 0 0; font: 400 var(--fs-small)/1.4 var(--font-text); }
+.ph32 img, .ph45 img { display: block; width: 100%; object-fit: cover; }
+.ph32 img { aspect-ratio: 3 / 2; }
+.ph45 img { aspect-ratio: 4 / 5; }
+.lead { font-size: var(--fs-lead); line-height: 1.4; }
+.row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+/* bitten photograph frame: the notch is a static crop, tile 25% of the frame's width */
+.frame { container-type: inline-size; }
+.frame img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; --notch: 25cqi; -webkit-mask: var(--bite-tr) calc(100% + 1px) -1px / calc(var(--notch) * var(--bite-reach)) calc(var(--notch) * var(--bite-reach)) no-repeat; mask: var(--bite-tr) calc(100% + 1px) -1px / calc(var(--notch) * var(--bite-reach)) calc(var(--notch) * var(--bite-reach)) no-repeat; }
+
+/* ---------- first visit ---------- */
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap); border-top: var(--rule) solid var(--ink); border-bottom: var(--rule) solid var(--ink); }
+.step { padding: 16px 24px 20px; border-right: var(--rule) solid var(--ink); display: flex; flex-direction: column; gap: 6px; }
+.step:last-child { border-right: 0; }
+.step:first-child { padding-left: 0; }
+.step__top { display: flex; justify-content: space-between; align-items: flex-start; }
+.step__n { font-family: var(--font-display); font-weight: 900; font-stretch: 75%; font-size: var(--fs-d1); line-height: .8; font-variant-numeric: tabular-nums; }
+.step h3 { margin: 14px 0 0; font-family: var(--font-display); font-weight: 800; font-stretch: 85%; font-size: var(--fs-d3); line-height: 1.05; letter-spacing: -0.005em; }
+.step p { max-width: 32em; }
+.step .pcap { margin: 0; }
+.portion {
+  --bites: 0; display: block; flex: none; inline-size: 120px; aspect-ratio: 1; background: var(--ground);
+  -webkit-mask: var(--portions) calc((.1 + 1.2 * var(--bites)) / 3.8 * 100%) 50% / 480% 120% no-repeat;
+  mask: var(--portions) calc((.1 + 1.2 * var(--bites)) / 3.8 * 100%) 50% / 480% 120% no-repeat;
+}
+.portion[data-bites="1"] { --bites: 1; } .portion[data-bites="2"] { --bites: 2; } .portion[data-bites="3"] { --bites: 3; }
+.visit-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; margin-top: 32px; }
+
+/* ---------- food strip: full bleed, no gaps, not notched (the food is already bitten) ---------- */
+.foods { display: flex; background: var(--paper); }
+.food { flex: var(--ar) 1 0; min-width: 0; }
+.food img { display: block; width: 100%; aspect-ratio: var(--ar); object-fit: cover; }
+.food figcaption { padding: 8px 12px 14px; font: 400 var(--fs-small)/1.4 var(--font-text); }
+.food:first-child figcaption { padding-left: var(--gutter); }
+
+/* ---------- services ---------- */
+.svc-head h2 { margin: 0 0 16px; }
+.desig { font-family: var(--font-display); font-weight: 900; font-stretch: 62.5%; font-size: var(--fs-d2); line-height: 1; text-transform: uppercase; letter-spacing: 0; margin: 0 0 18px; }
+.desig .br { display: none; }
+.lane { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); border-top: var(--rule) solid var(--ink); }
+.lane:last-of-type { border-bottom: var(--rule) solid var(--ink); }
+.lane__name { grid-column: 1 / 3; padding-top: 14px; text-wrap: balance; font-family: var(--font-display); font-weight: 800; font-stretch: 85%; font-size: var(--fs-d4); text-transform: uppercase; line-height: 1.1; }
+.lane__name small { display: block; font: 400 var(--fs-small)/1.4 var(--font-text); text-transform: none; margin-top: 6px; letter-spacing: 0; }
+.lane .svc { grid-column: 3 / 13; }
+.svc li + li { border-top: var(--rule) solid var(--ink); }
+.svc__row {
+  display: grid; grid-template: "word price" auto "desc price" auto / minmax(0, 1fr) auto; column-gap: 24px; row-gap: 4px; align-items: center;
+  padding: 12px; min-height: 96px; color: inherit; text-decoration: none;
+  border-inline: var(--rule) solid transparent;   /* lime on paper always has an ink edge: the ends turn ink with the fill */
+  transition: background-color var(--t-colour) var(--ease-down);
+}
+.svc__word {
+  --w-rest: var(--wdth-word); --w-tight: var(--wdth-word-tight); --w-wide: var(--wdth-word-wide);
+  grid-area: word; justify-self: start; margin: 0;
+  font-family: var(--font-display); font-weight: 900; font-stretch: var(--w-rest); font-size: var(--fs-d2); line-height: 1; letter-spacing: -0.01em;
+}
+.svc__desc { grid-area: desc; font: 400 var(--fs-small)/1.35 var(--font-text); max-width: 30em; }
+.svc__price { grid-area: price; display: flex; align-items: center; justify-content: flex-end; gap: 10px; min-width: 4.2em; font-family: var(--font-display); font-weight: 900; font-stretch: 75%; font-size: var(--fs-d2); line-height: 1; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; transition: none; }
+.svc__from { font: 500 var(--fs-small)/1 var(--font-text); letter-spacing: 0; }
+.svc__row:focus-visible { outline-offset: -3px; background: var(--counter); border-inline-color: var(--ink); }
+.svc__row:focus-visible .w__t { font-stretch: var(--w-wide); }
+@media (hover: hover) and (pointer: fine) {
+  .svc__row:hover { background: var(--counter); border-inline-color: var(--ink); }
+  .svc__row:hover .w__t { font-stretch: var(--w-wide); }
+}
+/* the row is one link; this makes its action visible where there is no hover */
+.svc__go { font-weight: 600; white-space: nowrap; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+@media (min-width: 640px) { .svc__go { display: block; margin-top: 4px; } }   /* every row ends with its action on its own line */
+.svc-note { margin-top: 24px; max-width: 30em; }
+.ctxt .lead { max-width: 30em; }
+.visit-foot .lead, .pull { text-wrap: balance; }
+
+/* ---------- comfort: nothing here moves ---------- */
+.cphoto { grid-column: 1 / 7; }
+.ctxt { grid-column: 8 / 13; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.rlist { align-self: stretch; border-top: var(--rule) solid var(--ink); }
+.rlist li { padding: 10px 0; border-bottom: var(--rule) solid var(--ink); line-height: 1.35; }
+.stoprow { display: flex; gap: 14px; align-items: center; margin-top: 6px; }
+.stoprow p { font-size: var(--fs-small); line-height: 1.4; max-width: 22em; }
+.motion-state { font-weight: 600; }
+
+/* ---------- meet the dentist: lime field, the portrait bleeds from the left ---------- */
+.meet { position: relative; isolation: isolate; overflow: hidden; background: var(--counter); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); padding: var(--band-y) var(--edge); min-height: clamp(640px, 51.5vw, 760px); }
+.meet__fig { grid-column: 1 / 6; grid-row: 1; margin: calc(var(--band-y) * -1) 0 calc(var(--band-y) * -1) calc(var(--edge) * -1); position: relative; z-index: -1; }
+.meet__fig img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 0% 0%; -webkit-mask-image: linear-gradient(to left, #0000 0, #000 72px); mask-image: linear-gradient(to left, #0000 0, #000 72px); }
+.meet__cap { grid-column: 4 / 6; grid-row: 1; align-self: end; justify-self: end; margin: 0; font-size: var(--fs-small); }
+.meet__txt { grid-column: 7 / 13; grid-row: 1; display: flex; flex-direction: column; gap: 18px; align-self: center; }
+.meet h2 { --w-rest: 66%; --w-tight: 50.75%; margin: 0; font-family: var(--font-display); font-weight: 900; font-stretch: 66%; font-size: var(--fs-d1); line-height: .92; letter-spacing: -0.01em; }
+.meet .bio { max-width: 30em; }
+.ptsrow .pull { margin: 0; align-self: center; }
+.pull { font-family: var(--font-display); font-weight: 800; font-stretch: 85%; font-size: var(--fs-d3); line-height: 1.05; letter-spacing: -0.005em; }
+.ptsrow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--gap); align-items: start; }
+.pts { border-top: var(--rule) solid var(--ink); counter-reset: pt; }
+.pts li { counter-increment: pt; display: grid; grid-template-columns: 2.4em minmax(0, 1fr); align-items: baseline; padding: 10px 0; border-bottom: var(--rule) solid var(--ink); }
+.pts li::before { content: counter(pt); font-family: var(--font-display); font-weight: 900; font-stretch: 75%; font-size: var(--fs-d3); line-height: 1; }
+.pts h3 { margin: 0; text-wrap: balance; font-family: var(--font-display); font-weight: 800; font-stretch: 85%; font-size: clamp(1.375rem, calc(1.236rem + 0.571vw), 1.75rem); line-height: 1.1; }
+.cred { font-size: var(--fs-small); line-height: 1.45; max-width: 30em; }
+.cred b { font-weight: 600; }
+@media (min-width: 1024px) {
+  /* the portrait never zooms past the point where her arm would be cut */
+  .meet__fig { container-type: size; }
+  .meet__fig img { inset: auto; left: 0; bottom: 0; height: min(100cqh, 189cqw); width: auto; max-width: none;
+    -webkit-mask-image: linear-gradient(to left, #0000 0, #000 72px), linear-gradient(#0000 0, #000 32px); -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to left, #0000 0, #000 72px), linear-gradient(#0000 0, #000 32px); mask-composite: intersect; }
+  .meet__cap { align-self: start; }   /* beside her hair: the portrait scales with the band, so the bottom corner can fall behind her */
+  .lfig { position: sticky; top: calc(var(--header-h) + 24px); }   /* the portrait keeps the long list of questions company */
+  .cltxt { grid-column: 1 / 10; }
+}
+
+/* ---------- no reviews yet: ink band ---------- */
+.zero { background: var(--ink); color: var(--paper); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 18px; padding: var(--band-y) var(--edge); }
+.zero__h { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: start; margin: 0; }
+.zero__n { --w-rest: var(--wdth-numeral); --w-tight: 55.75%; --w-wide: var(--wdth-numeral-wide); grid-column: 1 / 6; justify-self: start; font-family: var(--font-display); font-weight: 900; font-stretch: var(--w-rest); font-size: var(--fs-zero); line-height: .74; color: var(--counter); letter-spacing: -0.02em; font-variant-numeric: tabular-nums lining-nums; margin-left: -.085em;   /* the numeral's left bearing, so it starts on the page margin */ }
+.zero__deck { display: block; margin-top: .3em; font-weight: 800; font-stretch: 85%; font-size: var(--fs-d3); line-height: 1.05; letter-spacing: -0.005em; text-wrap: balance; }
+.zero__rest { grid-column: 6 / 13; font-family: var(--font-display); font-weight: 900; font-stretch: 66%; font-size: var(--fs-d1); line-height: .92; letter-spacing: -0.01em; }
+.zero__body { grid-column: 6 / 13; display: flex; flex-direction: column; gap: 18px; }
+.promises { border-top: var(--rule) solid var(--paper); counter-reset: p; }
+.promises li { counter-increment: p; display: grid; grid-template-columns: 2.2em minmax(0, 1fr); align-items: baseline; padding: 12px 0; border-bottom: var(--rule) solid var(--paper); font-size: var(--fs-lead); line-height: 1.35; }
+.promises li { grid-template-columns: minmax(0, 1fr); }   /* no numerals: numbering belongs to the first-visit steps */
+.promises li::before { content: none; font-family: var(--font-display); font-weight: 900; font-stretch: 75%; font-size: var(--fs-d3); line-height: 1; color: var(--ground); }
+.promises h3 { margin: 0 0 2px; font-family: var(--font-display); font-weight: 800; font-stretch: 85%; font-size: clamp(1.375rem, calc(1.236rem + 0.571vw), 1.75rem); line-height: 1.1; text-wrap: balance; }
+
+/* ---------- cost ---------- */
+.costtxt { grid-column: 1 / 9; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+.costtxt .sec-h { margin: 0; }
+.costtxt p { max-width: 30em; }
+.promise { font-family: var(--font-display); font-weight: 800; font-stretch: 85%; font-size: var(--fs-d3); line-height: 1.05; max-width: 20em; text-wrap: balance; }
+.costtxt .promise { max-width: 20em; }
+.costfig { grid-column: 10 / 13; }
+.switch { display: inline-flex; border: var(--rule) solid var(--ink); border-radius: 999px; padding: 0; margin: 0; min-inline-size: 0; }
+.switch label { position: relative; display: inline-flex; align-items: center; height: 48px; padding: 0 22px; border-radius: 999px; font: 600 var(--fs-ui)/1 var(--font-text); cursor: pointer; white-space: nowrap; }
+.switch input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.switch label:has(:checked) { background: var(--ink); color: var(--paper); }
+.switch label:has(:focus-visible) { outline: 3px solid var(--ink); outline-offset: 3px; }
+.cost-panels { display: grid; }   /* both panels in one cell: the taller sets the height, so the switch never moves the page */
+.cost-panels > p { grid-area: 1 / 1; }
+.cost-panels > [data-panel="yes"] { visibility: hidden; }
+.costtxt:has(#ins-yes:checked) .cost-panels > [data-panel="yes"] { visibility: visible; }
+.costtxt:has(#ins-yes:checked) .cost-panels > [data-panel="no"] { visibility: hidden; }
+.costtxt:has(#ins-yes:checked) .chip { visibility: hidden; }   /* the chip is the uninsured price; it leaves with that panel, keeping its place */
+
+/* ---------- find us ---------- */
+.ffig { grid-column: 1 / 8; }
+.ftxt { grid-column: 9 / 13; display: flex; flex-direction: column; gap: 16px; }
+.bigstatus { display: flex; align-items: flex-start; gap: 12px; font-size: var(--fs-lead); font-weight: 500; }
+.bigstatus span { text-wrap: balance; }
+.bigstatus .dot { width: 20px; height: 20px; margin-top: .3em; }
+.bigstatus .dot.is-closed { -webkit-mask: radial-gradient(circle 11px at 80% 20%, #0000 97%, #000); mask: radial-gradient(circle 11px at 80% 20%, #0000 97%, #000); }
+.hours { border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; font-size: var(--fs-body); width: 100%; max-width: 440px; }
+.hours caption { text-align: left; font: 600 var(--fs-small)/1.3 var(--font-text); padding-bottom: 8px; }
+.hours th, .hours td { padding: 9px 14px 9px 10px; border-top: var(--rule) solid var(--ink); text-align: left; font-weight: 400; }
+.hours tr:last-child th, .hours tr:last-child td { border-bottom: var(--rule) solid var(--ink); }
+.hours td { text-align: right; padding-right: 10px; }
+.hours tr.is-today th, .hours tr.is-today td { background: var(--counter); font-weight: 600; }
+.hours .tg { font: 600 12px/1 var(--font-text); margin-left: 10px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+/* ---------- faq ---------- */
+.faqcol { grid-column: 1 / 9; }
+#faq .faqcol { grid-column: 1 / -1; }
+@media (min-width: 1024px) {
+  #faq .faqcol { display: contents; }
+  #faq-h { grid-column: 1 / 5; align-self: start; }
+  #faq .faq { grid-column: 5 / 13; max-width: 880px; }
+}
+.faq { border-top: var(--rule) solid var(--ink); }
+.faq details { border-bottom: var(--rule) solid var(--ink); }
+.faq summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 72px; padding: 14px 4px; font: 600 var(--fs-faq)/1.25 var(--font-text); cursor: pointer; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover .q { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+.faq .mk { width: 20px; height: 20px; position: relative; flex: none; }
+.faq .mk::before, .faq .mk::after { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 2px; background: currentColor; }
+.faq .mk::after { rotate: 90deg; }
+.faq details[open] .mk { rotate: 45deg; }
+.faq details[open] summary { border-bottom: var(--rule) solid var(--ink); }
+.faq .a { padding: 14px 4px 22px; max-width: 30em; }
+.faq-foot { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.lfig { grid-column: 10 / 13; }
+.lfig img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: var(--rule) solid var(--ink); }   /* the chest-up crop is baked into the file */
+
+/* ---------- closing ---------- */
+.cltxt { grid-column: 1 / 9; display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+.cltxt .sec-h { margin: 0; text-wrap: nowrap; }
+.cltxt .sec-h .w { --w-rest: 66%; --w-wide: 125%; display: grid; justify-content: start; }
+.clfig { grid-column: 10 / 13; }
+
+/* ---------- footer ---------- */
+.foot { background: var(--ink); color: var(--paper); padding: 0 var(--edge) calc(28px + var(--bar-h) + env(safe-area-inset-bottom, 0px));   /* the phone bar never covers the last line */ display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 28px; font-size: var(--fs-small); line-height: 1.5; }
+.foot .plate { text-decoration: none; grid-column: 1 / -1; justify-self: start; align-self: start; height: 72px; margin: 32px 0 0 calc(var(--edge) * -1); background: var(--ground); color: var(--ink); }
+.foot .fc { grid-column: span 3; }
+.foot .fc h2 { margin: 0 0 8px; text-wrap: balance; font-family: var(--font-display); font-weight: 800; font-stretch: 85%; font-size: var(--fs-d4); text-transform: uppercase; line-height: 1.1; color: var(--ground); }
+.foot a:not(.plate), .tbtn { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.foot a:not(.plate):hover, .tbtn:hover { text-decoration-thickness: 3px; }
+.tbtn { border: 0; background: none; padding: 0; font: inherit; color: inherit; }
+.legal { grid-column: 1 / 9; font-size: var(--fs-foot); align-self: start; border-top: var(--rule) solid var(--paper); padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.legal .links { gap: 6px 20px; }
+.legal p { max-width: 36em; }
+@media (min-width: 640px) { .legal { margin-right: calc(var(--gap) * -1); padding-right: var(--gap); } }   /* one rule, not two with a gap */
+.foot a:not(.plate), .tbtn { padding-block: 4px; }   /* a 24px target without moving the lines */
+address { font-style: normal; }
+#closing { padding-block: var(--band-y); }
+.cookie { grid-column: 9 / 13; display: flex; align-items: center; gap: 14px; justify-content: flex-end; border-top: var(--rule) solid var(--paper); padding-top: 12px; }
+.cookie__btn { position: relative; border: 0; background: none; padding: 0; border-radius: 50%; inline-size: 56px; block-size: 56px; flex: none; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.cookie__btn .portion { inline-size: 56px; }
+.cookie__btn[data-bites="4"] .portion { visibility: hidden; }
+.cookie__btn[data-bites="4"]::after { content: ""; position: absolute; left: 20px; top: 30px; width: 6px; height: 6px; border-radius: 50%; background: var(--ground); box-shadow: 12px 6px 0 -1px var(--ground), 22px -4px 0 -1.5px var(--ground); }
+
+/* ---------- phone bottom bar ---------- */
+.bbar { display: none; }
+
+/* ---------- demo notice (placeholder links say so instead of going nowhere) ---------- */
+/* the demo strip's twin, so every "Demo page." message on the page looks the same */
+.toast { position: fixed; left: 0; right: 0; bottom: calc(var(--bar-h) + env(safe-area-inset-bottom, 0px)); z-index: 20; margin: 0; padding: 7px var(--edge); background: var(--paper); color: var(--ink); border-top: var(--rule) solid var(--ink); font: 500 var(--fs-foot)/1.35 var(--font-text); }
+
+/* =====================================================================================================
+   BREAKPOINTS
+   ===================================================================================================== */
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .status .st-l { display: none; }
+  .status .st-s { display: inline; }
+  .hd { gap: 14px; }
+  .hd nav { gap: 16px; margin-left: 4px; }
+  .cta .btn { --btn-pad: 20px; }
+}
+@media (max-width: 1023.98px) {
+  .hd nav, .hd .tel, .status .st-l { display: none; }
+  .status .st-s { display: inline; }
+  .hero { grid-template-columns: minmax(0, 1fr); padding: 20px var(--edge) 28px; min-height: 0; }   /* rows and band height: HERO LOCK-UP */
+  .h1 { grid-column: 1; grid-row: 1; }
+  .h1 .l1, .h1 .l2 { display: block; }
+  .hero__sub { grid-column: 1; grid-row: 2; margin: 14px 0 18px; }
+  .hero__fig { grid-column: 1; grid-row: 3; margin: 0 calc(var(--edge) * -1); z-index: 0; }
+  .hero__fig img { object-position: 100% 6%; -webkit-mask-image: linear-gradient(#0000 0, #000 32px); mask-image: linear-gradient(#0000 0, #000 32px); }
+  .strip { display: contents; }
+  .op { grid-column: 1; grid-row: 4; border-left: 0; border-top: var(--rule) solid var(--ink); padding: 14px 0 0; }
+  .fn { grid-column: 1; grid-row: 5; margin: 12px 0 0; }
+  .hero__hrs { grid-column: 1; grid-row: 6; margin: 12px 0 0; }
+  .slots { flex-wrap: nowrap; }
+  .slot { flex: 1; --btn-pad: 6px; }
+  .g12 { display: block; }
+  .steps { display: block; border-bottom: 0; }
+  .step { border-right: 0; border-bottom: var(--rule) solid var(--ink); padding: 16px 0; }
+  .desig .ip { display: none; }
+  .desig .br { display: block; }
+  .lane { display: block; }
+  .lane__name { padding: 12px 0 10px; }
+  .lane .svc { border-top: var(--rule) solid var(--ink); }
+  .svc__row { grid-template: "word word" auto "desc price" auto / minmax(0, 1fr) auto; align-items: end; padding: 10px 4px; min-height: 72px; column-gap: 12px; }
+  .svc__price { min-width: 0; }
+  .lfig { position: static; }
+  .cphoto, .ffig { margin: 0 0 20px; }
+  .costfig, .clfig, .lfig { max-width: 322px; margin-top: 24px; }
+  .zero__deck br { display: none; }
+  .meet { display: block; min-height: 0; }
+  .meet__fig { margin: 18px calc(var(--edge) * -1) 0; height: min(70vw, 460px); }
+  .meet__fig img { object-position: 0% 4%; -webkit-mask-image: linear-gradient(#0000 0, #000 32px); mask-image: linear-gradient(#0000 0, #000 32px); }
+  .meet__cap { margin: 8px 0 18px; }
+  .ptsrow { display: block; }
+  .ptsrow figure { margin-top: 18px; }
+  .ptsrow .ph45 img { aspect-ratio: 3 / 2; }
+  .zero__n { grid-column: 1 / 5; }
+  .zero__rest, .zero__body { grid-column: 5 / 13; }
+  .hours { max-width: none; }
+}
+@media (max-width: 639.98px) {
+  .status { white-space: normal; min-width: 0; text-wrap: balance; }   /* on phones it may take two lines: it is the one header item whose length the clock decides */
+  .hd { gap: 12px; }
+  .hd .btn { display: none; }
+  .plate { font-size: 22px; padding: 0 34px 0 var(--edge); --notch: 35px; }
+  .demo-strip { padding: 5px var(--edge); font-size: 12px; }
+  .hero { padding: 12px var(--edge) 20px; }
+  .h1 { font-size: min(var(--fs-hero), 14.4vw); }   /* the no-wrap line "care how long" must fit down to 320px */
+  .hero__sub { font-size: 17px; line-height: 1.4; }
+  .op { padding: 10px 0 0; gap: 7px; }
+  .op .cta { display: none; }
+  .slots { gap: 6px; }
+  .slot { font-size: 15px; --btn-pad: 4px; }
+  .fn { margin: 8px 0 0; }
+  .ticker { min-height: 48px; }
+  .ticker__pause { width: 64px; }
+  .portion { inline-size: 72px; }
+  .step { padding: 14px 0; }
+  .foods { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .foods::-webkit-scrollbar { display: none; }
+  .food { flex: none; width: calc(240px * var(--ar)); scroll-snap-align: start; }
+  .food figcaption, .food:first-child figcaption { padding: 8px 16px 14px; }
+  .stoprow { flex-direction: column; align-items: flex-start; }
+  .lfig { max-width: 240px; }
+  .costfig, .clfig { max-width: none; }   /* bitten photographs run the full column on phones */
+  /* service rows on phones: word, then price, then the description at full width */
+  .svc__row { grid-template: "word" auto "price" auto "desc" auto / minmax(0, 1fr); row-gap: 2px; align-items: start; }
+  .svc__price { justify-content: flex-start; }
+  .svc__desc { margin-top: 6px; }
+  /* the fixed bar already carries Book; a second lime pill 110px above it is a duplicate */
+  .visit-foot .btn, .faq-foot .btn, #cost .row .btn:not(.btn--sec) { display: none; }
+  .zero { display: block; }
+  .zero__h { display: block; }
+  .zero__n { display: grid; margin-bottom: 18px; }
+  .zero__rest { display: block; margin-bottom: 18px; }
+  .faq summary { min-height: 64px; }
+  .foot .fc { grid-column: span 6; }
+  .legal, .cookie { grid-column: 1 / -1; justify-content: flex-start; }
+  .cltxt .sec-h { text-wrap: wrap; }
+  .cta, .row { align-items: stretch; }
+  .sec .row .btn, .visit-foot .btn, .faq-foot .btn { flex: 1 1 100%; }
+  .bbar { display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)); background: var(--ink); }
+  .bbar .btn { flex: 1; --btn-pad: 12px; }
+  .bbar .btn:first-child { flex: 1.35; }
+}
+@media (max-width: 359.98px) { .slots { flex-wrap: wrap; } }   /* three chips do not fit on one line below about 340px */
+@media (max-width: 389.98px) { .chip__more { display: none; } }   /* the full chip is wider than a 360px column */
+@media (max-width: 1279.98px) { .slot { --notch: 18px; } }       /* equal-width chips have little padding; a smaller notch stays clear of "pm" */
+
+/* 640 to 1023: tablets get rows and two columns back, not the phone layout stretched wide */
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .slot { flex: 0 1 auto; --btn-pad: 18px; }
+  .step { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) 120px; column-gap: var(--gap); row-gap: 6px; align-items: start; padding: 20px 0 24px; }
+  .step__top { display: contents; }
+  .step__n { grid-column: 1; grid-row: 1 / span 3; }
+  .step .portion { grid-column: 3; grid-row: 1 / span 3; }
+  .step h3 { grid-column: 2; margin-top: 0; }
+  .step p { grid-column: 2; }
+  .ptsrow { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); column-gap: var(--gap); }
+  .ptsrow figure { margin-top: 0; }
+  .ptsrow .ph45 img { aspect-ratio: 4 / 5; object-position: 12.6% 50%; }
+  #cost .g12, #faq .g12, #closing .g12 { display: grid; }
+  .costtxt, .faqcol, .cltxt { grid-column: 1 / 9; }
+  .costfig, .lfig, .clfig { grid-column: 9 / 13; max-width: none; margin-top: 0; }
+  .stoprow { flex-direction: column; align-items: flex-start; }
+}
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  #comfort .g12, #find-us .g12 { display: grid; }
+  .cphoto { grid-column: 1 / 7; margin: 0; }  .ctxt { grid-column: 7 / 13; }
+  .ffig { grid-column: 1 / 8; margin: 0; }    .ftxt { grid-column: 8 / 13; }
+}
+@media (max-width: 767.98px) { .foot .fc { grid-column: span 6; } }
+
+/* =====================================================================================================
+   HERO LOCK-UP. The numeral and GENERAL DENTIST share one font size at every width, in one ruled block:
+   the designation directly after her name, the price under it on a paper plate. Anybody's capitals and
+   figures are the same height (0.68em), so equal size is equal height. Width carries the difference:
+   50 for the designation (the axis's floor), 125 for the numeral (100 on phones). The lock-up is 48px from 390 up;
+   below 390 it scales to 40px at 320, the most the column allows on two lines.
+   ===================================================================================================== */
+:root { --fs-lock: clamp(2.5rem, 12.3vw, 3rem); --wdth-price: 100%; }   /* 40 at 320, 48 from 390 */
+@media (min-width: 640px)  { :root { --fs-lock: clamp(3.5rem, 8.4vw, 5rem); --wdth-price: 125%; } }
+@media (min-width: 1024px) { :root { --fs-lock: 3.625rem; } }
+@media (min-width: 1280px) { :root { --fs-lock: min(6.667vw, 6rem); } }
+
+.who { display: flex; margin: 0; font-stretch: 62.5%; }
+.who .ip { display: none; }
+.who__n, .who__gd { display: block; }
+.who__gd { font-weight: 800; font-stretch: 50%; font-size: var(--fs-lock); line-height: .86; letter-spacing: 0; white-space: nowrap; }
+.num { font-size: var(--fs-lock); font-stretch: var(--wdth-price); }
+.fv { background: var(--paper); }
+
+/* 1024 and up: one ruled strip. Left cell: designation, then the price plate. Right cell: openings. */
+@media (min-width: 1024px) {
+  .strip { grid-template-rows: auto auto; }
+  .who { grid-column: 1; grid-row: 1; justify-self: start; align-self: end; flex-direction: column; gap: 4px; padding: 8px 24px 8px 0; }
+  .who__n span, .who__gd span { display: inline; }
+  .fv { grid-column: 1; grid-row: 2; margin: 0 0 calc(var(--rule) * -1) calc(var(--edge) * -1); padding: 8px 24px 8px var(--edge); border-top: var(--rule) solid var(--ink); border-bottom: var(--rule) solid var(--ink); }
+  .fv .cap { max-width: 15em; }
+  .op { grid-column: 2; grid-row: 1 / 3; }
+  .hero__hrs { margin-bottom: 18px; }
+  .slots { flex-wrap: nowrap; }
+  .slot { flex: 1; font-size: 15px; --btn-pad: 6px; --notch: 18px; }
+  .cta .tn { display: none; }
+}
+@media (min-width: 1280px) {
+  .strip { grid-column: 1 / 10; margin-right: var(--gap); }
+  .who { flex-direction: row; align-items: flex-end; gap: 14px; padding: 12px 24px 10px 0; }
+  .who__n { padding-bottom: .2em; }
+  .who .who__n span { display: block; }
+  .fv { display: grid; grid-template: "num lab" auto "num cap" 1fr / auto minmax(0, 1fr); column-gap: 14px; row-gap: 2px; padding: 10px 24px 10px var(--edge); }
+  .fv .lab { grid-area: lab; align-self: end; }
+  .fv .num { grid-area: num; }
+  .fv .cap { grid-area: cap; max-width: 12em; }
+}
+@media (min-width: 1440px) {
+  .strip { margin-right: 0; }
+  .slot { font-size: 16px; }
+  .cta .tn { display: inline; }
+}
+
+/* below 1024: her name and GENERAL DENTIST stand on the photograph's empty third; the price plate runs full bleed under it */
+@media (max-width: 1023.98px) {
+  .hero { grid-template-rows: auto auto var(--fig-h) auto auto auto auto; --fig-h: min(32vw, 290px); }   /* 246 at 768: the footnote ends above a 1024 fold */
+  .who { grid-column: 1; grid-row: 3; align-self: end; justify-self: start; flex-direction: column; gap: 3px; margin: 0 0 12px; padding: 0; z-index: 1; }
+  .who__n span, .who__gd span { display: inline; }
+  .fv { grid-column: 1; grid-row: 4; align-self: auto; justify-self: stretch; z-index: 1; margin: 0 calc(var(--edge) * -1); padding: 10px var(--edge); border-top: var(--rule) solid var(--ink); border-bottom: var(--rule) solid var(--ink);
+        display: grid; grid-template: "num lab" auto "num cap" 1fr / auto minmax(0, 1fr); column-gap: 14px; row-gap: 2px; }
+  .fv .lab { grid-area: lab; align-self: end; }
+  .fv .num { grid-area: num; }
+  .fv .cap { grid-area: cap; }
+  .fv .cap__more { display: inline; }
+  .op { grid-row: 5; border-top: 0; }
+  .fn { grid-row: 6; }
+  .hero__hrs { grid-row: 7; }
+}
+@media (max-width: 639.98px) {
+  .hero { grid-template-rows: auto var(--fig-h) auto auto auto auto auto; --fig-h: clamp(150px, 24svh, 204px); }
+  .hero__fig, .who { grid-row: 2; }
+  .hero__fig { margin-top: 10px; }
+  .who { margin: 0 0 8px; font-size: 17px; }
+  .who__gd { font-size: var(--fs-lock); }
+  .who__gd span { display: block; }
+  .fv { grid-row: 3; padding: 8px var(--edge); column-gap: 12px; }
+  .num { font-size: var(--fs-lock); }
+  .op { grid-row: 4; }
+  .fn { grid-row: 5; margin: 10px 0 0; }          /* the footnote stays on the first screen at 390x844, with the price it qualifies */
+  .hero__sub { grid-row: 6; margin: 14px 0 0; }   /* on phones the subhead follows: by order only, the markup is unchanged */
+  .hero__hrs { grid-row: 7; }
+}
+@media (max-width: 359.98px) { .who { font-size: 15px; } }   /* her name ends clear of her hair at 320 */
+@media (max-width: 359.98px) { .fv .cap__dot { display: block; height: 0; overflow: hidden; } }   /* the separator becomes a line break, so none is left hanging at a line end */
+
+/* =====================================================================================================
+   ACCESSIBILITY (.ops/qa/accessibility.md). After the lock-up, so these win over it.
+   ===================================================================================================== */
+/* A1, 1.4.12 text spacing: hero lines may wrap between words (each word is already a nowrap .w cell), nothing that
+   reads depends on the photo's backdrop being under it, and the photo rows grow instead of letting text overflow them.
+   At rest none of this moves a box. */
+.h1 { white-space: normal; }
+@media (min-width: 1280px) { .status { white-space: normal; min-width: 0; } }   /* room to spare here; 1024 to 1279 keeps one line */
+@media (min-width: 1024px) {
+  .op, .h1 .w { background: var(--ground); }
+  .slots { flex-wrap: wrap; }   /* still one row whenever the three chips fit */
+  .op .btn { max-width: 100%; }
+  .op .btn__body { white-space: normal; text-align: center; }
+}
+@media (max-width: 1023.98px) { .hero { grid-template-rows: auto auto minmax(var(--fig-h), auto) auto auto auto auto; } }
+@media (max-width: 639.98px)  { .hero { grid-template-rows: auto minmax(var(--fig-h), auto) auto auto auto auto auto; } }
+/* A4, 1.4.10 at 400% zoom and on phones held sideways: the header and the phone bar scroll away instead of covering half the screen */
+@media (max-height: 480px) {
+  :root { --bar-h: 0px; }
+  .hd, .bbar { position: static; }
+  html { scroll-padding-top: 12px; }
+}
+/* A5, 2.4.7: the food strip can be taller and wider than the screen; draw its ring inside it */
+.foods:focus-visible { outline-offset: -3px; }
+@media (max-width: 339.98px) { .switch label { padding-inline: 16px; } }   /* the switch fits 320 even before Public Sans arrives */
+/* the sample-times caption keeps its place from the first paint and shows once script has filled it (no shift on slow phones) */
+:root:not(.js) #op-cap { visibility: hidden; }
+/* A3: the notice region stays rendered and empty between notices, so its text change is announced */
+.toast:empty { padding: 0; border: 0; }
+/* B4, 2.5.8: the footer's stacked links get their own line boxes, so their targets stop overlapping */
+.foot .fc a { display: inline-block; }
+/* A1 residual on phones: the time chips may wrap, and a price chip grows instead of pushing the page wider (40px at rest) */
+@media (max-width: 1023.98px) { .slots { flex-wrap: wrap; } }
+.chip { height: auto; min-height: 40px; line-height: 36.5px; white-space: normal; }
+
+/* =====================================================================================================
+   MOTION. Opt-in twice: the system setting, and the page's own stop control (data-motion="off" on <html>).
+   Five mechanisms: bite, chew, open wide, ticker, accordion. Colour changes stay on either way.
+   ===================================================================================================== */
+@keyframes recoil-a { from { scale: .96; rotate: 1.2deg; } }
+@keyframes recoil-b { from { scale: .96; rotate: 1.2deg; } }   /* a second name, so a second bite restarts the spring */
+@keyframes restock { from { scale: 1.03; } }
+@keyframes crumbs-a { from { visibility: visible; translate: 0 0; scale: .5; } to { visibility: visible; translate: 13px -11px; scale: 1.15; } }
+@keyframes crumbs-b { from { visibility: visible; translate: 0 0; scale: .5; } to { visibility: visible; translate: 13px -11px; scale: 1.15; } }
+@keyframes munch-1 { from { scale: .98; rotate: 2deg; } }
+@keyframes munch-2 { from { scale: .98; rotate: -2deg; } }
+@keyframes munch-3 { from { scale: .98; rotate: 2deg; } }
+/* chew: only the squeezed moment is written down, so a word leaves from, and springs back to, whatever state it is in.
+   The spring is written out because no engine resolves var() in a keyframe's timing function. Keep it equal to --spring. */
+@keyframes chew   { 16.667% { font-stretch: var(--w-tight); font-weight: var(--display-wght-tight); animation-timing-function: linear(0, 0.081, 0.265, 0.485, 0.692, 0.862, 0.984, 1.059, 1.096, 1.103, 1.092, 1.072, 1.049, 1.028, 1.012, 1, 0.993, 0.99, 0.989, 0.991, 0.993, 0.995, 0.997, 0.999, 1, 1.001, 1.001, 1.001, 1); } }
+@keyframes chew-x { 16.667% { scale: .94 1; animation-timing-function: linear(0, 0.081, 0.265, 0.485, 0.692, 0.862, 0.984, 1.059, 1.096, 1.103, 1.092, 1.072, 1.049, 1.028, 1.012, 1, 0.993, 0.99, 0.989, 0.991, 0.993, 0.995, 0.997, 0.999, 1, 1.001, 1.001, 1.001, 1); } }
+/* a softer spring (5% overshoot) for words that are already wide, so the width never passes the 4-unit cap; equal to --spring-soft */
+@keyframes chew-soft { 16.667% { font-stretch: var(--w-tight); font-weight: var(--display-wght-tight); animation-timing-function: linear(0, 0.044, 0.152, 0.292, 0.44, 0.581, 0.706, 0.811, 0.894, 0.956, 0.999, 1.027, 1.043, 1.049, 1.049, 1.045, 1.039, 1.032, 1.024, 1.018, 1.012, 1.007, 1.004, 1.001, 0.999, 0.998, 0.998, 0.997, 1); } }
+@keyframes open-wide { 0%, 100% { font-stretch: var(--w-rest); } 50% { font-stretch: var(--w-wide); } }
+@keyframes ticker { to { translate: -100% 0; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion="off"]) {
+    /* --- bite on press: squash, cut, recoil --- */
+    .btn__body { transition: scale var(--t-squash) var(--ease-down); }
+    .btn:active > .btn__body { scale: .96; }
+    .btn--sec:active > .btn__body { scale: .98; }
+    .slot:active > .btn__body { scale: .97; }
+    [data-kick="a"] > .btn__body { animation: recoil-a var(--t-recoil) var(--spring); }
+    [data-kick="b"] > .btn__body { animation: recoil-b var(--t-recoil) var(--spring); }
+    [data-kick="pop"] > .btn__body { animation: restock var(--t-restock) var(--ease-down); }
+    [data-kick="a"]::after { animation: crumbs-a var(--t-crumbs) var(--ease-down); }
+    [data-kick="b"]::after { animation: crumbs-b var(--t-crumbs) var(--ease-down); }
+    .slot:has(:checked) > .btn__body { animation: recoil-a var(--t-recoil-chip) var(--spring); }
+    .slot:has(:checked)::after { animation: crumbs-a var(--t-crumbs) var(--ease-down); }
+    /* a chip redrawn by the minute tick while still chosen is not newly bitten */
+    .slot.is-kept:has(:checked) > .btn__body, .slot.is-kept:has(:checked)::after { animation: none; }
+
+    /* --- portions and the cookie --- */
+    .portion.is-live { transition: scale var(--t-squash) var(--ease-down); }
+    .portion.is-squash { scale: .98; }
+    .portion.is-live[data-bites="1"] { animation: munch-1 var(--t-recoil) var(--spring); }
+    .portion.is-live[data-bites="2"] { animation: munch-2 var(--t-recoil) var(--spring); }
+    .portion.is-live[data-bites="3"] { animation: munch-3 var(--t-recoil) var(--spring); }
+    .cookie__btn:active .portion { scale: .96; }
+
+    /* --- chew: two animation slots on every playing word, the scroll link (if any) and a chew (if any) --- */
+    .w__t { animation: var(--ripple, none), var(--chewing, none); animation-timeline: var(--ripple-tl, auto), auto; }
+    .is-chewing { --chewing: chew var(--t-chew) var(--ease-down) both; }
+    .btn .is-chewing { --chewing: chew-x var(--t-chew) var(--ease-down) both; }
+    .svc .is-chewing { --chewing: chew-soft var(--t-chew) var(--ease-down) both; }
+    /* the headline chews once on load, word by word in reading order, done inside a second */
+    .h1 .w__t { --chewing: chew var(--t-chew) var(--ease-down) calc(120ms + var(--i, 0) * 45ms) both; }
+
+    /* --- open wide: in on the spring, out quick --- */
+    .w--wide .w__t { transition: font-stretch var(--t-close) var(--ease-down); }
+    .svc__row:focus-visible .w__t { transition: font-stretch var(--t-open) var(--spring); }
+    @media (hover: hover) and (pointer: fine) {
+      .svc__row:hover .w__t { transition: font-stretch var(--t-open) var(--spring); }
+    }
+    /* touch: the service row nearest mid-screen opens wide as the list scrolls under the thumb */
+    @supports (animation-timeline: view()) {
+      @media (hover: none) {
+        .svc .w__t { --ripple: open-wide linear both; --ripple-tl: view(block 32% 32%); }
+      }
+    }
+    /* one-shots: start at rest, open wide once when seen, stay wide */
+    &.js .once-wide:not(.is-inview) .w__t { font-stretch: var(--w-rest); }
+    .once-wide .w__t { transition: font-stretch var(--t-open) var(--spring-soft); }
+
+    /* --- ticker: two copies side by side, each travelling its own width --- */
+    &.js .ticker__pause { display: block; }
+    &.js .ticker__track { flex: none; flex-wrap: nowrap; padding: 0 0 0 22px; gap: 22px; animation: ticker var(--ticker-dur, 44s) linear 1.1s infinite; }
+    &.js .ticker__track li { white-space: nowrap; }
+    &.js .ticker__track[aria-hidden="true"] { display: flex; }
+    &.js .ticker.is-paused .ticker__track { animation-play-state: paused; }
+
+    /* --- accordion --- */
+    @supports (interpolate-size: allow-keywords) {
+      interpolate-size: allow-keywords;
+      .faq details::details-content { block-size: 0; overflow: clip; transition: block-size 260ms var(--ease-down), content-visibility 260ms allow-discrete; }
+      .faq details[open]::details-content { block-size: auto; }
+    }
+    .faq .mk { transition: rotate 260ms var(--ease-down); }
+  }
+}
+
+@media (forced-colors: active) {
+  .btn__face::before { border: 1px solid ButtonText; }
+  .dot { background: CanvasText; }
+  .num { line-height: 1; }   /* the numeral's backplate must not cover the label above it */
+  .portion, .ticker__track li::after { forced-color-adjust: none; }
+  .switch label:has(:checked) { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+  .slot:has(:checked) { forced-color-adjust: none; color: HighlightText; }
+  .slot:has(:checked) .btn__face::before { background: Highlight; border-color: Highlight; }
+}
+@media print {
+  .hd { position: static; }
+  .bbar, .ticker__pause, .toast, .skip-link { display: none !important; }
+}
+
+/* =====================================================================================================
+   LATE-FONT STAND-INS (measured by the developer: late-font layout shift 0.045 -> 0.009 at 1440).
+   One per resting width of the display face, because a local face has no width axis.
+   Kept last so they follow the rules that set font-family on the same selectors.
+   ===================================================================================================== */
+@font-face { font-family: "Anybody fb 100"; src: local("Impact"), local("Arial Narrow Bold"); size-adjust: 147%; ascent-override: 54%; descent-override: 16%; line-gap-override: 0%; font-weight: 100 900; }
+@font-face { font-family: "Anybody fb 75"; src: local("Impact"), local("Arial Narrow Bold"); size-adjust: 109%; ascent-override: 72%; descent-override: 22%; line-gap-override: 0%; font-weight: 100 900; }
+@font-face { font-family: "Anybody fb 72"; src: local("Impact"), local("Arial Narrow Bold"); size-adjust: 105%; ascent-override: 75%; descent-override: 23%; line-gap-override: 0%; font-weight: 100 900; }
+@font-face { font-family: "Anybody fb 62"; src: local("Impact"), local("Arial Narrow Bold"); size-adjust: 92%; ascent-override: 86%; descent-override: 26%; line-gap-override: 0%; font-weight: 100 900; }
+@font-face { font-family: "Anybody fb 56"; src: local("Impact"), local("Arial Narrow Bold"); size-adjust: 83%; ascent-override: 95%; descent-override: 29%; line-gap-override: 0%; font-weight: 100 900; }
+@font-face { font-family: "Anybody fb 50"; src: local("Impact"), local("Arial Narrow Bold"); size-adjust: 64%; ascent-override: 123%; descent-override: 38%; line-gap-override: 0%; font-weight: 100 900; }
+@font-face { font-family: "Anybody fb 125"; src: local("Impact"), local("Arial Narrow Bold"); size-adjust: 173%; ascent-override: 46%; descent-override: 14%; line-gap-override: 0%; font-weight: 100 900; }
+@font-face { font-family: "Anybody fb 100n"; src: local("Impact"), local("Arial Narrow Bold"); size-adjust: 142%; ascent-override: 56%; descent-override: 17%; line-gap-override: 0%; font-weight: 100 900; }
+:root { --fb-hero: "Anybody fb 75"; }
+@media (min-width: 640px)  { :root { --fb-hero: "Anybody fb 72"; } }
+@media (min-width: 1024px) { :root { --fb-hero: "Anybody fb 56"; } }
+@media (min-width: 1280px) { :root { --fb-hero: "Anybody fb"; } }
+.h1 { font-family: "Anybody", var(--fb-hero), "Arial Narrow", Impact, sans-serif; }
+.step__n, .zero__n, .svc__price { font-family: "Anybody", "Anybody fb 75", "Arial Narrow", Impact, sans-serif; }
+/* the hero lock-up: her name at 62.5 measures like the 56 face; GENERAL DENTIST at 50; the numeral at 100 (phones) and 125 */
+.who { font-family: "Anybody", "Anybody fb 56", "Arial Narrow", Impact, sans-serif; }
+.who__gd { font-family: "Anybody", "Anybody fb 50", "Arial Narrow", Impact, sans-serif; }
+.num { font-family: "Anybody", "Anybody fb 100n", "Arial Narrow", Impact, sans-serif; }
+@media (min-width: 640px) { .num { font-family: "Anybody", "Anybody fb 125", "Arial Narrow", Impact, sans-serif; } }
+.plate, .desig, .svc__word { font-family: "Anybody", "Anybody fb 62", "Arial Narrow", Impact, sans-serif; }
+.ticker__track { font-family: "Anybody", "Anybody fb 100", "Arial Narrow", Impact, sans-serif; }

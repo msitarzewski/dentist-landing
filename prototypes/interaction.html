@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype: the interaction spec in a browser</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<!-- the stop control is read before first paint, so a returning visitor's page never starts moving -->
+<script>try { if (localStorage.getItem('motion') === 'off') document.documentElement.dataset.motion = 'off'; } catch {}</script>
+<link rel="stylesheet" href="proto-tokens.css">
+<link rel="stylesheet" href="../assets/css/bite.css">
+<style>
+/* prototypes/interaction.html
+   brand/03-interaction-spec.md built as written, with the sizes, colours and bite of brand/02-visual-system.md,
+   so its values can be watched and tuned. It covers the three mechanisms that must survive: the bite on
+   press (1), three steps and three bites (2), type that chews and opens wide (3).
+   prototypes/bite.html holds the technique comparison behind the mask.
+
+   Query flags: ?ripple=1 runs the services scroll link on any pointer (the spec limits it to touch),
+                ?slow=1 runs every duration at a quarter speed. */
+
+@font-face { font-family: "Anybody"; src: url("fonts/anybody-latin-wdth-wght.woff2") format("woff2"); font-weight: 100 900; font-stretch: 50% 150%; font-display: block; }
+
+/* ---- tokens: names and values from brand/02-visual-system.md section 3 (the site's own copy is in assets/css/page.css) ---- */
+:root {
+  --ground: #f9530a; --paper: #fff4e3; --ink: #26120b; --counter: #cffb43;
+  --font-display: "Anybody", "Arial Narrow", Impact, sans-serif;
+  --display-wght: 900;
+  --wdth-hero: 75%;                    /* below 640; stepped in the media queries under this block */
+  --wdth-word: 62.5%;
+  --wdth-word-wide: 100%;
+  --wdth-numeral: 75%;
+  --fs-hero: clamp(3.5rem, 1.8286rem + 6.8571vw, 8rem);
+  --fs-zero: clamp(9rem, 5.1rem + 16vw, 19.5rem);
+  --fs-d1: clamp(2.75rem, 1.3571rem + 5.7143vw, 6.5rem);
+  --fs-d2: clamp(2.5rem, 1.7571rem + 3.0476vw, 4.5rem);
+  --fs-d3: clamp(1.75rem, 1.4714rem + 1.1429vw, 2.5rem);
+  --fs-body: clamp(1.125rem, 1.0786rem + 0.1905vw, 1.25rem);
+  --fs-ui: clamp(1rem, 0.9768rem + 0.0952vw, 1.0625rem);
+  --fs-small: clamp(0.875rem, 0.8518rem + 0.0952vw, 0.9375rem);
+  --h-lg: 3.5rem;
+  --bite-photo: 25%; --bite-lg: 35px; --bite-md: 27px; --bite-chip: 23px;
+
+  /* ---- motion tokens for brand/03, not yet in either token list ---- */
+  /* easing: one family. Down = in fast, hard stop. Up = --spring-snappy (proto-tokens.css). Cut = no transition at all. */
+  --ease-down: cubic-bezier(.25, .8, .3, 1);
+  --slow: 1;                                         /* ?slow=1 sets 4 */
+  --t-colour: calc(80ms * var(--slow));
+  --t-squash: calc(80ms * var(--slow));
+  --t-recoil: calc(480ms * var(--slow));
+  --t-recoil-chip: calc(420ms * var(--slow));
+  --t-crumbs: calc(240ms * var(--slow));
+  --t-restock: calc(160ms * var(--slow));
+  --t-chew: calc(540ms * var(--slow));               /* 90ms in + 450ms out */
+  --t-open: calc(360ms * var(--slow));
+  --t-close: calc(200ms * var(--slow));
+  /* chew: the width whose advance is 78% of rest, measured for Anybody 900. The axis stops at 50, so where
+     the headline rests at 56 it can only give up 10%, and a service word (62.5) 19%. */
+  --wdth-hero-tight: 57.5%;
+  --wdth-word-tight: 50%;
+  --wdth-numeral-wide: 100%;
+  --display-wght-tight: 840;                         /* weight follows the squeeze by 60 */
+}
+@media (min-width: 640px)  { :root { --wdth-hero: 72%; --wdth-hero-tight: 55%; } }
+@media (min-width: 1024px) { :root { --wdth-hero: 56%; --wdth-hero-tight: 50%; } }
+@media (min-width: 1280px) { :root { --wdth-hero: 66%; --wdth-hero-tight: 50.75%; } }
+.slow { --slow: 4; }
+
+/* ---- page chrome (prototype only) ---- */
+body { font-family: system-ui, sans-serif; font-size: 1rem; background: var(--paper); color: var(--ink); }
+.proto { padding: 2.5rem var(--gutter); border-top: var(--rule) solid var(--ink); }
+.proto > h2 { font: 800 1.5rem/1.1 system-ui, sans-serif; margin-bottom: .35rem; }
+.note, .label { font-size: .8125rem; line-height: 1.35; max-width: 70ch; }
+.label { font-weight: 700; margin: 1.5rem 0 .6rem; }
+.row { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
+.on-ground { background: var(--ground); padding: 1.25rem; }
+.spacer { block-size: 70svh; display: grid; place-items: center; font-size: .8125rem; }
+.plain { min-height: 2.75rem; padding: 0 1rem; border: var(--rule) solid var(--ink); background: none; font: 600 .875rem/1 system-ui, sans-serif; cursor: pointer; }
+.plain[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+/* =====================================================================================================
+   1. THE BITE ON PRESS
+   Markup:  <a class="btn" data-bite><span class="btn__body"><span class="btn__face" aria-hidden="true"></span>Label</span></a>
+   .btn        the box: hit area and focus ring. Never transformed, never masked.
+   .btn__body  what squashes and recoils. A transform, so the box and its neighbours never move.
+   .btn__face  the masked layer. It has NO border-radius of its own (Chrome draws a mask coarsely on a
+               rounded box); the rounded, outlined pill is its ::before, drawn normally and cut by the mask.
+   The mask is always applied and parked one tile outside the corner. A bite moves it into place with no
+   transition: no image to decode at that moment, and the change is a cut by construction.
+   ===================================================================================================== */
+.btn {
+  --btn-h: var(--h-lg); --btn-pad: 28px; --notch: var(--bite-lg);
+  --btn-bg: var(--counter); --btn-fg: var(--ink);
+  position: relative; display: inline-flex; min-height: var(--btn-h);
+  border: 0; padding: 0; background: none; border-radius: 999px;   /* the radius shapes the focus ring */
+  color: var(--btn-fg); font: 600 var(--fs-ui)/1 system-ui, sans-serif; text-decoration: none;
+  cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;
+}
+.btn--md { --btn-h: var(--tap); --btn-pad: 22px; --notch: var(--bite-md); }   /* header and phone bar */
+.btn__body {
+  position: relative; isolation: isolate; flex: 1;
+  display: inline-flex; align-items: center; justify-content: center; padding: 0 var(--btn-pad); white-space: nowrap;
+  transform-origin: 0 100%;                           /* squash toward the bottom-left, away from the bite */
+}
+.btn__face {
+  position: absolute; inset: 0; z-index: -1;
+  --_s: calc(var(--notch) * var(--bite-reach));
+  -webkit-mask: var(--bite-tr) calc(100% + 1px + var(--notch)) calc(-1px - var(--notch)) / var(--_s) var(--_s) no-repeat;
+  mask: var(--bite-tr) calc(100% + 1px + var(--notch)) calc(-1px - var(--notch)) / var(--_s) var(--_s) no-repeat;
+}
+.btn__face::before {
+  content: ""; position: absolute; inset: 0;
+  border: var(--rule) solid var(--ink); border-radius: 999px; background: var(--btn-bg);
+}
+/* bitten: a state. No transition on purpose. */
+[data-bitten] > .btn__body > .btn__face,
+.slot:has(:checked) .btn__face { -webkit-mask-position: calc(100% + 1px) -1px; mask-position: calc(100% + 1px) -1px; }
+
+.btn .w__t { display: inline-block; transform-origin: 0 50%; }   /* a label that can chew */
+.btn--ink { --btn-bg: var(--ink); --btn-fg: var(--counter); }      /* the primary's hover colours at rest, to see ink crumbs */
+.btn--quiet { --btn-bg: transparent; }                /* secondary: colour swap and a small squash, never a notch */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { --btn-bg: var(--ink); --btn-fg: var(--counter); }
+  .btn--ink:hover { --btn-bg: var(--counter); --btn-fg: var(--ink); }
+  .btn--quiet:hover { --btn-bg: var(--ink); --btn-fg: var(--paper); }
+}
+
+/* crumbs: dots of 5, 4 and 3px (one dot with two box-shadow copies), parked inside the notch and hidden until a bite */
+.btn::after, .slot::after {
+  content: ""; position: absolute; z-index: 1; pointer-events: none; visibility: hidden;
+  top: calc(var(--notch) * .2); right: calc(var(--notch) * .3);
+  inline-size: 5px; block-size: 5px; border-radius: 50%; background: var(--btn-bg);
+  box-shadow: 8px 3px 0 -.5px var(--btn-bg), 1px -7px 0 -1px var(--btn-bg);
+  transform-origin: 0 100%;
+}
+.slot::after { box-shadow: 6px 2px 0 -.5px var(--btn-bg); }   /* a chip sheds two */
+.btn--quiet::after { content: none; }
+
+/* time chips: native radios, so Tab, arrows and Space all work and the notch is plain :checked styling */
+.slots { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.slot {
+  --btn-h: var(--tap); --btn-pad: 18px; --notch: var(--bite-chip);
+  --btn-bg: transparent; --btn-fg: var(--ink);
+  position: relative; display: inline-flex; min-height: var(--btn-h); border-radius: 999px;
+  color: var(--btn-fg); font: 400 1rem/1 system-ui, sans-serif; font-variant-numeric: tabular-nums; cursor: pointer;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;
+}
+.slot b { font-weight: 700; }
+.slot input { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.slot .btn__body { gap: .4em; }
+.slot:has(:checked) { --btn-bg: var(--counter); }
+.slot:has(:focus-visible) { outline: 3px solid var(--ink); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .slot:hover:not(:has(:checked)) { --btn-bg: var(--paper); } }
+
+/* colour is the one thing that may ease, and it stays on with motion off */
+.btn__face::before { transition: background-color var(--t-colour) var(--ease-down); }
+.btn, .slot { transition: color var(--t-colour) var(--ease-down); }
+
+/* =====================================================================================================
+   2. THREE STEPS, THREE BITES
+   One sprite (bite.css --portions) holds the disc whole and after one, two and three bites; --bites picks the cell.
+   Without script, with motion off, and for rows already above the viewport, each disc is simply drawn bitten.
+   ===================================================================================================== */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; }
+.step { padding: 14px 0; border-bottom: var(--rule) solid var(--ink); }
+.step__top { display: flex; justify-content: space-between; align-items: flex-start; }
+.step__n { font: var(--display-wght) var(--fs-d1) / .8 var(--font-display); font-stretch: var(--wdth-numeral); }
+.step h3 { font: 800 var(--fs-d3) / 1 var(--font-display); font-stretch: 85%; margin: 14px 0 .4rem; }
+.step p { margin: 0; max-width: 32em; font-size: var(--fs-body); line-height: 1.4; }
+.step .step__cap { font-size: var(--fs-small); margin-top: .4rem; }
+@media (min-width: 1024px) {
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--rule) solid var(--ink); }
+  .step { padding: 16px 24px 20px; border-bottom: 0; }
+  .step:first-child { padding-inline-start: 0; }
+  .step + .step { border-inline-start: var(--rule) solid var(--ink); }
+}
+.portion {
+  --bites: 0;
+  display: block; inline-size: 72px; aspect-ratio: 1; background: var(--ground);
+  -webkit-mask: var(--portions) calc((.1 + 1.2 * var(--bites)) / 3.8 * 100%) 50% / 480% 120% no-repeat;
+  mask: var(--portions) calc((.1 + 1.2 * var(--bites)) / 3.8 * 100%) 50% / 480% 120% no-repeat;
+}
+@media (min-width: 1024px) { .portion { inline-size: 120px; } }
+.portion[data-bites="1"] { --bites: 1; } .portion[data-bites="2"] { --bites: 2; } .portion[data-bites="3"] { --bites: 3; }
+
+/* =====================================================================================================
+   3. TYPE THAT PLAYS
+   Sizer: each animated word is an inline grid with two layers in one cell: the text, and a hidden copy of
+   itself held at the widest state it will rest in. Only the hidden copy sizes the cell, so nothing beside
+   the word moves, even for the few frames the spring carries the text past that width.
+   A word's role sets three widths: --w-rest, --w-tight (chew) and --w-wide (open wide).
+   ===================================================================================================== */
+.w { display: inline-grid; white-space: nowrap; vertical-align: baseline; }
+.w > .w__t, .w::after { grid-area: 1 / 1; }
+.w > .w__t { contain: inline-size; }   /* the visible text never sizes the cell, so a spring that overshoots the held width only overflows it */
+.w::after { content: attr(data-text); visibility: hidden; pointer-events: none; font-stretch: var(--w-rest); }
+.w--wide::after { font-stretch: var(--w-wide); }
+
+.hero { background: var(--ground); padding: 1.5rem var(--gutter) 2rem; }
+.hero__h {
+  --w-rest: var(--wdth-hero); --w-tight: var(--wdth-hero-tight);
+  font: var(--display-wght) var(--fs-hero) / .92 var(--font-display); font-stretch: var(--w-rest); letter-spacing: -.01em; margin: 0 0 1rem;
+}
+@media (min-width: 1024px) { .hero__h .br-phone { display: none; } }
+
+.svc { list-style: none; margin: 0; padding: 0; background: var(--ground); }
+.svc__row {
+  display: grid; grid-template: "word word" "desc price" / minmax(0, 1fr) auto; column-gap: 24px; align-items: end;
+  padding: 10px 4px; border-top: var(--rule) solid var(--ink); color: inherit; text-decoration: none;
+  transition: background-color var(--t-colour) var(--ease-down);
+}
+.svc li:last-child .svc__row { border-bottom: var(--rule) solid var(--ink); }
+@media (min-width: 1024px) { .svc__row { grid-template: "word price" "desc price" / minmax(0, 1fr) auto; align-items: center; padding: 12px; } }
+.svc__word {
+  --w-rest: var(--wdth-word); --w-tight: var(--wdth-word-tight); --w-wide: var(--wdth-word-wide);
+  grid-area: word; justify-self: start;
+  font: var(--display-wght) var(--fs-d2) / 1 var(--font-display); font-stretch: var(--w-rest);
+}
+.svc__desc { grid-area: desc; font-size: var(--fs-small); line-height: 1.35; max-width: 34em; margin-top: 4px; }
+.svc__price { grid-area: price; font: var(--display-wght) var(--fs-d2) / 1 var(--font-display); font-stretch: var(--wdth-numeral); font-variant-numeric: tabular-nums; white-space: nowrap; transition: none; }   /* prices never move */
+.svc__from { font: 500 var(--fs-small) / 1 system-ui, sans-serif; font-stretch: normal; margin-inline-end: 10px; }
+.svc__row:focus-visible { outline-offset: -3px; background: var(--counter); }
+@media (hover: hover) and (pointer: fine) { .svc__row:hover { background: var(--counter); } }
+
+.zero { display: flex; align-items: baseline; gap: 1rem; margin: 0; }
+.zero__n {
+  --w-rest: var(--wdth-numeral); --w-tight: 55.75%; --w-wide: var(--wdth-numeral-wide);
+  font: var(--display-wght) var(--fs-zero) / .8 var(--font-display); font-stretch: var(--w-rest);
+}
+.zero .w__t { font-stretch: var(--w-wide); }            /* default, script off, motion off: shown wide */
+
+/* =====================================================================================================
+   MOTION. Everything that moves is opt-in twice: the system setting, and the page's own stop control.
+   ===================================================================================================== */
+@keyframes recoil-a { from { scale: .96; rotate: 1.2deg; } }
+@keyframes recoil-b { from { scale: .96; rotate: 1.2deg; } }      /* a second name, so a second bite restarts the spring */
+@keyframes restock { from { scale: 1.03; } }
+@keyframes crumbs-a { from { visibility: visible; translate: 0 0; scale: .5; } to { visibility: visible; translate: 9px -8px; scale: 1.15; } }
+@keyframes crumbs-b { from { visibility: visible; translate: 0 0; scale: .5; } to { visibility: visible; translate: 9px -8px; scale: 1.15; } }
+@keyframes munch-1 { from { scale: .98; rotate: 2deg; } }
+@keyframes munch-2 { from { scale: .98; rotate: -2deg; } }
+@keyframes munch-3 { from { scale: .98; rotate: 2deg; } }
+/* chew: only the squeezed moment is written down, so a word leaves from, and springs back to, whatever state it is in
+   (rest, wide, or part-way through the scroll link). In: 90ms on the element's own easing (Down). Out: 450ms on the spring.
+   The spring is written out here because no engine resolves var() in a keyframe's timing function: with
+   var(--spring-snappy) the word came back on the Down curve, with no overshoot, in Chrome, Firefox and WebKit alike.
+   It is the same curve as --spring-snappy; change both together. */
+@keyframes chew   { 16.667% { font-stretch: var(--w-tight); font-weight: var(--display-wght-tight); animation-timing-function: linear(0, 0.081, 0.265, 0.485, 0.692, 0.862, 0.984, 1.059, 1.096, 1.103, 1.092, 1.072, 1.049, 1.028, 1.012, 1, 0.993, 0.99, 0.989, 0.991, 0.993, 0.995, 0.997, 0.999, 1, 1.001, 1.001, 1.001, 1); } }
+/* the same verb for text in a face with no width axis (button labels are in the text face) */
+@keyframes chew-x { 16.667% { scale: .94 1; animation-timing-function: linear(0, 0.081, 0.265, 0.485, 0.692, 0.862, 0.984, 1.059, 1.096, 1.103, 1.092, 1.072, 1.049, 1.028, 1.012, 1, 0.993, 0.99, 0.989, 0.991, 0.993, 0.995, 0.997, 0.999, 1, 1.001, 1.001, 1.001, 1); } }
+@keyframes open-wide { 0%, 100% { font-stretch: var(--w-rest); } 50% { font-stretch: var(--w-wide); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion="off"]) {
+    /* --- bite on press --- */
+    .btn__body { transition: scale var(--t-squash) var(--ease-down); }
+    .btn:active > .btn__body { scale: .96; }
+    .btn--quiet:active > .btn__body { scale: .98; }
+    .slot:active > .btn__body { scale: .97; }
+    [data-kick="a"] > .btn__body { animation: recoil-a var(--t-recoil) var(--spring-snappy); }
+    [data-kick="b"] > .btn__body { animation: recoil-b var(--t-recoil) var(--spring-snappy); }
+    [data-kick="pop"] > .btn__body { animation: restock var(--t-restock) var(--ease-down); }
+    [data-kick="a"]::after { animation: crumbs-a var(--t-crumbs) var(--ease-down); }
+    [data-kick="b"]::after { animation: crumbs-b var(--t-crumbs) var(--ease-down); }
+    .slot:has(:checked) > .btn__body { animation: recoil-a var(--t-recoil-chip) var(--spring-snappy); }
+    .slot:has(:checked)::after { animation: crumbs-a var(--t-crumbs) var(--ease-down); }
+
+    /* --- portions --- */
+    .portion.is-live { transition: scale var(--t-squash) var(--ease-down); }
+    .portion.is-squash { scale: .98; }
+    .portion.is-live[data-bites="1"] { animation: munch-1 var(--t-recoil) var(--spring-snappy); }
+    .portion.is-live[data-bites="2"] { animation: munch-2 var(--t-recoil) var(--spring-snappy); }
+    .portion.is-live[data-bites="3"] { animation: munch-3 var(--t-recoil) var(--spring-snappy); }
+
+    /* --- chew ---
+       Two animation slots on every playing word: the scroll link (if any) and a chew (if any). The chew is
+       listed last, so it plays on top of the scroll link and hands back to it when it ends. */
+    .w__t { animation: var(--ripple, none), var(--chewing, none); animation-timeline: var(--ripple-tl, auto), auto; }
+    .is-chewing { --chewing: chew var(--t-chew) var(--ease-down) both; }
+    .btn .is-chewing { --chewing: chew-x var(--t-chew) var(--ease-down) both; }
+    /* the hero headline chews once on load, word by word in reading order, and is done inside a second */
+    .hero__h .w__t { --chewing: chew var(--t-chew) var(--ease-down) calc((120ms + var(--i, 0) * 45ms) * var(--slow)) both; }
+
+    /* --- open wide: in on the spring (Up), out quick (Down) --- */
+    .w--wide .w__t { transition: font-stretch var(--t-close) var(--ease-down); }
+    .svc__row:focus-visible .w__t { font-stretch: var(--w-wide); transition: font-stretch var(--t-open) var(--spring-snappy); }
+    @media (hover: hover) and (pointer: fine) {
+      .svc__row:hover .w__t { font-stretch: var(--w-wide); transition: font-stretch var(--t-open) var(--spring-snappy); }
+    }
+
+    /* the scroll link: the row nearest mid-screen opens wide. Touch only in the spec; ?ripple=1 forces it here. */
+    @supports (animation-timeline: view()) {
+      @media (hover: none) {
+        .svc:not(.ripple-off) .w__t { --ripple: open-wide linear both; --ripple-tl: view(block 32% 32%); }
+      }
+      &.force-ripple .svc:not(.ripple-off) .svc__row:not(:hover):not(:focus-visible) .w__t { --ripple: open-wide linear both; --ripple-tl: view(block 32% 32%); }
+    }
+
+    /* one-shot: the zero starts at rest, opens wide once when seen, and stays wide */
+    &.js .zero:not(.is-inview) .w__t { font-stretch: var(--w-rest); }
+    .zero .w__t { transition: font-stretch var(--t-open) var(--spring-snappy); }
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="proto" style="border-top:0">
+  <h1 style="font:800 2rem/1 system-ui,sans-serif">The interaction spec, in a browser</h1>
+  <p class="note">Built from <code>brand/03-interaction-spec.md</code> with the bite, sizes and colours of <code>brand/02-visual-system.md</code>. Every duration is a token at the top of this file. Add <code>?slow=1</code> to watch at quarter speed and <code>?ripple=1</code> to run the services scroll link with a mouse. Text is set in the system face here; the display face is Anybody.</p>
+  <p class="row" style="margin-top:.75rem"><button class="plain" type="button" id="stop" aria-pressed="false">Stop the motion</button></p>
+</header>
+
+<section class="proto" id="press">
+  <h2>1. The bite on press</h2>
+  <p class="note">Press: the pill squashes 4% toward its bottom-left. Click: the corner is gone in one frame, crumbs leave, the pill springs back. It rests bitten for 2 seconds or until it leaves the screen, then restocks. A second click replays the spring and removes nothing more.</p>
+  <div class="row" id="press-row" style="margin-top:1rem">
+    <a class="btn" href="#press" data-bite id="book-1"><span class="btn__body"><span class="btn__face" aria-hidden="true"></span>Book online</span></a>
+    <button class="btn btn--ink" type="button" data-bite id="book-2"><span class="btn__body"><span class="btn__face" aria-hidden="true"></span>Book online</span></button>
+    <a class="btn btn--quiet" href="#press" id="call-1"><span class="btn__body"><span class="btn__face" aria-hidden="true"></span>Call or text</span></a>
+  </div>
+  <div class="row on-ground" id="press-ground" style="margin-top:1rem">
+    <a class="btn" href="#press" data-bite id="book-3"><span class="btn__body"><span class="btn__face" aria-hidden="true"></span>Book online</span></a>
+    <button class="btn btn--md" type="button" data-bite><span class="btn__body"><span class="btn__face" aria-hidden="true"></span>Book online</span></button>
+    <a class="btn btn--quiet" href="#press"><span class="btn__body"><span class="btn__face" aria-hidden="true"></span>Call or text</span></a>
+  </div>
+  <p class="label">Held in the bitten state: 56px pill with a 35px tile, its hover colours, and the 48px pill with a 27px tile</p>
+  <div class="row on-ground" id="press-held">
+    <a class="btn" href="#press" data-bitten><span class="btn__body"><span class="btn__face" aria-hidden="true"></span>Book online</span></a>
+    <a class="btn btn--ink" href="#press" data-bitten><span class="btn__body"><span class="btn__face" aria-hidden="true"></span>Book online</span></a>
+    <a class="btn btn--md" href="#press" data-bitten><span class="btn__body"><span class="btn__face" aria-hidden="true"></span>Book online</span></a>
+  </div>
+
+  <p class="label">Time chips: a radio group. Choosing one bites it and renames the button; the last choice restocks in the same frame.</p>
+  <div class="on-ground">
+    <fieldset class="slots" id="slots">
+      <legend class="visually-hidden">Sample times</legend>
+      <label class="slot"><input type="radio" name="slot" value="Thu 5:30 pm"><span class="btn__body"><span class="btn__face" aria-hidden="true"></span><b>Thu</b> 5:30 pm</span></label>
+      <label class="slot"><input type="radio" name="slot" value="Fri 8:00 am"><span class="btn__body"><span class="btn__face" aria-hidden="true"></span><b>Fri</b> 8:00 am</span></label>
+      <label class="slot"><input type="radio" name="slot" value="Sat 10:15 am"><span class="btn__body"><span class="btn__face" aria-hidden="true"></span><b>Sat</b> 10:15 am</span></label>
+    </fieldset>
+    <p class="note" style="margin:.5rem 0 1rem">Sample times, not real openings.</p>
+    <a class="btn" href="#press" data-bite id="book-slot"><span class="btn__body"><span class="btn__face" aria-hidden="true"></span><span class="w__t" id="book-slot-label">Book online</span></span></a>
+  </div>
+</section>
+
+<section class="proto" id="type">
+  <h2>3. Type that plays</h2>
+  <p class="note">Chew: a word squeezes narrow in 90 ms and springs back in 450 ms. Open wide: 360 ms in, 200 ms out. The cell each word sits in never changes size.</p>
+  <p class="row" style="margin:.75rem 0"><button class="plain" type="button" id="replay">Replay the headline</button></p>
+  <div class="hero" id="hero">
+    <h3 class="hero__h" id="hero-h"><span class="w" data-text="I" style="--i:0"><span class="w__t">I</span></span> <span class="w" data-text="don’t" style="--i:1"><span class="w__t">don’t</span></span><br class="br-phone"> <span class="w" data-text="care" style="--i:2"><span class="w__t">care</span></span> <span class="w" data-text="how" style="--i:3"><span class="w__t">how</span></span> <span class="w" data-text="long" style="--i:4"><span class="w__t">long</span></span><br> <span class="w" data-text="it’s" style="--i:5"><span class="w__t">it’s</span></span> <span class="w" data-text="been." style="--i:6"><span class="w__t">been.</span></span></h3>
+    <p style="margin:0;max-width:34ch">The line under the headline must not move while the words chew.</p>
+  </div>
+
+  <p class="label">Services: hover or focus opens the word wide, pressing chews it, and on touch the row nearest mid-screen opens as you scroll. Prices hold still.</p>
+  <ul class="svc" id="svc">
+    <li><a class="svc__row" href="#type"><span class="svc__word w w--wide" data-text="Checkups"><span class="w__t">Checkups</span></span><span class="svc__desc">After your first visit: exam and a regular cleaning. X-rays when they're due.</span><span class="svc__price"><span class="svc__from">from</span>$145</span></a></li>
+    <li><a class="svc__row" href="#type"><span class="svc__word w w--wide" data-text="Fillings"><span class="w__t">Fillings</span></span><span class="svc__desc">Tooth-colored. I draw the spot and price it before I start.</span><span class="svc__price"><span class="svc__from">from</span>$190</span></a></li>
+    <li><a class="svc__row" href="#type"><span class="svc__word w w--wide" data-text="Emergency"><span class="w__t">Emergency</span></span><span class="svc__desc">Something hurts or broke. I look and X-ray that tooth.</span><span class="svc__price">$95</span></a></li>
+    <li><a class="svc__row" href="#type"><span class="svc__word w w--wide" data-text="Whitening"><span class="w__t">Whitening</span></span><span class="svc__desc">Trays to take home, or done here in the chair. You pick.</span><span class="svc__price"><span class="svc__from">from</span>$250</span></a></li>
+    <li><a class="svc__row" href="#type"><span class="svc__word w w--wide" data-text="Aligners"><span class="w__t">Aligners</span></span><span class="svc__desc">Start with a 3D scan and a plain answer on cost and time.</span><span class="svc__price"><span class="svc__from">from</span>$3,400</span></a></li>
+  </ul>
+
+  <div class="spacer">scroll: the zero below opens wide once</div>
+  <p class="zero" id="zero"><span class="zero__n w w--wide" data-text="0"><span class="w__t">0</span></span> <span style="font:600 1rem/1.2 system-ui,sans-serif">reviews yet</span></p>
+  <pre id="out" class="note" aria-live="off"></pre>
+</section>
+
+<section class="proto" id="visit">
+  <h2>2. Three steps, three bites</h2>
+  <p class="note">A step bites its disc when 60% of it is on screen, once per page load: one bite, then two, then three, 120 ms apart and one at a time across the row. No replay on the way back up.</p>
+  <div class="spacer">scroll</div>
+  <ol class="steps" id="steps">
+    <li class="step"><div class="step__top"><span class="step__n">1</span><span class="portion" data-bites="1" aria-hidden="true"></span></div><h3>Book</h3><p>Pick a time online. If you have insurance, send a photo of your card and we'll check it before you come.</p><p class="step__cap">From your phone.</p></li>
+    <li class="step"><div class="step__top"><span class="step__n">2</span><span class="portion" data-bites="2" aria-hidden="true"></span></div><h3>Look</h3><p>Tell me what you've stopped eating. That's where I look first. Then a full exam, X-rays, and a regular cleaning if your gums are ready for one.</p><p class="step__cap">75 minutes.</p></li>
+    <li class="step"><div class="step__top"><span class="step__n">3</span><span class="portion" data-bites="3" aria-hidden="true"></span></div><h3>You decide</h3><p>I draw what I found and write down what each fix costs. Nothing gets added today without your yes.</p><p class="step__cap">You keep the drawing.</p></li>
+  </ol>
+  <div class="spacer">end</div>
+</section>
+
+<script type="module">
+const root = document.documentElement;
+const params = new URLSearchParams(location.search);
+root.classList.add('js');
+if (params.has('slow')) root.classList.add('slow');
+if (params.has('ripple')) root.classList.add('force-ripple');
+const slow = params.has('slow') ? 4 : 1;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+const still = () => reduce.matches || root.dataset.motion === 'off';
+
+// prototype only: these links go nowhere
+document.addEventListener('click', (e) => { if (e.target.closest?.('a[href^="#"]')) e.preventDefault(); });
+
+// ---- stop control -------------------------------------------------------------------------------
+const stop = document.getElementById('stop');
+const paintStop = () => { const off = root.dataset.motion === 'off'; stop.setAttribute('aria-pressed', String(off)); stop.textContent = off ? 'Motion is off. Turn it back on' : 'Stop the motion'; };
+stop.addEventListener('click', () => {
+  if (root.dataset.motion === 'off') delete root.dataset.motion; else root.dataset.motion = 'off';
+  try { localStorage.setItem('motion', root.dataset.motion === 'off' ? 'off' : 'on'); } catch {}
+  paintStop();
+});
+paintStop();
+
+// ---- 1. bite on click ---------------------------------------------------------------------------
+// The squash is :active in CSS. The bite waits for click, so a swipe never leaves a button bitten
+// and mouse, touch, Enter and Space all take the same path. Navigation is never delayed.
+const REST = 2000 * slow;
+const timers = new WeakMap();
+const offscreen = new IntersectionObserver((entries) => { for (const e of entries) if (!e.isIntersecting) restock(e.target, false); });
+function bite(el) {
+  clearTimeout(timers.get(el));
+  el.setAttribute('data-bitten', '');
+  el.dataset.kick = el.dataset.kick === 'a' ? 'b' : 'a';
+  offscreen.observe(el);
+  timers.set(el, setTimeout(() => restock(el, true), REST));
+}
+function restock(el, pop) {
+  clearTimeout(timers.get(el)); offscreen.unobserve(el);
+  if (!el.hasAttribute('data-bitten')) return;
+  el.removeAttribute('data-bitten');
+  if (pop) el.dataset.kick = 'pop'; else delete el.dataset.kick;
+}
+addEventListener('click', (e) => { const el = e.target.closest?.('[data-bite]'); if (el) bite(el); });
+
+// ---- time chips: choosing renames the button, with one chew to tie cause to effect --------------
+const slots = document.getElementById('slots');
+const bookLabel = document.getElementById('book-slot-label');
+let chosen = null;
+// Reading offsetWidth between removing and adding the class is what restarts the animation on a second chew.
+function chew(el) { el.classList.remove('is-chewing'); void el.offsetWidth; el.classList.add('is-chewing'); }
+slots.addEventListener('click', (e) => {            // choosing the chosen chip again puts it back
+  const input = e.target.closest('input'); if (!input) return;
+  if (chosen === input) { input.checked = false; chosen = null; bookLabel.textContent = 'Book online'; } else { chosen = input; bookLabel.textContent = 'Book ' + input.value; }
+  chew(bookLabel);
+});
+
+// ---- 2. portions ---------------------------------------------------------------------------------
+// One queue for every disc, so bites land one at a time, 120 ms apart: a single row on a phone, and
+// all three columns in turn (six bites, done inside 700 ms) where the steps sit side by side.
+const steps = [...document.querySelectorAll('#steps .step')];
+const queue = []; let busy = false;
+function pump() {
+  const job = queue.shift();
+  if (!job) { busy = false; return; }
+  job.p.classList.remove('is-squash'); job.p.dataset.bites = job.n;
+  queue[0]?.p.classList.add('is-squash');           // the next disc braces while this one recoils
+  setTimeout(pump, 120 * slow);
+}
+if ('IntersectionObserver' in window) {
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      seen.unobserve(e.target);
+      const p = e.target.querySelector('.portion'); const n = +p.dataset.target;
+      if (still()) { p.classList.remove('is-live'); p.dataset.bites = n; continue; }
+      for (let i = 1; i <= n; i++) queue.push({ p, n: i });
+    }
+    if (!busy && queue.length) { busy = true; queue[0].p.classList.add('is-squash'); setTimeout(pump, 80 * slow); }
+  }, { threshold: 0.6 });
+  for (const s of steps) {
+    const p = s.querySelector('.portion');
+    if (still() || s.getBoundingClientRect().bottom < 0) continue;       // above the viewport, or motion off: stay drawn bitten
+    p.dataset.target = p.dataset.bites; p.dataset.bites = 0; p.classList.add('is-live');
+    seen.observe(s);
+  }
+}
+
+// ---- 3. type -------------------------------------------------------------------------------------
+// pressing a service row chews its word (click, so keyboard and touch take the same path)
+document.getElementById('svc').addEventListener('click', (e) => { const w = e.target.closest('.svc__row')?.querySelector('.w__t'); if (w) chew(w); });
+document.getElementById('replay').addEventListener('click', () => { for (const w of document.querySelectorAll('#hero-h .w__t')) { w.style.animation = 'none'; void w.offsetWidth; w.style.animation = ''; } });
+const zero = document.getElementById('zero');
+new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { zero.classList.add('is-inview'); io.disconnect(); } }, { threshold: 0.5 }).observe(zero);
+
+// ---- measurement: frame pacing while the services list scrolls through mid-screen ----------------
+window.__measure = async function (mode, ms = 3000) {
+  const svc = document.getElementById('svc'); const out = document.getElementById('out');
+  svc.classList.toggle('ripple-off', mode === 'control');
+  const frames = []; const loaf = []; const shifts = [];
+  let po1, po2;
+  try { po1 = new PerformanceObserver((l) => loaf.push(...l.getEntries().map((e) => e.duration))); po1.observe({ type: 'long-animation-frame' }); } catch {}
+  try { po2 = new PerformanceObserver((l) => shifts.push(...l.getEntries().filter((e) => !e.hadRecentInput).map((e) => e.value))); po2.observe({ type: 'layout-shift' }); } catch {}
+  const top = svc.getBoundingClientRect().top + scrollY;
+  const from = top - innerHeight, to = top + svc.offsetHeight;
+  scrollTo(0, from); await new Promise((r) => setTimeout(r, 300));
+  performance.mark('svc-start-' + mode);
+  let last = performance.now(); const t0 = last; const seen = new Set();
+  const words = [...svc.querySelectorAll('.w__t')];
+  await new Promise((done) => {
+    const tick = (now) => {
+      frames.push(now - last); last = now; const t = now - t0;
+      if (mode !== 'idle') scrollTo(0, from + (to - from) * Math.min(1, t / ms));
+      if (frames.length % 6 === 0) seen.add(words.map((w) => getComputedStyle(w).fontStretch).join(' '));
+      if (t < ms) requestAnimationFrame(tick); else done();
+    };
+    requestAnimationFrame(tick);
+  });
+  performance.mark('svc-end-' + mode);
+  po1?.disconnect(); po2?.disconnect(); frames.shift();
+  const sorted = [...frames].sort((a, b) => a - b); const q = (p) => +sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * p))].toFixed(1);
+  const res = { mode, frames: frames.length, fps: +(frames.length / (ms / 1000)).toFixed(1), median: q(0.5), p95: q(0.95), max: +sorted.at(-1).toFixed(1), over25ms: frames.filter((d) => d > 25).length, over50ms: frames.filter((d) => d > 50).length, longAnimationFrames: loaf.length, layoutShift: +shifts.reduce((a, b) => a + b, 0).toFixed(4), distinctAxisStates: seen.size, wordPx: parseFloat(getComputedStyle(words[0]).fontSize) };
+  out.textContent += JSON.stringify(res) + '\n';
+  svc.classList.remove('ripple-off');
+  return res;
+};
+await document.fonts.ready;
+document.title = 'ready';
+</script>
+</body>
+</html>
