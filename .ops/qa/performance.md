@@ -21,6 +21,8 @@ Measured by the team lead on 2026-11-09, 23:46 to 23:58 CST, after the hero lock
 
 On the uncompressed server the phone LCP is set by `page.css` (61.7 kB raw) arriving at about 2.1 s; compressed it is 14.6 kB and LCP drops by about 650 ms. LCP breakdown with gzip: TTFB 565 ms (the Slow 4G profile's latency), load delay about 43 ms, load duration about 950 ms, render delay about 90 ms.
 
+**The headline is hidden for about 170 ms on a slow phone.** Found later by the route curator in the frames of the gzip phone trace: the first painted frames (1,630 and 1,650 ms) show the hero photograph but no headline, "$195" or GENERAL DENTIST; they appear at about 1,800 ms. That is `font-display: block` on Anybody, a deliberate trade against a visible font swap (the metric-matched stand-ins keep the layout still either way). If the blank interval ever matters more than the swap, change Anybody to `font-display: swap`; the stand-ins already limit the movement to about 2px.
+
 **Desktop CLS 0.016**, in one of two loads (the other recorded no shift at all). The shifted elements were the ticker view, the time chips (`#slots`) and the header status text: all filled or switched by `page.js`. On a fast machine the first paint can come before the module script runs; on the throttled phone it never did. Below the 0.1 "good" threshold; recorded, not fixed. If it ever matters: add the `js` class from the inline head script instead of from `page.js`, and reserve the status text's width.
 
 ## Bytes (from the files)
